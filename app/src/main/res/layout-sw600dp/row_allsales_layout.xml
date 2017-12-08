@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:stretchColumns="*"
+             android:descendantFocusability="blocksDescendants">
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/idSale"
+            android:layout_column="0"
+            android:maxLength="10"
+            android:gravity="fill_horizontal"
+            android:textAlignment="textStart"
+            android:padding="10dp"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:autoText="true"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:maxLength="10"
+            android:id="@+id/clientName"
+            android:layout_column="1"
+            android:gravity="fill_horizontal"
+            android:textAlignment="textStart"
+            android:padding="10dp"
+            android:layout_height="65dp"
+            android:layout_width="155dp"
+            android:allowUndo="false"
+            android:autoText="true"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:maxLength="10"
+            android:id="@+id/total"
+            android:layout_column="2"
+            android:gravity="fill_horizontal"
+            android:textAlignment="textStart"
+            android:padding="10dp"
+            android:layout_width="120dp"
+            android:layout_height="65dp"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:maxLength="10"
+            android:id="@+id/status"
+            android:layout_column="2"
+            android:gravity="fill_horizontal"
+            android:textAlignment="textStart"
+            android:padding="10dp"
+            android:layout_width="120dp"
+            android:layout_height="65dp"
+            android:textSize="24dp"/>
+
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,178 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.admin.iposapp.controler.FtpSettingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#144257">
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:id="@+id/etFTP"
+            android:layout_gravity="center_horizontal|top"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:hint="@string/ftpHint"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/roundedshadow_et"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/etUser"
+            android:layout_gravity="center_horizontal|top"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textColorHint="#ffff"
+            android:hint="@string/usernameHint"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/etPassword"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textColorHint="#ffff"
+            android:hint="@string/passwordHint"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/etSeller"
+            android:layout_gravity="center_horizontal|top"
+            android:textAlignment="center"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:hint="@string/employeePathHint"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="50dp"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/editTextSoapServer"
+            android:layout_gravity="center_horizontal|top"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:hint="@string/soapHint"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/etUserSoap"
+            android:layout_gravity="center_horizontal|top"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textColorHint="#ffff"
+            android:hint="@string/soapFolder"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/etPasswordSoap"
+            android:layout_gravity="center_horizontal|top"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textColorHint="#ffff"
+            android:hint="@string/soapFolderPass"
+            android:inputType="textPassword"
+            android:layout_marginBottom="50dp"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/editTextAppUserPass"
+            android:layout_gravity="center_horizontal|top"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:hint="@string/appUserPass"
+            android:textAlignment="center"
+            android:layout_marginBottom="0dp"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/editTextAppUser"
+            android:layout_gravity="center_horizontal|top"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:hint="@string/appUser"
+            android:textAlignment="center"
+            />
+
+        <EditText
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:background="@drawable/roundedshadow_et"
+            android:id="@+id/editTextSellerSerie"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:hint="@string/serie"
+            android:textAlignment="center"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginBottom="60dp"/>
+
+        <TextView
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:id="@+id/lastSaleTv"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/roundedshadow_et"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:hint="@string/lastSale"
+            android:textColorHint="#FFFF"/>
+
+        <TextView
+            android:layout_width="465dp"
+            android:layout_height="60dp"
+            android:id="@+id/lastClientAddedTv"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/roundedshadow_et"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:hint="@string/lastClient"
+            android:textColorHint="#FFFF"/>
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            custom:pb_colorComplete="@color/green_complete"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textComplete="Success"
+            custom:pb_textProgress="Loading"
+            custom:pb_textError="Error"
+            custom:pb_colorError="@color/red_error"
+            android:hint="@string/syncHint"
+            android:textColorHint="#ffff"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

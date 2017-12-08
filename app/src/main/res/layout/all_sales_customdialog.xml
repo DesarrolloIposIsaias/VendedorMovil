@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="¿Qué desea hacer con la venta?"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:layout_marginTop="22dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/deployBtn"
+        android:layout_alignEnd="@+id/deployBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="CANCELAR"
+        android:id="@+id/deleteBtn"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="#26a69a"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="Modificar"
+        android:background="?android:attr/selectableItemBackground"
+        android:id="@+id/modifyBtn"
+        android:layout_gravity="right"
+        android:textColor="#26a69a"
+        android:layout_alignTop="@+id/deleteBtn"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="Consultar"
+        android:id="@+id/deployBtn"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#26a69a"
+        android:layout_alignTop="@+id/modifyBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

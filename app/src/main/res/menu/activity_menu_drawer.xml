@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/ventas"
+            android:icon="@mipmap/ic_sell"
+            android:title="Ventas" />
+        <item
+            android:id="@+id/pedidos"
+            android:icon="@mipmap/ic_order"
+            android:title="Pedidos" />
+        <item
+            android:id="@+id/clientes"
+            android:icon="@mipmap/ic_client"
+            android:title="Clientes" />
+        <item
+            android:id="@+id/inventario"
+            android:icon="@mipmap/ic_stock"
+            android:title="Inventario" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@mipmap/ic_settings"
+            android:title="Configuracion" />
+    </group>
+
+</menu>

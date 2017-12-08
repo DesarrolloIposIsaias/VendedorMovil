@@ -1,0 +1,239 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:htext="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeParent"
+    tools:context=".controler.AddClientPaymentInfoFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#144257">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id ="@+id/scrollView">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <EditText
+            android:singleLine="true"
+            android:overScrollMode="always"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none"
+            android:background="@drawable/rounded_information_et"
+            android:textColorHint="#757575"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:id="@+id/paymentLimit"
+            android:textColor="#ffff"
+            android:hint="@string/paymentLimitStr"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:singleLine="true"
+            android:overScrollMode="always"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none"
+            android:background="@drawable/rounded_information_et"
+            android:textColorHint="#757575"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:id="@+id/paymentDeadline"
+            android:textColor="#ffff"
+            android:hint="@string/paymentDeadlineStr"
+            android:inputType="number"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tvPrice"
+            android:textStyle="bold"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:background="#144257"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            htext:animateType="typer"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_price"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:background="@drawable/rounded_information_et"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tvPayday"
+            android:textStyle="bold"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:background="#144257"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            htext:animateType="typer"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            />
+
+        <Spinner
+            android:id="@+id/spinner_payday"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:background="@drawable/rounded_information_et"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tvReview"
+            android:textStyle="bold"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:background="#144257"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            htext:animateType="typer"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            />
+
+
+        <Spinner
+
+            android:id="@+id/spinner_reviewday"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/rounded_information_et"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"/>
+
+
+        <CheckBox
+            android:buttonTint="@color/fbutton_color_clouds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:text="TARJETA"
+            android:clickable="true"
+            android:id="@+id/checkBoxCard"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/txtViewCheck"
+            android:layout_toEndOf="@+id/txtViewCheck"
+            android:checked="false"
+            android:layout_marginLeft="30dp"
+            android:textColor="#FFFF"
+            android:textSize="15dp"/>
+
+        <CheckBox
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:text="CREDITO"
+            android:clickable="true"
+            android:id="@+id/checkBoxCredit"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:buttonTint="@color/fbutton_color_clouds"
+            android:layout_alignParentEnd="true"
+            android:checked="false"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:textColor="#FFFF"/>
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:text="CHEQUE"
+            android:clickable="true"
+            android:id="@+id/checkBoxCheck"
+            android:layout_alignTop="@+id/txtViewCheck"
+            android:layout_toRightOf="@+id/txtViewCheck"
+            android:buttonTint="@color/fbutton_color_clouds"
+            android:layout_toEndOf="@+id/txtViewCheck"
+            android:checked="false"
+            android:layout_marginLeft="30dp"
+            android:textSize="15dp"
+            android:textColor="#FFFF"/>
+
+
+            <CheckBox
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="TRANSFERENCIA"
+                android:clickable="true"
+                android:id="@+id/checkBoxTransfer"
+                android:layout_below="@+id/txtViewCredit"
+                android:layout_toRightOf="@+id/txtViewCredit"
+                android:buttonTint="@color/fbutton_color_clouds"
+                android:layout_toEndOf="@+id/txtViewCredit"
+                android:checked="false"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="60dp"
+                android:textColor="#FFFF"
+                android:textSize="15dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="BLOQUEADO"
+                android:clickable="true"
+                android:id="@+id/checkBoxBlocked"
+                android:layout_below="@+id/txtViewCheck"
+                android:layout_toRightOf="@+id/txtViewCheck"
+                android:buttonTint="@color/fbutton_color_clouds"
+                android:layout_toEndOf="@+id/txtViewCheck"
+                android:checked="false"
+                android:layout_marginLeft="30dp"
+                android:textColor="#FFFF"
+                android:textSize="15dp"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+    <de.halfbit.fabuless.FabView
+        android:id="@+id/fab"
+        android:enabled="false"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:paddingTop="3dp"
+        android:src="@mipmap/save"
+        htext:fabuless_attachTo="@id/relativeParent"
+        htext:fabuless_attachAt="bottom_right"
+        htext:fabuless_attachType="inside"
+        htext:fabuless_size="normal"
+        htext:fabuless_padding="16dp"
+        htext:elevation = "6dp"
+        htext:fabuless_revealAfterMs="500"
+        />
+</RelativeLayout>

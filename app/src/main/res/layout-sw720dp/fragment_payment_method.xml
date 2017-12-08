@@ -1,0 +1,173 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+                tools:context="com.example.admin.iposapp.controler.PaymentMethodFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/relativeLayout2">
+
+        <RadioGroup
+            android:layout_width="300dp"
+            android:layout_height="500dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Factura"
+                android:id="@+id/facturaRadioBtn"
+                android:checked="false"
+                android:layout_alignRight="@+id/remisionRadioBtn"
+                android:layout_alignEnd="@+id/remisionRadioBtn"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:textSize="24dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remisión"
+                android:id="@+id/remisionRadioBtn"
+                android:checked="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="66dp"
+                android:layout_marginEnd="66dp"
+                android:textSize="26dp"/>
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="300dp"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contado"
+                android:id="@+id/contadoRadioBtn"
+                android:layout_gravity="right"
+                android:checked="false"
+                android:layout_alignLeft="@+id/creditoRadioBtn"
+                android:layout_alignStart="@+id/creditoRadioBtn"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:textSize="26dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crédito"
+                android:id="@+id/creditoRadioBtn"
+                android:checked="false"
+                android:layout_gravity="right"
+                android:layout_alignBaseline="@+id/remisionRadioBtn"
+                android:layout_alignBottom="@+id/remisionRadioBtn"
+                android:textSize="26dp"/>
+        </RadioGroup>
+    </RelativeLayout>
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:focusableInTouchMode="true"
+        android:layout_width="wrap_content"
+        android:background="#144257"
+        android:layout_height="725dp"
+        android:id="@+id/relativeLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:id="@+id/note1ET"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="NOTA 1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="wrap_content"
+            android:background="@drawable/roundedshadow_et"
+            android:layout_height="300dp"
+            android:id="@+id/note2ET"
+            android:hint="NOTA 2"
+            android:textAlignment="center"
+            android:textColor="#FFFF"
+            android:textColorHint="#FFFF"
+            android:layout_below="@+id/note1ET"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <info.hoang8f.widget.FButton
+
+            android:layout_width="390dp"
+            android:layout_height="80dp"
+            fbutton:buttonColor="#144257"
+            fbutton:shadowColor="#263238"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:text="Cotización"
+            android:id="@+id/btnFinishSale"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp"/>
+
+        <info.hoang8f.widget.FButton
+
+            android:layout_width="350dp"
+            android:layout_height="80dp"
+            fbutton:buttonColor="#144257"
+            fbutton:shadowColor="#263238"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:text="@string/enviar"
+            android:id="@+id/btnSendSale"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/btnFinishSale"
+            android:layout_toEndOf="@+id/btnFinishSale"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignTop="@+id/btnFinishSale"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,190 @@
+package com.example.admin.iposapp.controler;
+
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.dd.processbutton.iml.ActionProcessButton;
+import com.example.admin.iposapp.R;
+import com.example.admin.iposapp.database.Database;
+import com.example.admin.iposapp.model.Settings;
+import com.example.admin.iposapp.utility.CurrentData;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link FtpSettingFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class FtpSettingFragment extends Fragment
+{
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    private ActionProcessButton btnSync;
+    private EditText serverET,
+            userET,
+            passwordET,
+            sellerET,
+            userSoap,
+            passSoap,
+            serverSoap,
+            appUserET,
+            appUserPassET,
+            serieET;
+    private TextView lastSaleTv, lastClientTv;
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public static Database database;
+
+
+    public FtpSettingFragment()
+    {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment FtpSettingFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static FtpSettingFragment newInstance(String param1, String param2)
+    {
+        FtpSettingFragment fragment = new FtpSettingFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null)
+        {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState)
+    {
+        // Inflate the layout for this fragment
+        View view =  inflater.inflate(R.layout.fragment_ftp_setting, container, false);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        database = new Database(getContext());
+
+        btnSync = (ActionProcessButton) view.findViewById(R.id.btnSignIn);
+        serverET = (EditText)view.findViewById(R.id.etFTP);
+        userET = (EditText)view.findViewById(R.id.etUser);
+        passwordET = (EditText)view.findViewById(R.id.etPassword);
+        sellerET = (EditText)view.findViewById(R.id.etSeller);
+        serverSoap = (EditText)view.findViewById(R.id.editTextSoapServer);
+        userSoap = (EditText)view.findViewById(R.id.etUserSoap);
+        passSoap = (EditText)view.findViewById(R.id.etPasswordSoap);
+        appUserET = (EditText)view.findViewById(R.id.editTextAppUser);
+        appUserPassET = (EditText)view.findViewById(R.id.editTextAppUserPass);
+        serieET = (EditText)view.findViewById(R.id.editTextSellerSerie);
+        lastSaleTv = (TextView)view.findViewById(R.id.lastSaleTv);
+        lastClientTv = (TextView)view.findViewById(R.id.lastClientAddedTv);
+        btnSync.setMode(ActionProcessButton.Mode.PROGRESS);
+        btnSync.setLoadingText("SINCRONIZANDO");
+        btnSync.setCompleteText("SINCRONIZADO");
+
+        if(CurrentData.isSync())
+        {
+            serverET.setText(CurrentData.getSettings().getServer());
+            userET.setText(CurrentData.getSettings().getUser());
+            passwordET.setText(CurrentData.getSettings().getPassword());
+            sellerET.setText(CurrentData.getSettings().getSeller());
+            serverSoap.setText(CurrentData.getSettings().getSoapServer());
+            userSoap.setText(CurrentData.getSettings().getFolder());
+            passSoap.setText(CurrentData.getSettings().getFolderPass());
+            appUserET.setText(CurrentData.getSettings().getAppUser());
+            appUserPassET.setText(CurrentData.getSettings().getAppUserPass());
+            serieET.setText(CurrentData.getSettings().getSellerSerie());
+            String lastClientStr = "Ultimo Cliente: " + CurrentData.getSettings().getClientSerie();
+            lastClientTv.setText(lastClientStr);
+            String lastSaleStr = "Ultima Venta: " + CurrentData.getSettings().getLastSale();
+            lastSaleTv.setText(lastSaleStr);
+
+        }
+
+        btnSync.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                btnSync.setProgress(10);
+                Settings settings = new Settings();
+                btnSync.setProgress(20);
+                settings.setServer(serverET.getText().toString());
+                btnSync.setProgress(30);
+                settings.setUser(userET.getText().toString());
+                btnSync.setProgress(40);
+                settings.setPassword(passwordET.getText().toString());
+                btnSync.setProgress(50);
+                settings.setSeller(sellerET.getText().toString());
+                btnSync.setProgress(60);
+                settings.setSoapServer(serverSoap.getText().toString());
+                btnSync.setProgress(70);
+                settings.setFolder(userSoap.getText().toString());
+                btnSync.setProgress(80);
+                settings.setFolderPass(passSoap.getText().toString());
+                btnSync.setProgress(90);
+                settings.setAppUser(appUserET.getText().toString());
+                settings.setAppUserPass(appUserPassET.getText().toString());
+                settings.setSellerSerie(serieET.getText().toString());
+                CurrentData.setSettings(settings);
+                try
+                {
+                    database.open();
+                    int id = Database.settingsDAO.exist(
+                            settings.getAppUser(),
+                            settings.getAppUserPass());
+                    if(id >= 0)
+                    {
+                        settings.setId(id);
+                        Database.settingsDAO.update(settings);
+                        Log.w("Config: ", "Updated");
+                    }
+                    else
+                    {
+                        Database.settingsDAO.addSettings(settings);
+                        Log.w("Config: ", "New");
+                    }
+                    database.close();
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+                CurrentData.setIsSync(true);
+                btnSync.setProgress(100);
+            }
+        });
+
+        return view;
+    }
+
+}

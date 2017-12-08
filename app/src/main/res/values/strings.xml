@@ -1,0 +1,116 @@
+<resources>
+    <string name="app_name">iPosApp</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email"><font fgcolor="white">Email</font></string>
+    <string name="prompt_password"><font fgcolor="white">Password</font></string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_menu">iPos</string>
+    <string name="terms_and_conditions"><u>iPos® Terms and Conditions</u></string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="total">Total</string>
+    <string name="client">CLIENTE</string>
+    <string name="product">PRODUCTO</string>
+    <string name="quantity">Cantidad</string>
+    <string name="iva">Descuento</string>
+    <string name="note1">Nota 1</string>
+    <string name="note2">Nota 2</string>
+
+    <!-- sales strings -->
+    <string name="sendSale">Enviar</string>
+    <string name="addProduct">Agregar</string>
+    <string name="discountHint">DESC % </string>
+    <string name="amountHint">CANT</string>
+    <string name="priceHint">PRECIO</string>
+    <string name="warningSubtotalProductPrice">SELECCIONE UN PRODUCTO</string>
+    <string name="vender">VENDER</string>
+
+    <!-- ftp settings -->
+    <string name="employeePathHint">EMPLEADO</string>
+    <string name="ftpHint">DIRECCIÓN FTP</string>
+    <string name="usernameHint">USUARIO</string>
+    <string name="passwordHint">CONTRASEÑA</string>
+    <string name="syncHint">SINCRONIZAR</string>
+    <string name="producto">PRODUCTO</string>
+    <string name="solicitado">SOLICITADO</string>
+    <string name="existencia">EXISTENCIA</string>
+    <string name="agregue_productos">Agregue productos para la venta</string>
+    <string name="empty">SIN VENTAS QUE MOSTRAR</string>
+    <string name="terminar">Terminar</string>
+    <string name="enviar">Enviar</string>
+    <string name="Terminar"/>
+    <string name="soapHint">SERVER SOAP</string>
+    <string name="soapFolder">FOLDER</string>
+    <string name="soapFolderPass">CONTRASEÑA</string>
+    <string name="appUser">VENDEDOR</string>
+    <string name="appUserPass">CONTRASEÑA</string>
+    <string name="clientNameStr">NOMBRE DEL CLIENTE</string>
+    <string name="clientAdressStr">DOMICILIO</string>
+    <string name="clientColonyStr">COLONIA</string>
+    <string name="clientCityStr">CIUDAD</string>
+    <string name="clientStateStr">ESTADO</string>
+    <string name="clientCountryStr">PAIS</string>
+    <string name="clientPostalCodeStr">CODIGO POSTAL</string>
+    <string name="clientRfcStr">RFC</string>
+    <string name="clientMail1Str">CORREO PRINCIPAL</string>
+    <string name="clientMail2Str">CORREO ALTERNO</string>
+    <string name="clientPhone1Str">TELEFONO PRINCIPAL</string>
+    <string name="clientPhone2Str">TELEFONO ALTERNO</string>
+    <string name="clientContact1Str">CONTACTO PRINCIPAL</string>
+    <string name="clientContact2Str">CONTACTO ALTERNO</string>
+    <string name="serie">SERIE</string>
+    <string name="clientIntNumber">NUMERO INTERIOR</string>
+    <string name="clientExtNumber">NUMERO EXTERIOR</string>
+    <string name="inBetweenStreets">CRUCES</string>
+    <string name="Tarjeta">TARJETA</string>
+    <string name="Credito">CREDITO</string>
+    <string name="check">CHEQUE</string>
+    <string name="Transferencia">TRANSFERENCIA</string>
+    <string name="paymentLimitStr">LIMITE</string>
+    <string name="paymentDeadlineStr">PLAZO</string>
+    <string name="paymentReviewStr">REVISION</string>
+    <string name="payday">DIA DE PAGO</string>
+    <string name="reviewDay">REVISION</string>
+    <string name="tarjeta">TARJETA</string>
+    <string name="price">PRECIO</string>
+    <string name="Bloqueado">BLOQUEADO</string>
+    <string name="iepsAccount">CUENTA IEPS</string>
+    <string name="service">SERVICIO A DOMICILIO</string>
+    <string name="Siguiente">SIGUIENTE</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="lastSale">ULTIMA VENTA</string>
+    <string name="lastClient">ULTIMO CLIENTE</string>
+
+    <string-array name="days">
+        <item>LUNES</item>
+        <item>MARTES</item>
+        <item>MIERCOLES</item>
+        <item>JUEVES</item>
+        <item>VIERNES</item>
+        <item>SABADO</item>
+        <item>DOMINGO</item>
+    </string-array>
+
+    <string-array name="prices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+</resources>

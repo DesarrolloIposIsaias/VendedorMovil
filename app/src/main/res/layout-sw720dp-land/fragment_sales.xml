@@ -1,0 +1,263 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:htext="http://schemas.android.com/apk/res-auto"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                xmlns:fab="http://schemas.android.com/apk/res-auto"
+                tools:context=".controler.SalesFragment"
+                android:visibility="visible"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#144257"
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/relativeLayout4"
+        android:layout_toStartOf="@+id/relativeLayout4">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:drawableBottom="@mipmap/cancelgray"
+            android:background="?android:attr/selectableItemBackground"
+            android:id="@+id/cancelBtn"
+            android:layout_marginTop="21dp"
+            android:layout_alignTop="@+id/productAutoCompleteTextView"
+            android:layout_toRightOf="@+id/productAutoCompleteTextView"
+            android:layout_toEndOf="@+id/productAutoCompleteTextView"
+            android:layout_marginLeft="19dp"
+            android:layout_marginStart="19dp"/>
+
+        <EditText
+            android:layout_width="146dp"
+            android:layout_height="50dp"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="numberDecimal"
+            android:background="@drawable/roundedshadow_et"
+            android:ems="10"
+            android:id="@+id/discountEditText"
+            android:elegantTextHeight="false"
+            android:hint="@string/discountHint"
+            android:textColorHint="#FFFF"
+            android:textColor="#FFFF"
+            android:textAlignment="center"
+            android:layout_alignTop="@+id/etPrice"
+            android:layout_toLeftOf="@+id/etPrice"
+            android:layout_toStartOf="@+id/etPrice"
+            android:textSize="26dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            />
+
+        <AutoCompleteTextView
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:layout_width="440dp"
+            android:background="@drawable/roundedshadow_et"
+            android:layout_height="90dp"
+            android:singleLine="true"
+            android:scrollHorizontally="true"
+            android:id="@+id/productAutoCompleteTextView"
+            android:hint="@string/product"
+            android:textColorHint="#FFFF"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:visibility="visible"
+            android:layout_below="@+id/tvClient"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="26dp"/>
+
+        <EditText
+            android:imeOptions="flagNoExtractUi"
+            android:layout_width="146dp"
+            android:layout_height="50dp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/roundedshadow_et"
+            android:ems="10"
+            android:id="@+id/etAmount"
+            android:elegantTextHeight="false"
+            android:textAlignment="center"
+            android:textColor="#FFFF"
+            android:textColorHint="#FFFF"
+            android:hint="@string/amountHint"
+            android:layout_alignTop="@+id/discountEditText"
+            android:layout_toLeftOf="@+id/discountEditText"
+            android:layout_toStartOf="@+id/discountEditText"
+            android:textSize="26dp"/>
+
+        <info.hoang8f.widget.FButton
+
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            fbutton:buttonColor="#144257"
+            fbutton:shadowColor="#0e2e3c"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:text="@string/addProduct"
+            android:id="@+id/addProductBtn"
+            android:layout_below="@+id/discountEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:textSize="32dp"/>
+
+        <EditText
+            android:layout_width="146dp"
+            android:layout_height="50dp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/roundedshadow_et"
+            android:ems="10"
+            android:id="@+id/etPrice"
+            android:elegantTextHeight="false"
+            android:textAlignment="center"
+            android:textColor="#FFFF"
+            android:textColorHint="#FFFF"
+            android:hint="@string/priceHint"
+            android:layout_below="@+id/productAutoCompleteTextView"
+            android:layout_alignRight="@+id/productAutoCompleteTextView"
+            android:layout_alignEnd="@+id/productAutoCompleteTextView"
+            android:textSize="26dp"
+            android:layout_marginTop="5dp"/>
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tvClient"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="#144257"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            htext:animateType="anvil"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"
+            android:layout_toLeftOf="@+id/relativeLayout4"
+            android:layout_toStartOf="@+id/relativeLayout4"/>
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tvPrice"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="#144257"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            htext:animateType="anvil"
+            android:textAlignment="center"
+            android:layout_alignTop="@+id/tvTotal"
+            android:layout_toLeftOf="@+id/tvTotal"
+            android:layout_toStartOf="@+id/tvTotal"/>
+
+        <com.hanks.htextview.HTextView
+            android:id="@+id/tvTotal"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="#144257"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            htext:animateType="anvil"
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/floating_menu"
+            android:layout_alignEnd="@+id/floating_menu"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="700dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:longClickable="true"
+            android:id="@+id/lvCart"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/floating_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:menu_animationDelayPerItem="55"
+            fab:menu_backgroundColor="@color/fbutton_color_transparent"
+            fab:menu_buttonSpacing="0dp"
+            fab:menu_colorNormal="#e040fb"
+            fab:menu_colorPressed="#4d0359"
+            fab:menu_colorRipple="#99d4d4d4"
+            fab:menu_fab_label="Opciones de venta"
+            fab:menu_fab_size="normal"
+            fab:menu_icon="@mipmap/shopping_cart"
+            fab:menu_labels_colorNormal="#333"
+            fab:menu_labels_colorPressed="#444"
+            fab:menu_labels_colorRipple="#66efecec"
+            fab:menu_labels_cornerRadius="3dp"
+            fab:menu_labels_ellipsize="none"
+            fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+            fab:menu_labels_margin="0dp"
+            fab:menu_labels_maxLines="-1"
+            fab:menu_labels_padding="8dp"
+            fab:menu_labels_position="left"
+            fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+            fab:menu_labels_showShadow="true"
+            fab:menu_labels_singleLine="false"
+            fab:menu_labels_textColor="#f2f1f1"
+            fab:menu_labels_textSize="15sp"
+            fab:menu_openDirection="down"
+            fab:menu_shadowColor="#66aff198"
+            fab:menu_shadowRadius="4dp"
+            fab:menu_shadowXOffset="1dp"
+            fab:menu_shadowYOffset="4dp"
+            fab:menu_showShadow="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floating_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/add_tag"
+                fab:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floating_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/checkout"
+                fab:fab_size="mini" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floating_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/change_user"
+                fab:fab_size="mini" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+
+              xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+              android:background="@color/colorAccent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width= "wrap_content"
+        android:layout_height = "wrap_content"
+        android:drawableLeft="@mipmap/ic_inf"
+        android:gravity="center_vertical"
+        android:text = "RELLENE LOS CAMPOS PARA ALTA DE CLIENTE"
+        android:textColor="#ffff"
+        android:layout_above="@+id/btn_next"/>
+
+    <info.hoang8f.widget.FButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fbutton:buttonColor="@color/colorAccent"
+        android:imeOptions=""
+        fbutton:shadowColor="#ce93d8"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="5dp"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:text="OK, ENTIENDO"
+        android:id="@+id/btn_next"
+        android:layout_gravity="right|center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+</LinearLayout>

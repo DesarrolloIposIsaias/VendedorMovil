@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:stretchColumns="*"
+             >
+
+    <TableRow
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+>
+
+        <TextView
+            android:layout_column="0"
+            android:padding="10dp"
+            android:layout_span="4"
+            android:text="PRODUCTO"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:background="#227195"
+            android:textColor="#ffff"/>
+
+    </TableRow
+        >
+
+    <TableRow
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_column="0"
+            android:focusable="false"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:padding="10dp"
+            android:text="CANTIDAD"
+            android:textStyle="bold"
+            android:background="#227195"
+            android:textColor="#ffff"
+            android:layout_width="wrap_content"/>
+
+        <TextView
+            android:layout_column="1"
+            android:focusable="false"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:padding="10dp"
+            android:text="PRECIO"
+            android:textStyle="bold"
+            android:background="#227195"
+            android:textColor="#ffff"/>
+
+        <TextView
+            android:layout_column="2"
+            android:focusable="false"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:padding="10dp"
+            android:text="%"
+            android:textStyle="bold"
+            android:background="#227195"
+            android:textColor="#ffff"
+            android:layout_width="wrap_content"/>
+        <TextView
+            android:layout_column="2"
+            android:padding="10dp"
+            android:focusable="false"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:text="IMPORTE "
+            android:textStyle="bold"
+            android:background="#227195"
+            android:textColor="#ffff"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+
+</TableLayout>

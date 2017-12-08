@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:stretchColumns="*"
+             android:descendantFocusability="blocksDescendants">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <HorizontalScrollView android:layout_width="fill_parent"
+                              android:layout_height="fill_parent"
+                              android:layout_span="4"
+                              android:textAlignment="center">
+            <TextView
+                android:id="@+id/description"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:padding="10dp"
+                />
+        </HorizontalScrollView>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/amount"
+            android:textAlignment="center"
+            android:layout_column="0"
+            android:padding="10dp"
+            android:layout_width="50dp"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_column="1"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:layout_width="50dp"/>
+
+        <TextView
+            android:id="@+id/descuento"
+            android:layout_column="2"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:layout_width="50dp"/>
+
+        <TextView
+            android:id="@+id/subtotal"
+            android:layout_column="2"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:layout_width="50dp"/>
+    </TableRow>
+</TableLayout>

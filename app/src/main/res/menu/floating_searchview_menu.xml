@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu.clear" android:title="clear" android:icon="@drawable/ic_delete" app:showAsAction="always"/>
+    <item android:id="@+id/menu.progress" android:title="progress" android:icon="@mipmap/all_users" app:actionViewClass="com.mypopsy.floatingsearchview.view.MenuProgressBar" app:showAsAction="always"/>
+    <item android:id="@+id/menu.tts" android:title="tss" android:icon="@drawable/ic_menu_camera" app:showAsAction="ifRoom"/>
+    <item android:id="@+id/menu.toggle.icon" android:title="toggle icon" android:checkable="true" android:checked="true" app:showAsAction="always"/>
+    <item android:title="icontype" app:showAsAction="never">
+        <menu>
+            <group>
+                <item android:id="@+id/menu.icon.search" android:title="Search"/>
+                <item android:id="@+id/menu.icon.drawer" android:title="Drawer"/>
+                <item android:id="@+id/menu.icon.custom" android:title="Custom"/>
+            </group>
+        </menu>
+    </item>
+</menu>
