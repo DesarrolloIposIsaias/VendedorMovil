@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/VendedorMovil.iml" filepath="$PROJECT_DIR$/.idea/VendedorMovil.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/iPosApp.iml" filepath="$PROJECT_DIR$/iPosApp.iml" />
+      <module fileurl="file://C:\Users\usuario\Desktop\VendedorMovilAndroid\VendedorMovil\app\app.iml" filepath="C:\Users\usuario\Desktop\VendedorMovilAndroid\VendedorMovil\app\app.iml" />
+      <module fileurl="file://C:\Users\usuario\Desktop\VendedorMovilAndroid\VendedorMovil\iPosApp.iml" filepath="C:\Users\usuario\Desktop\VendedorMovilAndroid\VendedorMovil\iPosApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/javax.inject-1/javax.inject-1.iml" filepath="$PROJECT_DIR$/javax.inject-1/javax.inject-1.iml" />
+      <module fileurl="file://C:\Users\usuario\Desktop\VendedorMovilAndroid\VendedorMovil\javax.inject-1\javax.inject-1.iml" filepath="C:\Users\usuario\Desktop\VendedorMovilAndroid\VendedorMovil\javax.inject-1\javax.inject-1.iml" />
     </modules>
   </component>
 </project>
