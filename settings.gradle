@@ -1,0 +1,1 @@
+include ':app', ':javax.inject-1'
