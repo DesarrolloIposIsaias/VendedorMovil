@@ -34,6 +34,9 @@ public class CurrentData
     private static boolean onlyForView;
     private static Client client;
     private static int lastClientInserted;
+    private static String company;
+    private static String branch;
+    private static String remoteDbName;
 
     public static int getLastClientInserted()
     {
@@ -260,5 +263,29 @@ public class CurrentData
     public static void setProductList(List<Product> productList)
     {
         CurrentData.productList = productList;
+    }
+
+    public static String getCompany() {
+        return company;
+    }
+
+    public static void setCompany(String company) {
+        CurrentData.company = company;
+    }
+
+    public static String getBranch() {
+        return branch;
+    }
+
+    public static void setBranch(String branch) {
+        CurrentData.branch = branch;
+    }
+
+    public static String getRemoteDbName() {
+        return remoteDbName;
+    }
+
+    public static void setRemoteDbName(String remoteDbName) {
+        CurrentData.remoteDbName = remoteDbName;
     }
 }

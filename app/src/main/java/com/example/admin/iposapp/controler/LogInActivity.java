@@ -26,6 +26,8 @@ import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.BaseResponse;
 import com.example.admin.iposapp.model.Settings;
 import com.example.admin.iposapp.utility.CurrentData;
+import com.example.admin.iposapp.utility.VolleySingleton;
+import com.example.admin.iposapp.utility.WSMobileSalesHelper;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -60,50 +62,13 @@ public class LogInActivity extends Activity implements View.OnClickListener
 
         btnLogin.setOnClickListener(this);
 
-        requestQueue = Volley.newRequestQueue(this);
-        String url =
-                "http://10.0.2.2:8085/ServiceContract/Implementation/WSClients.svc/PostTest";
-
-        BaseResponse<String> body = new BaseResponse<>();
-        body.setData("Hola Mundo");
-        body.setMessage("SUCCESS");
-
-        HashMap<String, String> postBody = new HashMap<>();
-        postBody.put("Data", body.getData());
-        postBody.put("Message", body.getMessage());
-
-        JSONObject jsonBody = new JSONObject(postBody);
-
-        JsonObjectRequest postRequest= new JsonObjectRequest(
-                Request.Method.POST, url, jsonBody,
-                new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        if (response != null) {
-
-                        }
-                    }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),
-                        "Server error..", Toast.LENGTH_SHORT).show();
-                error.printStackTrace();
-
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders(){
-
-                return new HashMap<>();
-            }
-        };
-
-        requestQueue.add(postRequest);
-
-        Log.w("ISAIAS", "ISAIAS");
+        WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(this);
+        wsHelper.getClients();
+        //wsHelper.getBanks();
+        //wsHelper.getCrep();
+        //wsHelper.getKits();
+        //wsHelper.getProducts();
+        //wsHelper.getStates();
     }
 
 
