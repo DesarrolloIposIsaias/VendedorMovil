@@ -405,7 +405,7 @@ public class ClientDAO extends DbContentProvider
                 search +"%' or nombre like '"+ search + "%'", null);
 
         Log.w("FETCH CLIENT", "SELECT nombre, clave FROM PERSONA WHERE clave LIKE '" +
-                search +"%' or nombre like '"+ search + "'");
+                search +"%' or nombre like '"+ search + "%'");
 
         if(cursor != null)
         {
