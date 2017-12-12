@@ -7,7 +7,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.admin.iposapp.model.Client;
+import com.google.gson.Gson;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -35,7 +38,7 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
-                            Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
+
                         }
                     }
                 }, new Response.ErrorListener() {
