@@ -1,8 +1,8 @@
 package com.example.admin.iposapp.model;
 
-/**
- * Created by admin on 20/06/2016.
- */
+
+import org.json.JSONObject;
+
 public class Client {
 
     private String clave;
