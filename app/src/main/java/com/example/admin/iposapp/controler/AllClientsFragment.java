@@ -2,9 +2,7 @@ package com.example.admin.iposapp.controler;
 
 
 
-import android.app.Activity;
 import android.app.SearchManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -92,7 +90,7 @@ public class AllClientsFragment extends Fragment
         LayoutInflater mInflater= LayoutInflater.from(getContext());
         setHasOptionsMenu(true);
 
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
+        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout_add_kit);
         tabLayout.addTab(tabLayout.newTab().setText("CONTACTO"));
         tabLayout.addTab(tabLayout.newTab().setText("FISCAL"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);

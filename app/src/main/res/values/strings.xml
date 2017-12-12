@@ -53,7 +53,7 @@
     <string name="empty">SIN VENTAS QUE MOSTRAR</string>
     <string name="terminar">Terminar</string>
     <string name="enviar">Enviar</string>
-    <string name="Terminar"/>
+    <string name="Terminar" />
     <string name="soapHint">SERVER SOAP</string>
     <string name="soapFolder">FOLDER</string>
     <string name="soapFolderPass">CONTRASEÑA</string>
