@@ -1,0 +1,200 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.admin.iposapp.controler.SinglePaymentFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#0F4057"
+        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:id="@+id/client"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="Cliente"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="65dp"
+            android:id="@+id/deposit"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/client"/>
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:id="@+id/monto"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="Monto"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/deposit"/>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="65dp"
+            android:id="@+id/payForm"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/monto"/>
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="65dp"
+            android:id="@+id/bank"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/payForm"/>
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:layout_marginTop="5dp"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:id="@+id/reference"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="Referencia"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/bank"/>
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:layout_marginTop="5dp"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:id="@+id/notes"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="Notas"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/reference"/>
+
+
+    </RelativeLayout>
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:focusableInTouchMode="true"
+        android:layout_width="wrap_content"
+        android:background="#144257"
+        android:layout_height="60dp"
+        android:id="@+id/relativeLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:id="@+id/top_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <info.hoang8f.widget.FButton
+
+                android:layout_width="187dp"
+                android:layout_height="wrap_content"
+                fbutton:buttonColor="#144257"
+                fbutton:shadowColor="#263238"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"
+                fbutton:cornerRadius="5dp"
+                android:textColor="#ffff"
+                android:textAlignment="center"
+                android:text="Aplicar"
+                android:id="@+id/btnApply"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="5dp"
+            />
+
+            <info.hoang8f.widget.FButton
+
+                android:layout_width="187dp"
+                android:layout_height="wrap_content"
+                fbutton:buttonColor="#144257"
+                fbutton:shadowColor="#263238"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"
+                fbutton:cornerRadius="5dp"
+                android:textColor="#ffff"
+                android:textAlignment="center"
+                android:text="Cancelar"
+                android:id="@+id/btnCancel"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="5dp"
+            />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

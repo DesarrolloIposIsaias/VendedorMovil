@@ -10,11 +10,25 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.admin.iposapp.model.Client;
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import com.example.admin.iposapp.model.Bank;
+import com.example.admin.iposapp.model.Crep;
+import com.example.admin.iposapp.model.Kit;
+import com.example.admin.iposapp.model.Product;
+import com.example.admin.iposapp.model.State;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
+import java.util.Set;
+
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.GsonBuilder;
 
 /**
  * Created by sopor on 11/12/2017.
@@ -38,7 +52,17 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
-
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<Client>>(){}.getType();
+                                List<Client> clientes = objGson.fromJson(jarray.toString(), listType);
+                                System.out.println(clientes.size());
+                                System.out.println(clientes);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -75,6 +99,24 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<Bank>>(){}.getType();
+                                List<Bank> bancos = objGson.fromJson(jarray.toString(), listType);
+                                System.out.println(bancos.size());
+                                System.out.println(bancos);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            //List<Bank> myObject = objectMapper.readValue(response.getEntity().getContent(), List<Bank>.cla);
+                            /*Iterator<String> keys = response.keys();
+                            while(keys.hasNext())
+                            {
+                                String key = keys.next();
+                                String val = null;
+                                val = response.getString(key);
+                            }*/
                             Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -112,6 +154,18 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<Crep>>(){}.getType();
+                                List<Crep> cobranzas = objGson.fromJson(jarray.toString(), listType);
+                                System.out.println(cobranzas.size());
+                                System.out.println(cobranzas);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
                             Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -149,6 +203,17 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<State>>(){}.getType();
+                                List<State> estados = objGson.fromJson(jarray.toString(), listType);
+                                System.out.println(estados.size());
+                                System.out.println(estados);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
                             Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -186,6 +251,16 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<Product>>(){}.getType();
+                                List<Product> productos = objGson.fromJson(jarray.toString(), listType);
+                                System.out.println(productos.size());
+                                System.out.println(productos);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -223,6 +298,16 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<Kit>>(){}.getType();
+                                List<Kit> kits = objGson.fromJson(jarray.toString(), listType);
+                                System.out.println(kits.size());
+                                System.out.println(kits);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                         }
                     }

@@ -1,14 +1,24 @@
 package com.example.admin.iposapp.model;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Desarrollo IPOS on 06/12/2017.
  */
 
-public class Bank {
+public class Bank implements java.io.Serializable {
 
+    @SerializedName("Clave")
+    @Expose
     private String clave;
-    private String nombre;
+
+    @SerializedName("Id")
+    @Expose
     private String id;
+
+    @SerializedName("Nombre")
+    @Expose
+    private String nombre;
 
     public String getClave() {
         return clave;
