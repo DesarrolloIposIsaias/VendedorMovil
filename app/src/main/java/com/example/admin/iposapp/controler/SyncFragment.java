@@ -93,7 +93,7 @@ public class SyncFragment extends Fragment
                 //wsHelper.getCrep();
                 //wsHelper.getStates();
                 //wsHelper.getProducts();
-                wsHelper.getKits();
+                wsHelper.getClients();
                 /*if(CurrentData.isSync())
                 {
                     boolean pending = false;

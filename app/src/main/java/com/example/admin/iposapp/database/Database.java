@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.admin.iposapp.model.Payment;
+import com.example.admin.iposapp.model.PaymentDetail;
 import com.example.admin.iposapp.model.Product;
 import com.example.admin.iposapp.model.SaleDetail;
 
@@ -26,6 +28,8 @@ public class   Database
     public static SaleDAO saleDAO;
     public static SaleDetailDAO saleDetailDAO;
     public static SettingsDAO settingsDAO;
+    public static PaymentDAO paymentDAO;
+    public static PaymentDetailDAO paymentDetailDAO;
     public static DataBaseVersionDAO dataBaseVersionDAO;
 
     public Context getCtx() {
@@ -49,6 +53,8 @@ public class   Database
             saleDetailDAO = new SaleDetailDAO(mDb);
             settingsDAO = new SettingsDAO(mDb);
             dataBaseVersionDAO = new DataBaseVersionDAO(mDb);
+            paymentDAO = new PaymentDAO(mDb);
+            paymentDetailDAO = new PaymentDetailDAO(mDb);
 
         }
         catch (Exception e)
@@ -93,6 +99,8 @@ public class   Database
                 db.execSQL(InterfaceSaleSchema.createQuery);
                 db.execSQL(InterfaceSettingsSchema.createQuery);
                 db.execSQL(InterfaceDataBaseVersionSchema.createQuery);
+                db.execSQL(InterfacePaymentSchema.createQuery);
+                db.execSQL(InterfacePaymentDetailSchema.createQuery);
 
             }
             catch (Exception e)
@@ -121,6 +129,13 @@ public class   Database
                     +  InterfaceSettingsSchema.tableName);*/
             db.execSQL("DROP TABLE IF EXISTS "
                     +  InterfaceDataBaseVersionSchema.tableName);
+
+            db.execSQL("DROP TABLE IF EXISTS "
+                    + InterfacePaymentSchema.tableName);
+
+            db.execSQL("DROP TABLE IF EXISTS "
+                    + InterfacePaymentDetailSchema.tableName);
+
             onCreate(db);
         }
     }

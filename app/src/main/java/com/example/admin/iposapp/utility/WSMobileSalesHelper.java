@@ -7,6 +7,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.admin.iposapp.model.Client;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,6 +52,16 @@ public class WSMobileSalesHelper {
                     @Override
                     public void onResponse(JSONObject response) {
                         if (response != null) {
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<Client>>(){}.getType();
+                                List<Client> clientes = objGson.fromJson(jarray.toString(), listType);
+                                System.out.println(clientes.size());
+                                System.out.println(clientes);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                         }
                     }

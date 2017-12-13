@@ -23,8 +23,10 @@ android {
 }
 
 repositories {
-    maven { url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases'
-                'https://github.com/iryndin/jdbf'}
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/ksoap2-android-releases'
+        'https://github.com/iryndin/jdbf'
+    }
     flatDir { dirs 'libs' }
 }
 

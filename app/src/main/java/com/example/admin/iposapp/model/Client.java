@@ -1,46 +1,159 @@
 package com.example.admin.iposapp.model;
 
-/**
- * Created by admin on 20/06/2016.
- */
-public class Client {
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import org.json.JSONObject;
+
+public class Client implements java.io.Serializable{
+
+    @SerializedName("Clave")
+    @Expose
     private String clave;
+
+    @SerializedName("Nombre")
+    @Expose
     private String nombre;
+
+    @SerializedName("Nombres")
+    @Expose
     private String nombres;
+
+    @SerializedName("Apellidos")
+    @Expose
     private String apellidos;
+
+    @SerializedName("Domicilio")
+    @Expose
     private String domicilio;
+
+    @SerializedName("Telefono1")
+    @Expose
     private String telefono1;
+
+    @SerializedName("Telefono2")
+    @Expose
     private String telefono2;
+
+    @SerializedName("Rfc")
+    @Expose
     private String rfc;
+
+    @SerializedName("Saldo")
+    @Expose
     private float saldo;
+
+    @SerializedName("Ciudad")
+    @Expose
     private String ciudad;
+
+    @SerializedName("VendedorId")
+    @Expose
     private String vendedorId;
+
+    @SerializedName("CodigoPostal")
+    @Expose
     private String codigoPostal;
+
+    @SerializedName("ListaPrecioId")
+    @Expose
     private String listaPrecioId;
+
+    @SerializedName("LimiteCredito")
+    @Expose
     private float limiteCredito;
+
+    @SerializedName("Dias")
+    @Expose
     private int dias;
+
+    @SerializedName("Calles")
+    @Expose
     private String calles;
+
+    @SerializedName("Contacto1")
+    @Expose
     private String contacto1;
+
+    @SerializedName("Contacto2")
+    @Expose
     private String contacto2;
+
+    @SerializedName("Email1")
+    @Expose
     private String email1;
+
+    @SerializedName("Email2")
+    @Expose
     private String email2;
+
+    @SerializedName("Serie")
+    @Expose
     private String serie;
+
+    @SerializedName("Pais")
+    @Expose
     private String pais;
+
+    @SerializedName("Estado")
+    @Expose
     private String estado;
+
+    @SerializedName("Colonia")
+    @Expose
     private String colonia;
+
+    @SerializedName("NumeroInterior")
+    @Expose
     private String numeroInterior;
+
+    @SerializedName("NumeroExterior")
+    @Expose
     private String numeroExterior;
+
+    @SerializedName("CuentaIeps")
+    @Expose
     private String cuentaIeps;
+
+    @SerializedName("ServicioDomicilio")
+    @Expose
     private String servicioDomicilio;
+
+    @SerializedName("Plazo")
+    @Expose
     private String plazo;
+
+    @SerializedName("Precio")
+    @Expose
     private String precio;
+
+    @SerializedName("DiaPago")
+    @Expose
     private String diaPago;
+
+    @SerializedName("Revision")
+    @Expose
     private String revision;
+
+    @SerializedName("Tarjeta")
+    @Expose
     private String tarjeta;
+
+    @SerializedName("Credito")
+    @Expose
     private String credito;
+
+    @SerializedName("Cheque")
+    @Expose
     private String cheque;
+
+    @SerializedName("Transferencia")
+    @Expose
     private String transferencia;
+
+    @SerializedName("Bloqueado")
+    @Expose
     private String bloqueado;
 
     public String getCuentaIeps()
