@@ -41,6 +41,16 @@ public class Crep {
     private String idFecha;
     private String idHora;
 
+    public Crep(String id, String clientId){
+
+        this.id = id;
+        cliente = clientId;
+    }
+
+    public  Crep(){
+
+    }
+
     public String getCobranza() {
         return cobranza;
     }

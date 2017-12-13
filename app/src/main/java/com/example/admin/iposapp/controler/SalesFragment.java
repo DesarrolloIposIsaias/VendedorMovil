@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
@@ -62,7 +63,7 @@ public class SalesFragment extends BaseFragment
     private Product product;
     private ChangeClientDialogFragment dialogFragment;
     private ListViewAdapter lvAdapter;
-    private Button cancelProductBtn;
+    private Button cancelProductBtn, goCrepButton;
     private ListView neverEmptyListView;
     private List<Product> allProducts;
     static List<SaleDetail> allSaleDetails;
@@ -102,8 +103,6 @@ public class SalesFragment extends BaseFragment
         View viewCustom = inflater.inflate(R.layout.row_products, container, false);
 
         TextView customItem = (TextView) viewCustom.findViewById(R.id.autoCompleteItem);
-
-
 
         customItem.setMaxLines(1);
         customItem.setHorizontalScrollBarEnabled(true);
@@ -183,6 +182,7 @@ public class SalesFragment extends BaseFragment
         fabStock.setEnabled(false);
 
         addProductBtn = (Button) view.findViewById(R.id.addProductBtn);
+        goCrepButton = (Button) view.findViewById(R.id.goCrepBtn);
 
         products = (AutoCompleteTextView)view.findViewById(R.id.productAutoCompleteTextView);
         products.setThreshold(1);
@@ -249,6 +249,17 @@ public class SalesFragment extends BaseFragment
             fabStock.setEnabled(true);
             fabCheckout.setEnabled(true);
         }
+
+        goCrepButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClientsCrepFragment fragment = new ClientsCrepFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
+                        fragment,
+                        fragment.getTag()).commit();
+            }
+        });
 
         addProductBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

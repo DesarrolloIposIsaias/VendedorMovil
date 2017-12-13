@@ -205,7 +205,9 @@ public class MenuActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
                     scFragment,
                     scFragment.getTag()).commit();
-        } else if (id == R.id.clientes)
+
+        }
+        else if (id == R.id.clientes)
         {
             ClientMenuFragment mcFragment = new ClientMenuFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -213,13 +215,19 @@ public class MenuActivity extends AppCompatActivity
                     mcFragment,
                     mcFragment.getTag()).commit();
 
-        } else if (id == R.id.pedidos)
+        }
+        else if (id == R.id.pedidos)
         {
-
-        } else if (id == R.id.inventario)
+            ClientsCrepFragment fragment = new ClientsCrepFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
+                    fragment,
+                    fragment.getTag()).commit();
+            Toast.makeText(this, "Modulo no disponible", Toast.LENGTH_SHORT).show();
+        }
+        else if (id == R.id.inventario)
         {
-
-
+            Toast.makeText(this, "Modulo no disponible", Toast.LENGTH_SHORT).show();
         }
         else if(id == R.id.settings)
         {

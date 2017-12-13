@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +39,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LogInActivity extends Activity implements View.OnClickListener
+public class LogInActivity extends AppCompatActivity implements View.OnClickListener
 {
 
     //private MenuActivity menu;
@@ -61,14 +63,6 @@ public class LogInActivity extends Activity implements View.OnClickListener
         database = new Database(ctx);
 
         btnLogin.setOnClickListener(this);
-
-        WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(this);
-        wsHelper.getClients();
-        //wsHelper.getBanks();
-        //wsHelper.getCrep();
-        //wsHelper.getKits();
-        //wsHelper.getProducts();
-        //wsHelper.getStates();
     }
 
 
@@ -77,7 +71,7 @@ public class LogInActivity extends Activity implements View.OnClickListener
     {
             try
             {
-               database.open();
+               /*database.open();
                 Settings setting = Database.settingsDAO.fetchSettingsBySeller(
                         user.getText().toString(),
                         pswd.getText().toString());
@@ -103,10 +97,10 @@ public class LogInActivity extends Activity implements View.OnClickListener
                 else
                 {
                     Toast.makeText(ctx, "Datos incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
-                /*Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
             }
             catch(Exception ex)
             {
