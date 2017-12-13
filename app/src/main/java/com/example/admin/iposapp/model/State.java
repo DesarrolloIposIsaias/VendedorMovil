@@ -1,10 +1,14 @@
 package com.example.admin.iposapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by usuario on 11/12/2017.
  */
 
-public class State {
+public class State implements java.io.Serializable{
+
     public String getClave() {
         return clave;
     }
@@ -45,9 +49,23 @@ public class State {
         this.hora = hora;
     }
 
+    @SerializedName("Clave")
+    @Expose
     private String clave;
+
+    @SerializedName("Nombre")
+    @Expose
     private String nombre;
+
+    @SerializedName("Id")
+    @Expose
     private String id;
+
+    @SerializedName("Fecha")
+    @Expose
     private String fecha;
+
+    @SerializedName("Hora")
+    @Expose
     private String hora;
 }

@@ -1,44 +1,145 @@
 package com.example.admin.iposapp.model;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 /**
  * Created by Desarrollo IPOS on 06/12/2017.
  */
 
-public class Crep {
+public class Crep implements java.io.Serializable{
 
+    @SerializedName("Cobranza")
+    @Expose
     private String cobranza;
+
+    @SerializedName("Vendedor")
+    @Expose
     private String vendedor;
+
+    @SerializedName("Venta")
+    @Expose
     private String venta;
+
+    @SerializedName("Empresa")
+    @Expose
     private String empresa;
+
+    @SerializedName("Cliente")
+    @Expose
     private String cliente;
+
+    @SerializedName("Nombre")
+    @Expose
     private String nombre;
+
+    @SerializedName("Factura")
+    @Expose
     private String factura;
+
+    @SerializedName("Estatus")
+    @Expose
     private String estatus;
+
+    @SerializedName("Obs")
+    @Expose
     private String obs;
+
+    @SerializedName("FechaFactura")
+    @Expose
     private String fechaFactura;
+
+    @SerializedName("FechaPago")
+    @Expose
     private String fechaPago;
+
+    @SerializedName("Dias")
+    @Expose
     private float dias;
+
+    @SerializedName("Total")
+    @Expose
     private float total;
+
+    @SerializedName("ACuenta")
+    @Expose
     private float aCuenta;
+
+    @SerializedName("Saldo")
+    @Expose
     private float saldo;
+
+    @SerializedName("IntCob")
+    @Expose
     private float intCob;
+
+    @SerializedName("Intereses")
+    @Expose
     private float intereses;
+
+    @SerializedName("ImporteNeto")
+    @Expose
     private float importeNeto;
+
+    @SerializedName("Pago")
+    @Expose
     private float pago;
+
+    @SerializedName("Efectivo")
+    @Expose
     private float efectivo;
+
+    @SerializedName("Diferencia")
+    @Expose
     private float diferencia;
+
+    @SerializedName("ImpCheque")
+    @Expose
     private float impCheque;
+
+    @SerializedName("Banco")
+    @Expose
     private String banco;
+
+    @SerializedName("NumCheque")
+    @Expose
     private float numCheq;
+
+    @SerializedName("Interes")
+    @Expose
     private float interes;
+
+    @SerializedName("Capital")
+    @Expose
     private float capital;
+
+    @SerializedName("Olla")
+    @Expose
     private String olla;
+
+    @SerializedName("Bloqueado")
+    @Expose
     private String bloqueado;
+
+    @SerializedName("Fecha")
+    @Expose
     private String fecha;
+
+    @SerializedName("Llevar")
+    @Expose
     private String llevar;
+
+    @SerializedName("Id")
+    @Expose
     private String id;
+
+    @SerializedName("IdFecha")
+    @Expose
     private String idFecha;
+
+    @SerializedName("IdHora")
+    @Expose
     private String idHora;
 
     public String getCobranza() {

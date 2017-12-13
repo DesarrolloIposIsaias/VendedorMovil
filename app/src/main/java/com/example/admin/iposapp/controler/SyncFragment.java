@@ -18,6 +18,7 @@ import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.Sale;
 import com.example.admin.iposapp.utility.CurrentData;
 import com.example.admin.iposapp.utility.FTPConnection;
+import com.example.admin.iposapp.utility.WSMobileSalesHelper;
 
 import java.io.File;
 import java.util.List;
@@ -87,8 +88,13 @@ public class SyncFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-
-                if(CurrentData.isSync())
+                WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(getContext());
+                //wsHelper.getBanks();
+                //wsHelper.getCrep();
+                //wsHelper.getStates();
+                //wsHelper.getProducts();
+                wsHelper.getKits();
+                /*if(CurrentData.isSync())
                 {
                     boolean pending = false;
                     database.open();
@@ -149,7 +155,7 @@ public class SyncFragment extends Fragment
                             getContext(),
                             "Debe configurar los datos del servidor",
                             Toast.LENGTH_LONG).show();
-                }
+                }*/
 
             }
         });

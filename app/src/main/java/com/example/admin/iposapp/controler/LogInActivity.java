@@ -77,7 +77,7 @@ public class LogInActivity extends Activity implements View.OnClickListener
     {
             try
             {
-               database.open();
+               /*database.open();
                 Settings setting = Database.settingsDAO.fetchSettingsBySeller(
                         user.getText().toString(),
                         pswd.getText().toString());
@@ -103,10 +103,10 @@ public class LogInActivity extends Activity implements View.OnClickListener
                 else
                 {
                     Toast.makeText(ctx, "Datos incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
-                /*Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
             }
             catch(Exception ex)
             {
