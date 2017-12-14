@@ -142,6 +142,16 @@ public class Crep implements java.io.Serializable{
     @Expose
     private String idHora;
 
+    public Crep(String id, String clientId){
+
+        this.id = id;
+        cliente = clientId;
+    }
+
+    public  Crep(){
+
+    }
+
     public String getCobranza() {
         return cobranza;
     }

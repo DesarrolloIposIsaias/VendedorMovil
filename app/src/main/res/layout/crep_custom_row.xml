@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/crep_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black"
+        tools:ignore="RelativeOverlap" />
+
+
+    <TextView
+        android:id="@+id/crep_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/crep_id"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/black" />
+    
+    <ImageView
+        android:id="@+id/item_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icons8_eye_50"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="250dp"
+        android:contentDescription="@string/todo"
+        android:layout_marginStart="250dp" />
+
+    <ImageView
+        android:id="@+id/go_pay_crep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icons8_paycheque_48"
+        android:contentDescription="@string/todo" />
+
+</RelativeLayout>

@@ -95,6 +95,11 @@
     <string name="guardar">GUARDAR</string>
     <string name="lastSale">ULTIMA VENTA</string>
     <string name="lastClient">ULTIMO CLIENTE</string>
+    <string name="goCrep">Cobranza</string>
+    <string name="buscarStr">Buscar</string>
+    <string name="filter">Filtro...</string>
+    <string name="search">Buscar</string>
+    <string name="todo">TODO</string>
 
     <string-array name="days">
         <item>LUNES</item>
