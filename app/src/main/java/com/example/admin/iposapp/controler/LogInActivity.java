@@ -62,8 +62,8 @@ public class LogInActivity extends Activity implements View.OnClickListener
 
         btnLogin.setOnClickListener(this);
 
-        WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(this);
-        wsHelper.getClients();
+        //WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(this);
+        //wsHelper.getClients();
         //wsHelper.getBanks();
         //wsHelper.getCrep();
         //wsHelper.getKits();

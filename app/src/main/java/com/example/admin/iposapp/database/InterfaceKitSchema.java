@@ -17,13 +17,13 @@ public interface InterfaceKitSchema {
     String createQuery = "CREATE TABLE IF NOT EXISTS "
             + tableName
             + " ("
-            + columnId + " TEXT NOT NULL,"
+            + columnId + " TEXT,"
             + columnProducto + " TEXT NOT NULL,"
             + columnParte + " TEXT,"
             + columnCantidad + " TEXT,"
             + columnCosto + " TEXT,"
             + columnIdFecha + " TEXT,"
-            + columndIdHora + " TEXT,"
+            + columndIdHora + " TEXT"
             + ")";
 
     String [] kitColumns = new String[] {columnId, columnProducto, columnParte, columnCantidad,

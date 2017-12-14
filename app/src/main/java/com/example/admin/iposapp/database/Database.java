@@ -31,6 +31,10 @@ public class   Database
     public static PaymentDAO paymentDAO;
     public static PaymentDetailDAO paymentDetailDAO;
     public static DataBaseVersionDAO dataBaseVersionDAO;
+    public static BankDAO bankDAO;
+    public static CrepDAO crepDAO;
+    public static KitDAO kitDAO;
+    public static StateDAO stateDAO;
 
     public Context getCtx() {
         return ctx;
@@ -55,6 +59,10 @@ public class   Database
             dataBaseVersionDAO = new DataBaseVersionDAO(mDb);
             paymentDAO = new PaymentDAO(mDb);
             paymentDetailDAO = new PaymentDetailDAO(mDb);
+            bankDAO = new BankDAO(mDb);
+            crepDAO = new CrepDAO(mDb);
+            kitDAO = new KitDAO(mDb);
+            stateDAO = new StateDAO(mDb);
 
         }
         catch (Exception e)
@@ -101,6 +109,10 @@ public class   Database
                 db.execSQL(InterfaceDataBaseVersionSchema.createQuery);
                 db.execSQL(InterfacePaymentSchema.createQuery);
                 db.execSQL(InterfacePaymentDetailSchema.createQuery);
+                db.execSQL(InterfaceBankSchema.createQuery);
+                db.execSQL(InterfaceCrepSchema.createQuery);
+                db.execSQL(InterfaceKitSchema.createQuery);
+                db.execSQL(InterfaceStateSchema.createQuery);
 
             }
             catch (Exception e)
@@ -135,6 +147,18 @@ public class   Database
 
             db.execSQL("DROP TABLE IF EXISTS "
                     + InterfacePaymentDetailSchema.tableName);
+
+            db.execSQL("DROP TABLE IF EXISTS "
+                    + InterfaceBankSchema.tableName);
+
+            db.execSQL("DROP TABLE IF EXISTS "
+                    + InterfaceCrepSchema.tableName);
+
+            db.execSQL("DROP TABLE IF EXISTS "
+                    + InterfaceKitSchema.tableName);
+
+            db.execSQL("DROP TABLE IF EXISTS "
+                    + InterfaceStateSchema.tableName);
 
             onCreate(db);
         }

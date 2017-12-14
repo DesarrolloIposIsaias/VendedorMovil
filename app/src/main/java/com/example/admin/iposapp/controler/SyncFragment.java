@@ -88,16 +88,12 @@ public class SyncFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(getContext());
-                //wsHelper.getBanks();
-                //wsHelper.getCrep();
-                //wsHelper.getStates();
-                //wsHelper.getProducts();
-                wsHelper.getClients();
-                /*if(CurrentData.isSync())
+                /*delete this for release:*/ CurrentData.setIsSync(true);
+
+                if(CurrentData.isSync())
                 {
                     boolean pending = false;
-                    database.open();
+                    /*database.open();
                     List<Sale> sales = Database.saleDAO.fetchAllSales();
                     for (int i = 0; i < sales.size(); i++)
                     {
@@ -106,7 +102,7 @@ public class SyncFragment extends Fragment
                             pending = true;
                             break;
                         }
-                    }
+                    }*/
 
                     if (!pending)
                     {
@@ -124,19 +120,21 @@ public class SyncFragment extends Fragment
                                             database.open();
                                             database.upgrade();
                                             database.close();
-                                            String path =
-                                                    getContext().getFilesDir().getAbsolutePath();
-                                            cleanFilesFolder(path);
-                                            CurrentData.setInternalStoragePath(
-                                                    getContext().getFilesDir().toString());
+
+                                            WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(getContext());
+                                            wsHelper.getBanks();
+                                            wsHelper.getCrep();
+                                            wsHelper.getStates();
+                                            wsHelper.getProducts();
+                                            wsHelper.getClients();
+                                            wsHelper.getKits();
+
                                         }
                                         catch (Exception e)
                                         {
                                             e.printStackTrace();
                                         }
-                                        GetFtpDataTask getFtpDataTask =
-                                                new GetFtpDataTask(getContext());
-                                        getFtpDataTask.execute();
+
                                     }
                                 })
                                 .setNegativeButton("No", null).show();
@@ -155,7 +153,7 @@ public class SyncFragment extends Fragment
                             getContext(),
                             "Debe configurar los datos del servidor",
                             Toast.LENGTH_LONG).show();
-                }*/
+                }
 
             }
         });

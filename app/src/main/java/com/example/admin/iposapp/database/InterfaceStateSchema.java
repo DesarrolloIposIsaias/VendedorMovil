@@ -15,11 +15,11 @@ public interface InterfaceStateSchema {
     String createQuery = "CREATE TABLE IF NOT EXISTS "
             + tableName
             + " ("
-            + columnId + " TEXT NOT NULL,"
+            + columnId + " TEXT,"
             + columnClave + " TEXT NOT NULL,"
             + columnNombre + " TEXT,"
             + columnFecha + " TEXT,"
-            + columnHora + " TEXT,"
+            + columnHora + " TEXT"
             + ")";
 
     String [] stateColumns = new String[] {columnId, columnClave, columnNombre, columnFecha,

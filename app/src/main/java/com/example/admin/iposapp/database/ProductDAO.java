@@ -164,7 +164,22 @@ public class ProductDAO extends DbContentProvider
     }
 
     public List<Product> fetchAllProducts() {
-        return null;
+        List<Product> productList = new ArrayList<Product>();
+        cursor = super.query(tableName, productColumns, null, null, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Product product = cursorToEntity(cursor);
+                productList.add(product);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return productList;
     }
 
     public boolean addProduct(Product product) {
