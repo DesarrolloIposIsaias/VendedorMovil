@@ -14,9 +14,9 @@ public interface InterfaceBankSchema {
     String createQuery = "CREATE TABLE IF NOT EXISTS "
             + tableName
             + " ("
-            + columnId + " TEXT NOT NULL,"
+            + columnId + " TEXT,"
             + columnClave + " TEXT NOT NULL,"
-            + columnName + " TEXT,"
+            + columnName + " TEXT"
             + ")";
 
     String [] bankColumns = new String[] {columnId, columnClave, columnName};

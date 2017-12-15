@@ -114,7 +114,6 @@ public class ChangeClientDialogFragment extends DialogFragment
 
                         try
                         {
-
                             dataBase = new Database(getActivity());
                             // dataBase.getCtx().deleteDatabase("iposDb");
                             dataBase.open();
@@ -131,19 +130,21 @@ public class ChangeClientDialogFragment extends DialogFragment
                                                 "<" +
                                                 allClients.get(i).getClave() + ">";
                             }
-                            ArrayAdapter<String> toSet = new ArrayAdapter<String>(
+                            ArrayAdapter<String> toSet = new ArrayAdapter<>(
                                     getActivity(),
                                     R.layout.custom_item,
                                     R.id.autoCompleteItem,
                                     clientsAdapter);
                             clients.setAdapter(toSet);
-                            dataBase.close();
 
                             CurrentData.setMutable(true);
                         }
                         catch (Exception ex)
                         {
                             ex.printStackTrace();
+                        }
+                        finally {
+                            dataBase.close();
                         }
 
                         entryAvailable = false;

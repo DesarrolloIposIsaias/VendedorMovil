@@ -1,21 +1,59 @@
 package com.example.admin.iposapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by admin on 20/06/2016.
  */
-public class Product {
+public class Product implements java.io.Serializable{
 
+    @SerializedName("Clave")
+    @Expose
     private String clave;
+
+    @SerializedName("Descripcion1")
+    @Expose
     private String descripcion1;
+
+    @SerializedName("Descripcion2")
+    @Expose
     private String descripcion2;
+
+    @SerializedName("Descripcion3")
+    @Expose
     private String descripcion3;
+
+    @SerializedName("Precio1")
+    @Expose
     private float precio1;
+
+    @SerializedName("CBarras")
+    @Expose
     private String cBarras;
+
+    @SerializedName("CEmpaque")
+    @Expose
     private String cEmpaque;
+
+    @SerializedName("Ean")
+    @Expose
     private String ean;
+
+    @SerializedName("Unidad")
+    @Expose
     private String unidad;
+
+    @SerializedName("PzaCaja")
+    @Expose
     private float pzaCaja;
+
+    @SerializedName("UEmpaque")
+    @Expose
     private float uEmpaque;
+
+    @SerializedName("Existencia")
+    @Expose
     private float existencia;
 
     public String getClave() {

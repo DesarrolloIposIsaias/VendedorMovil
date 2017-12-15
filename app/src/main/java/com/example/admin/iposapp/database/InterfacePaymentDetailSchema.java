@@ -17,6 +17,7 @@ public interface InterfacePaymentDetailSchema {
     String columnNumber = "numero";
 
     String createQuery = "CREATE TABLE IF NOT EXISTS "
+            + tableName
             + "("
             + columnId + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + columnPayment + " TEXT,"

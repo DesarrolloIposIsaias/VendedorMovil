@@ -43,7 +43,7 @@ public interface InterfaceCrepSchema {
     String createQuery = "CREATE TABLE IF NOT EXISTS "
             + tableName
             + " ("
-            + columnId + " TEXT NOT NULL,"
+            + columnId + " TEXT,"
             + columnCobranza + " TEXT,"
             + columnVendedor + " TEXT,"
             + columnSale + " TEXT,"
@@ -75,7 +75,7 @@ public interface InterfaceCrepSchema {
             + columnFecha + " TEXT,"
             + columnLlevar + " TEXT,"
             + columnIdFecha + " TEXT,"
-            + columnIdHora +  " TEXT,"
+            + columnIdHora +  " TEXT"
             + ")";
 
     String [] crepColumns = new String[] {columnId,
