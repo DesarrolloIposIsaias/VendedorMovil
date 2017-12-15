@@ -29,18 +29,33 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 
-    <DatePicker
-        android:id="@+id/datePicker"
-        android:background="#0F4057"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_marginTop="5dp"
+    <info.hoang8f.widget.FButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        fbutton:buttonColor="#144257"
+        fbutton:shadowColor="#263238"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="5dp"
+        android:textColor="#ffff"
         android:textAlignment="center"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/clientAutoCompleteTextView"/>
+        android:text="Seleccionar fecha"
+        android:id="@+id/datePicker"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/clientAutoCompleteTextView"
+        />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:textSize="21dp"
+        android:id="@+id/date"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/datePicker" />
 
     <EditText
         android:privateImeOptions="nm"
@@ -59,7 +74,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/datePicker"/>
+        android:layout_below="@+id/date"/>
 
     <Spinner
         android:layout_width="fill_parent"

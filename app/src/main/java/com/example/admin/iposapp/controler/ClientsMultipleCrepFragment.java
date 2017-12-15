@@ -1,10 +1,15 @@
 package com.example.admin.iposapp.controler;
 
 
+import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +29,8 @@ import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,17 +38,20 @@ import java.util.ArrayList;
 public class ClientsMultipleCrepFragment extends Fragment {
 
     private Button goNextBtn;
-    private DatePicker depositDate;
+    private Button depositDate;
+    private TextView dateTxtVw;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     private TextView montoTxtVw;
     private Spinner bankSpinner;
     private Spinner payFormSpinner;
     private AutoCompleteTextView filterAutoComTxtVw;
     private ArrayList<Client> clients;
 
+    static final int DIALOG_ID = 0;
+
     public ClientsMultipleCrepFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,10 +63,41 @@ public class ClientsMultipleCrepFragment extends Fragment {
         //clients = (ArrayList<Client>) Database.clientDao.fetchAllClients();
 
         goNextBtn = (Button) view.findViewById(R.id.nextStep);
-        depositDate = (DatePicker) view.findViewById(R.id.deposit);
+        depositDate = (Button) view.findViewById(R.id.datePicker);
         montoTxtVw = (TextView) view.findViewById(R.id.monto);
         bankSpinner = (Spinner) view.findViewById(R.id.bank);
         payFormSpinner = (Spinner) view.findViewById(R.id.payForm);
+        dateTxtVw = (TextView) view.findViewById(R.id.date);
+
+        depositDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        getContext(),
+                        R.style.Theme_AppCompat_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year,month,day
+                );
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(getTag(), "onDataSet: dd/mm/yyyy: " + day + " / " + month + " / " + year);
+                String date = day + "/" + month + "/" + year;
+                dateTxtVw.setText(date);
+            }
+        };
+
 
         filterAutoComTxtVw = (AutoCompleteTextView)view.findViewById(R.id.clientAutoCompleteTextView);
         filterAutoComTxtVw.setThreshold(1);
@@ -86,6 +127,8 @@ public class ClientsMultipleCrepFragment extends Fragment {
                     filterAutoComTxtVw.setAdapter(autoCompleteAdapter);
                 }
             }
+
+
         });
 
 
