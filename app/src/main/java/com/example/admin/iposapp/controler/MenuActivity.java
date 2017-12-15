@@ -229,6 +229,15 @@ public class MenuActivity extends AppCompatActivity
         {
             Toast.makeText(this, "Modulo no disponible", Toast.LENGTH_SHORT).show();
         }
+        else if (id == R.id.pagos)
+        {
+            ClientsMultipleCrepFragment cmcFragment = new ClientsMultipleCrepFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
+                    cmcFragment,
+                    cmcFragment.getTag()).commit();
+
+        }
         else if(id == R.id.settings)
         {
             FtpMenu scFragment = new FtpMenu();
