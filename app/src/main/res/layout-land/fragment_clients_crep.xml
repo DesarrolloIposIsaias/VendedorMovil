@@ -38,7 +38,7 @@
             android:visibility="visible"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="35dp"/>
 
         <info.hoang8f.widget.FButton
 
@@ -50,7 +50,7 @@
             android:textColor="#ffff"
             android:layout_below="@id/crepAutoCompleteTextView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="100dp"
             fbutton:buttonColor="#144257"
             fbutton:cornerRadius="5dp"
             fbutton:shadowColor="#0e2e3c"
