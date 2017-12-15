@@ -83,7 +83,7 @@ public class ClientsMultipleCrepFragment extends Fragment {
                         mDateSetListener,
                         year,month,day
                 );
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
                 dialog.show();
             }
         });
