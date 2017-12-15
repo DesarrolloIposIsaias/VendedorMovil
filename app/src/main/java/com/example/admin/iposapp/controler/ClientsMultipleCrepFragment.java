@@ -71,6 +71,13 @@ public class ClientsMultipleCrepFragment extends Fragment {
         payFormSpinner = (Spinner) view.findViewById(R.id.payForm);
         dateTxtVw = (TextView) view.findViewById(R.id.date);
 
+        ArrayAdapter<CharSequence> paymentFormsAdapter = ArrayAdapter.createFromResource(
+                getContext(),
+                R.array.paymentForms,
+                R.layout.white_black_spinner_textview);
+
+        payFormSpinner.setAdapter(paymentFormsAdapter);
+
         depositDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
