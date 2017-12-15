@@ -17,6 +17,7 @@
         android:layout_alignParentBottom="true">
 
         <EditText
+            android:textSize="25dp"
             android:layout_marginTop="30dp"
             android:privateImeOptions="nm"
             android:imeOptions="flagNoExtractUi"
@@ -36,6 +37,7 @@
             android:layout_alignParentEnd="true" />
 
         <Spinner
+            android:textSize="25dp"
             android:layout_width="fill_parent"
             android:layout_height="90dp"
             android:id="@+id/deposit"
@@ -51,6 +53,7 @@
             android:layout_below="@+id/client"/>
 
         <EditText
+            android:textSize="25dp"
             android:privateImeOptions="nm"
             android:imeOptions="flagNoExtractUi"
             android:inputType="textNoSuggestions|textUri"
@@ -70,6 +73,7 @@
             android:layout_below="@+id/deposit"/>
 
         <Spinner
+            android:textSize="25dp"
             android:layout_width="fill_parent"
             android:layout_height="90dp"
             android:id="@+id/payForm"
@@ -85,6 +89,7 @@
             android:layout_below="@+id/monto"/>
 
         <Spinner
+            android:textSize="25dp"
             android:layout_width="fill_parent"
             android:layout_height="90dp"
             android:id="@+id/bank"
@@ -100,6 +105,7 @@
             android:layout_below="@+id/payForm"/>
 
         <EditText
+            android:textSize="25dp"
             android:privateImeOptions="nm"
             android:layout_marginTop="30dp"
             android:imeOptions="flagNoExtractUi"
@@ -119,6 +125,7 @@
             android:layout_below="@+id/bank"/>
 
         <EditText
+            android:textSize="25dp"
             android:privateImeOptions="nm"
             android:layout_marginTop="30dp"
             android:imeOptions="flagNoExtractUi"
@@ -156,8 +163,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
             <info.hoang8f.widget.FButton
-
-                android:layout_width="200dp"
+                android:textSize="25dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 fbutton:buttonColor="#144257"
                 fbutton:shadowColor="#263238"
@@ -168,12 +175,12 @@
                 android:textAlignment="center"
                 android:text="Aplicar"
                 android:id="@+id/btnApply"
-                android:layout_marginLeft="200dp"
+                android:layout_marginLeft="100dp"
                 />
 
             <info.hoang8f.widget.FButton
 
-                android:layout_width="200dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 fbutton:buttonColor="#144257"
                 fbutton:shadowColor="#263238"
@@ -185,7 +192,7 @@
                 android:text="Cancelar"
                 android:id="@+id/btnCancel"
                 android:layout_marginBottom="0dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="30dp"
                 />
         </LinearLayout>
 
