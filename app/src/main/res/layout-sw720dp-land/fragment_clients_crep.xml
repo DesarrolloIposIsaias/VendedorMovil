@@ -23,9 +23,9 @@
         <AutoCompleteTextView
             android:privateImeOptions="nm"
             android:imeOptions="flagNoExtractUi"
-            android:layout_width="300dp"
+            android:layout_width="500dp"
             android:background="@drawable/roundedshadow_et"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:inputType="textNoSuggestions|textUri"
             android:singleLine="true"
             android:scrollHorizontally="true"
@@ -38,19 +38,19 @@
             android:visibility="visible"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="35dp"/>
 
         <info.hoang8f.widget.FButton
 
             android:id="@+id/filterCrepBtn"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:text="@string/search"
             android:textAlignment="center"
             android:textColor="#ffff"
             android:layout_below="@id/crepAutoCompleteTextView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="20dp"
             fbutton:buttonColor="#144257"
             fbutton:cornerRadius="5dp"
             fbutton:shadowColor="#0e2e3c"
