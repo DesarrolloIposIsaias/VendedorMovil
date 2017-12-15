@@ -50,7 +50,9 @@ public class ClientsMultipleCrepFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_clients_multiple_crep, container, false);
 
         Database db = new Database(this.getContext());
-        //clients = (ArrayList<Client>) Database.clientDao.fetchAllClients();
+        db.open();
+        clients = (ArrayList<Client>) Database.clientDao.fetchAllClients();
+        db.close();
 
         goNextBtn = (Button) view.findViewById(R.id.nextStep);
         depositDate = (DatePicker) view.findViewById(R.id.deposit);
