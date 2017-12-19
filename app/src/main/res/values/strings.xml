@@ -114,6 +114,16 @@
         <item>DOMINGO</item>
     </string-array>
 
+    <string-array name="paymentForms">
+        <item>EFECTIVO</item>
+        <item>CHEQUE</item>
+        <item>DEPOSITO</item>
+        <item>DIFERENCIA</item>
+        <item>DEVOLUCIONES</item>
+        <item>PROMOCIONES</item>
+        <item>TRANSFERENCIA</item>
+    </string-array>
+
     <string-array name="prices">
         <item>1</item>
         <item>2</item>
