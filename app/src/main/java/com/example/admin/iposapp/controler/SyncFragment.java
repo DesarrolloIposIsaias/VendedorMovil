@@ -37,7 +37,6 @@ public class SyncFragment extends Fragment
     private AlertDialog alertDialog;
     Database database;
 
-
     public SyncFragment()
     {
         // Required empty public constructor

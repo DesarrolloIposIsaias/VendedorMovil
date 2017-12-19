@@ -103,6 +103,9 @@
     <string name="webservice">Ruta Webservice</string>
     <string name="company">Empresa</string>
     <string name="branch">Sucursal</string>
+    <string name="payment_method">METODO DE PAGO</string>
+    <string name="reference">Referencia</string>
+    <string name="notes">Notas</string>
 
     <string-array name="days">
         <item>LUNES</item>
