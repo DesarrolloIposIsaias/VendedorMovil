@@ -7,45 +7,43 @@ public interface InterfaceSettingsSchema
 {
     String tableName = "Configuracion";
     String columnId = "id";
-    String columnServer = "servidorFtp";
-    String columnUser = "usuarioFtp";
-    String columnPassword = "contrasenaFtp";
-    String columnSeller = "vendedor";
-    String columnSoapSellerId = "vendedorSoap";
-    String columnFolder = "carpetaFtp";
-    String columnFolderPass = "contrasenaCarpetaFtp";
+    String columnServer = "servidor_webservice";
+    String columnBranch = "sucursal";
+    String columnCompany = "empresa";
     String columnAppUser = "usuario";
     String columnAppUserPass = "contrasena";
     String columnLastSale = "folioUltimaVenta";
     String columnBilling = "folioCobranza";
     String columnSellerSerie = "serieVendedor";
     String columnClientSerie = "ultimoCliente";
-    String columnSoapServer = "servidorSoap";
 
     String createQuery = "CREATE TABLE IF NOT EXISTS "
             + tableName
             + "("
             + columnId + " INTEGER, "
             + columnServer + " TEXT, "
-            + columnUser + " TEXT, "
-            + columnPassword + " TEXT, "
-            + columnSeller + " TEXT, "
-            + columnSoapSellerId + " TEXT, "
-            + columnFolder + " TEXT, "
-            + columnFolderPass + " TEXT, "
+            + columnBranch + " TEXT, "
+            + columnCompany + " TEXT, "
             + columnAppUser + " TEXT, "
             + columnAppUserPass + " TEXT, "
             + columnLastSale + " TEXT, "
             + columnBilling + " TEXT, "
             + columnSellerSerie + " TEXT, "
-            + columnClientSerie + " TEXT, "
-            + columnSoapServer + " TEXT"
+            + columnClientSerie + " TEXT "
             + ")";
 
-    String [] settingsColumns = new String[] {columnId, columnServer, columnUser, columnPassword,
-            columnSeller, columnSoapSellerId, columnFolder, columnFolderPass, columnAppUser,
-            columnAppUserPass, columnLastSale, columnBilling, columnSellerSerie, columnClientSerie,
-            columnSoapServer};
+    String [] settingsColumns = new String[] {
+            columnId,
+            columnServer,
+            columnBranch,
+            columnCompany,
+            columnAppUser,
+            columnAppUserPass,
+            columnLastSale,
+            columnBilling,
+            columnSellerSerie,
+            columnClientSerie
+    };
 
 
 

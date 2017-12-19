@@ -4,152 +4,123 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.admin.iposapp.controler.FtpSettingFragment"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#144257">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:background="#144257">
+        android:layout_height="wrap_content">
 
         <!-- TODO: Update blank fragment layout -->
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedshadow_et"
-            android:id="@+id/etFTP"
+            android:id="@+id/edit_text_webservice"
             android:textColorHint="#ffff"
             android:textColor="#ffff"
-            android:hint="@string/ftpHint"
-            android:textAlignment="center"
-            android:layout_marginTop="40dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedshadow_et"
-            android:id="@+id/etUser"
-            android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textColorHint="#ffff"
-            android:hint="@string/usernameHint"
-            android:layout_margin="2dp"
-            android:layout_gravity="center_vertical"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedshadow_et"
-            android:id="@+id/etPassword"
-            android:textAlignment="center"
-            android:textColor="#ffff"
-            android:textColorHint="#ffff"
-            android:hint="@string/passwordHint"
-            android:inputType="textPassword"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedshadow_et"
-            android:id="@+id/etSeller"
-            android:textAlignment="center"
-            android:textColorHint="#ffff"
-            android:textColor="#ffff"
-            android:hint="@string/employeePathHint"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedshadow_et"
-            android:id="@+id/editTextSoapServer"
-            android:textColorHint="#ffff"
-            android:textColor="#ffff"
-            android:hint="@string/soapHint"
+            android:hint="@string/webservice"
             android:layout_marginTop="40dp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedshadow_et"
-            android:id="@+id/etUserSoap"
+            android:id="@+id/edit_text_company"
             android:textAlignment="center"
             android:textColor="#ffff"
             android:textColorHint="#ffff"
-            android:hint="@string/soapFolder"
-            android:layout_marginTop="0dp"/>
+            android:hint="@string/company"
+            android:layout_below="@+id/edit_text_webservice"
+            android:layout_centerHorizontal="true"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedshadow_et"
-            android:id="@+id/etPasswordSoap"
+            android:id="@+id/edit_text_branch"
             android:layout_gravity="center_horizontal|top"
             android:textAlignment="center"
             android:textColor="#ffff"
             android:textColorHint="#ffff"
-            android:hint="@string/soapFolderPass"
-            android:inputType="textPassword"/>
+            android:hint="@string/branch"
+            android:inputType="textPassword"
+            android:layout_below="@id/edit_text_company"
+            android:layout_centerHorizontal="true"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedshadow_et"
-            android:id="@+id/editTextAppUser"
+            android:id="@+id/edit_text_app_user"
             android:textColorHint="#ffff"
             android:textColor="#ffff"
             android:hint="@string/appUser"
             android:layout_marginBottom="0dp"
             android:layout_marginTop="40dp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:layout_below="@id/edit_text_branch"
+            android:layout_centerHorizontal="true"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedshadow_et"
-            android:id="@+id/editTextAppUserPass"
+            android:id="@+id/edit_text_app_user_pass"
             android:textColorHint="#ffff"
             android:textColor="#ffff"
             android:hint="@string/appUserPass"
             android:inputType="textPassword"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:layout_below="@id/edit_text_app_user"
+            android:layout_centerHorizontal="true"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/roundedshadow_et"
-            android:id="@+id/editTextSellerSerie"
+            android:id="@+id/edit_text_seller_serie"
             android:textColorHint="#ffff"
             android:textColor="#ffff"
             android:hint="@string/serie"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:layout_below="@id/edit_text_app_user_pass"
+            android:layout_centerHorizontal="true"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:id="@+id/lastSaleTv"
+            android:layout_marginTop="40dp"
+            android:id="@+id/text_view_last_sale"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/roundedshadow_et"
             android:textAlignment="center"
             android:textColor="#ffff"
             android:hint="@string/lastSale"
-            android:textColorHint="#FFFF"/>
+            android:textColorHint="#FFFF"
+            android:layout_below="@id/edit_text_seller_serie"
+            android:layout_centerHorizontal="true"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="40dp"
-            android:id="@+id/lastClientAddedTv"
+            android:id="@+id/text_view_last_client_added"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/roundedshadow_et"
             android:textAlignment="center"
             android:textColor="#ffff"
             android:hint="@string/lastClient"
-            android:textColorHint="#FFFF"/>
+            android:textColorHint="#FFFF"
+            android:layout_below="@id/text_view_last_sale"
+            android:layout_centerHorizontal="true"/>
 
         <com.dd.processbutton.iml.ActionProcessButton
-            android:id="@+id/btnSignIn"
-            android:layout_width="match_parent"
+            android:layout_marginTop="40dp"
+            android:id="@+id/button_save_config"
+            android:layout_width="300dp"
             android:layout_height="80dp"
             android:textColor="@android:color/white"
             android:textSize="18sp"
@@ -162,9 +133,11 @@
             custom:pb_textError="Error"
             custom:pb_colorError="@color/red_error"
             android:hint="@string/syncHint"
-            android:textColorHint="#ffff"/>
+            android:textColorHint="#ffff"
+            android:layout_below="@id/text_view_last_client_added"
+            android:layout_centerHorizontal="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </ScrollView>

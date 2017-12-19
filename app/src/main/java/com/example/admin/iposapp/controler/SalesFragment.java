@@ -242,7 +242,6 @@ public class SalesFragment extends BaseFragment
         //update products list
         updateProductListView();
 
-
         if(!items.isEmpty())
         {
             //fabAdd.setEnabled(true);
@@ -379,25 +378,33 @@ public class SalesFragment extends BaseFragment
                     if(!amountNDiscAvailable)
                     {
                         Toast.makeText(
-                                getActivity(),"SELECCIONE UN PRODUCTO", Toast.LENGTH_LONG).show();
+                                getActivity(),
+                                "SELECCIONE UN PRODUCTO",
+                                Toast.LENGTH_LONG).show();
                         products.requestFocus();
                     }
                     else if (amount.getText().toString().trim().length() == 0)
                     {
                         Toast.makeText(
-                                getActivity(),"INTRODUZCA CANTIDAD", Toast.LENGTH_LONG).show();
+                                getActivity(),
+                                "INTRODUZCA CANTIDAD",
+                                Toast.LENGTH_LONG).show();
                         amount.requestFocus();
                     }
                     else if (discount.getText().toString().trim().length() == 0)
                     {
                         Toast.makeText(
-                                getActivity(),"INTRODUZCA DESCUENTO", Toast.LENGTH_LONG).show();
+                                getActivity(),
+                                "INTRODUZCA DESCUENTO",
+                                Toast.LENGTH_LONG).show();
                         discount.requestFocus();
                     }
                     else if(price.getText().toString().trim().length() == 0)
                     {
                         Toast.makeText(
-                                getActivity(),"INTRODUZCA PRECIO", Toast.LENGTH_LONG).show();
+                                getActivity(),
+                                "INTRODUZCA PRECIO",
+                                Toast.LENGTH_LONG).show();
                         price.requestFocus();
                     }
                 }
@@ -426,10 +433,14 @@ public class SalesFragment extends BaseFragment
         changeClient.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Fragment fragment =
-                        getActivity().getSupportFragmentManager().findFragmentByTag("fragment_sales");
+                Fragment fragment = getActivity().
+                                    getSupportFragmentManager().
+                                    findFragmentByTag("fragment_sales");
+
                 dialogFragment.setTargetFragment(fragment,1);
-                dialogFragment.show(getActivity().getSupportFragmentManager(), "client_changed_dialog");
+                dialogFragment.show(
+                        getActivity().getSupportFragmentManager(),
+                        "client_changed_dialog");
 
 
              }

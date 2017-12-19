@@ -125,6 +125,38 @@ public class SaleDAO extends DbContentProvider implements InterfaceSaleSchema, I
         return sale;
     }
 
+    public List<Sale> fetchPendingSales(){
+
+        List<Sale> salesList = new ArrayList<>();
+        String whereClause = columnSend  + " = ?";
+        String[] whereArgs = new String[]{
+                "P"
+        };
+
+        cursor = super.query(
+                tableName,
+                saleColumns,
+                whereClause,
+                whereArgs,
+                columnId
+        );
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Sale sale = cursorToEntity(cursor);
+                salesList.add(sale);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return salesList;
+
+    }
+
     public List<Sale> fetchAllSales()
     {
         List<Sale> salesList = new ArrayList<Sale>();

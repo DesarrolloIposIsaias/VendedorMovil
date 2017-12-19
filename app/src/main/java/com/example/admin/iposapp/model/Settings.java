@@ -9,19 +9,14 @@ public class Settings
 {
     private int id;
     private String server;
-    private String user;
-    private String password;
-    private String seller;
-    private String soapSellerId;
-    private String folder;
-    private String folderPass;
     private String appUser;
     private String appUserPass;
     private String lastSale;
     private String billing;
     private String sellerSerie;
     private String clientSerie;
-    private String soapServer;
+    private String company;
+    private String branch;
 
 
 
@@ -85,36 +80,6 @@ public class Settings
         this.appUser = appUser;
     }
 
-    public String getFolderPass()
-    {
-        return folderPass;
-    }
-
-    public void setFolderPass(String folderPass)
-    {
-        this.folderPass = folderPass;
-    }
-
-    public String getFolder()
-    {
-        return folder;
-    }
-
-    public void setFolder(String folder)
-    {
-        this.folder = folder;
-    }
-
-    public String getSoapSellerId()
-    {
-        return soapSellerId;
-    }
-
-    public void setSoapSellerId(String soapSellerId)
-    {
-        this.soapSellerId = soapSellerId;
-    }
-
     public Settings()
     {
         sellerSerie = "";
@@ -140,43 +105,19 @@ public class Settings
         this.server = server;
     }
 
-    public String getUser()
-    {
-        return user;
+    public String getCompany() {
+        return company;
     }
 
-    public void setUser(String user)
-    {
-        this.user = user;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public String getPassword()
-    {
-        return password;
+    public String getBranch() {
+        return branch;
     }
 
-    public void setPassword(String password)
-    {
-        this.password = password;
-    }
-
-    public String getSeller()
-    {
-        return seller;
-    }
-
-    public void setSeller(String seller)
-    {
-        this.seller = seller;
-    }
-
-    public String getSoapServer()
-    {
-        return soapServer;
-    }
-
-    public void setSoapServer(String soapServer)
-    {
-        this.soapServer = soapServer;
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 }

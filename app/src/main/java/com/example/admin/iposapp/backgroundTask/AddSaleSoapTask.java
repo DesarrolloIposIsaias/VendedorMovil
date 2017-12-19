@@ -43,8 +43,6 @@ public class AddSaleSoapTask extends AsyncTask<Void, Void, String>
     protected String doInBackground(Void... params)
     {
 
-        String url = CurrentData.getSettings().getSoapServer();
-
         SoapObject request = new SoapObject(namespace, methodName);
 
         Database database = new Database(ctx);
@@ -79,9 +77,6 @@ public class AddSaleSoapTask extends AsyncTask<Void, Void, String>
                     request.addProperty("contado", "N");
                 }
                 request.addProperty("strConnection", "C:\\test\\IPOSDB.fdb");
-                request.addProperty("p_IVENDEDORD", CurrentData.getSettings().getSoapSellerId());
-                request.addProperty("ftpFolder", CurrentData.getSettings().getFolder());
-                request.addProperty("ftpPass", CurrentData.getSettings().getFolderPass());
 
                 SoapSerializationEnvelope envelope =
                         new SoapSerializationEnvelope(SoapEnvelope.VER11);
@@ -91,7 +86,7 @@ public class AddSaleSoapTask extends AsyncTask<Void, Void, String>
                 try
                 {
                     HttpTransportSE transport;
-                    transport = new HttpTransportSE(url);
+                    transport = new HttpTransportSE("");
                     transport.debug = true;
                     transport.call(soapAction, envelope);
                 }

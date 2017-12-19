@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.backgroundTask.AddSaleSoapTask;
-import com.example.admin.iposapp.backgroundTask.GetFtpDataTask;
 import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.Sale;
 import com.example.admin.iposapp.utility.CurrentData;
@@ -88,21 +87,13 @@ public class SyncFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                /*delete this for release:*/ CurrentData.setIsSync(true);
 
                 if(CurrentData.isSync())
                 {
-                    boolean pending = false;
-                    /*database.open();
-                    List<Sale> sales = Database.saleDAO.fetchAllSales();
-                    for (int i = 0; i < sales.size(); i++)
-                    {
-                        if(sales.get(i).getSend().equals("P"))
-                        {
-                            pending = true;
-                            break;
-                        }
-                    }*/
+                    database.open();
+                    List<Sale> sales = Database.saleDAO.fetchPendingSales();
+                    database.close();
+                    boolean pending = sales.size() > 0;
 
                     if (!pending)
                     {

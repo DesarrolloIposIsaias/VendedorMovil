@@ -31,12 +31,8 @@ public class FtpSettingFragment extends Fragment
 
     private ActionProcessButton btnSync;
     private EditText serverET,
-            userET,
-            passwordET,
-            sellerET,
-            userSoap,
-            passSoap,
-            serverSoap,
+            companyET,
+            branchET,
             appUserET,
             appUserPassET,
             serieET;
@@ -82,8 +78,6 @@ public class FtpSettingFragment extends Fragment
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
@@ -95,19 +89,17 @@ public class FtpSettingFragment extends Fragment
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         database = new Database(getContext());
 
-        btnSync = (ActionProcessButton) view.findViewById(R.id.btnSignIn);
-        serverET = (EditText)view.findViewById(R.id.etFTP);
-        userET = (EditText)view.findViewById(R.id.etUser);
-        passwordET = (EditText)view.findViewById(R.id.etPassword);
-        sellerET = (EditText)view.findViewById(R.id.etSeller);
-        serverSoap = (EditText)view.findViewById(R.id.editTextSoapServer);
-        userSoap = (EditText)view.findViewById(R.id.etUserSoap);
-        passSoap = (EditText)view.findViewById(R.id.etPasswordSoap);
-        appUserET = (EditText)view.findViewById(R.id.editTextAppUser);
-        appUserPassET = (EditText)view.findViewById(R.id.editTextAppUserPass);
-        serieET = (EditText)view.findViewById(R.id.editTextSellerSerie);
-        lastSaleTv = (TextView)view.findViewById(R.id.lastSaleTv);
-        lastClientTv = (TextView)view.findViewById(R.id.lastClientAddedTv);
+        btnSync = (ActionProcessButton) view.findViewById(R.id.button_save_config);
+        serverET = (EditText)view.findViewById(R.id.edit_text_webservice);
+        companyET = (EditText)view.findViewById(R.id.edit_text_company);
+        branchET = (EditText)view.findViewById(R.id.edit_text_branch);
+
+        appUserET = (EditText)view.findViewById(R.id.edit_text_app_user);
+        appUserPassET = (EditText)view.findViewById(R.id.edit_text_app_user_pass);
+        serieET = (EditText)view.findViewById(R.id.edit_text_seller_serie);
+        lastSaleTv = (TextView)view.findViewById(R.id.text_view_last_sale);
+        lastClientTv = (TextView)view.findViewById(R.id.text_view_last_client_added);
+
         btnSync.setMode(ActionProcessButton.Mode.PROGRESS);
         btnSync.setLoadingText("SINCRONIZANDO");
         btnSync.setCompleteText("SINCRONIZADO");
@@ -115,12 +107,8 @@ public class FtpSettingFragment extends Fragment
         if(CurrentData.isSync())
         {
             serverET.setText(CurrentData.getSettings().getServer());
-            userET.setText(CurrentData.getSettings().getUser());
-            passwordET.setText(CurrentData.getSettings().getPassword());
-            sellerET.setText(CurrentData.getSettings().getSeller());
-            serverSoap.setText(CurrentData.getSettings().getSoapServer());
-            userSoap.setText(CurrentData.getSettings().getFolder());
-            passSoap.setText(CurrentData.getSettings().getFolderPass());
+            companyET.setText(CurrentData.getSettings().getCompany());
+            branchET.setText(CurrentData.getSettings().getBranch());
             appUserET.setText(CurrentData.getSettings().getAppUser());
             appUserPassET.setText(CurrentData.getSettings().getAppUserPass());
             serieET.setText(CurrentData.getSettings().getSellerSerie());
@@ -128,7 +116,6 @@ public class FtpSettingFragment extends Fragment
             lastClientTv.setText(lastClientStr);
             String lastSaleStr = "Ultima Venta: " + CurrentData.getSettings().getLastSale();
             lastSaleTv.setText(lastSaleStr);
-
         }
 
         btnSync.setOnClickListener(new View.OnClickListener()
@@ -140,17 +127,9 @@ public class FtpSettingFragment extends Fragment
                 btnSync.setProgress(20);
                 settings.setServer(serverET.getText().toString());
                 btnSync.setProgress(30);
-                settings.setUser(userET.getText().toString());
+                settings.setCompany(companyET.getText().toString());
                 btnSync.setProgress(40);
-                settings.setPassword(passwordET.getText().toString());
-                btnSync.setProgress(50);
-                settings.setSeller(sellerET.getText().toString());
-                btnSync.setProgress(60);
-                settings.setSoapServer(serverSoap.getText().toString());
-                btnSync.setProgress(70);
-                settings.setFolder(userSoap.getText().toString());
-                btnSync.setProgress(80);
-                settings.setFolderPass(passSoap.getText().toString());
+                settings.setBranch(branchET.getText().toString());
                 btnSync.setProgress(90);
                 settings.setAppUser(appUserET.getText().toString());
                 settings.setAppUserPass(appUserPassET.getText().toString());

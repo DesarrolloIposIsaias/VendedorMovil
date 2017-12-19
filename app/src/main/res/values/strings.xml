@@ -100,6 +100,9 @@
     <string name="filter">Filtro...</string>
     <string name="search">Buscar</string>
     <string name="todo">TODO</string>
+    <string name="webservice">Ruta Webservice</string>
+    <string name="company">Empresa</string>
+    <string name="branch">Sucursal</string>
 
     <string-array name="days">
         <item>LUNES</item>
