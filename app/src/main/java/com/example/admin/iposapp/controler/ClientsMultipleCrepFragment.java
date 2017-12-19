@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
+import com.example.admin.iposapp.model.Bank;
 import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
@@ -31,6 +32,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +48,9 @@ public class ClientsMultipleCrepFragment extends Fragment {
     private Spinner payFormSpinner;
     private AutoCompleteTextView filterAutoComTxtVw;
     private ArrayList<Client> clients;
+    private List<Bank> banks;
+    private ArrayList<String> banksName;
+
 
     static final int DIALOG_ID = 0;
 
@@ -62,6 +67,7 @@ public class ClientsMultipleCrepFragment extends Fragment {
         Database db = new Database(this.getContext());
         db.open();
         clients = (ArrayList<Client>) Database.clientDao.fetchAllClients();
+        banks = Database.bankDAO.fetchAllBanks();
         db.close();
 
         goNextBtn = (Button) view.findViewById(R.id.nextStep);
@@ -76,7 +82,16 @@ public class ClientsMultipleCrepFragment extends Fragment {
                 R.array.paymentForms,
                 R.layout.white_black_spinner_textview);
 
+        fillBanks();
+        ArrayAdapter<String> bankAdapter =
+                new ArrayAdapter<String>(getContext(), R.layout.white_black_spinner_textview, banksName);
+
+        paymentFormsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        bankAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
         payFormSpinner.setAdapter(paymentFormsAdapter);
+        bankSpinner.setAdapter(bankAdapter);
 
         depositDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +157,15 @@ public class ClientsMultipleCrepFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void fillBanks()
+    {
+        banksName = new ArrayList<String>();
+        for (Bank item : banks)
+        {
+            banksName.add(item.getNombre());
+        }
     }
 
 }

@@ -7,5 +7,4 @@
     android:gravity="center"
     android:textColor="#ffffff"
     android:padding="5dip"
-    android:background="#2f99b1"
     />
