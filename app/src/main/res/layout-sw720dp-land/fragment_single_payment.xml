@@ -22,6 +22,7 @@
             android:id="@+id/linear1">
 
             <EditText
+                android:textSize="25dp"
                 android:privateImeOptions="nm"
                 android:layout_marginTop="30dp"
                 android:imeOptions="flagNoExtractUi"
@@ -37,6 +38,7 @@
                 android:hint="Cliente" />
 
             <Spinner
+                android:textSize="25dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="65dp"
                 android:layout_width="570dp"
@@ -57,6 +59,7 @@
             android:layout_below="@+id/linear1">
 
             <EditText
+                android:textSize="25dp"
                 android:privateImeOptions="nm"
                 android:imeOptions="flagNoExtractUi"
                 android:inputType="textNoSuggestions|textUri"
@@ -72,6 +75,7 @@
                 android:layout_marginLeft="30dp"/>
 
             <Spinner
+                android:textSize="25dp"
                 android:layout_width="570dp"
                 android:layout_height="80dp"
                 android:id="@+id/payForm"
@@ -92,6 +96,7 @@
             android:orientation="horizontal">
 
             <Spinner
+                android:textSize="25dp"
                 android:layout_width="570dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="30dp"
@@ -103,6 +108,7 @@
                 android:layout_marginTop="30dp"/>
 
             <EditText
+                android:textSize="25dp"
                 android:privateImeOptions="nm"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="65dp"
@@ -125,6 +131,7 @@
             android:id="@+id/linear4"
             android:layout_below="@+id/linear3">
             <EditText
+                android:textSize="25dp"
                 android:privateImeOptions="nm"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="30dp"
@@ -159,7 +166,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
             <info.hoang8f.widget.FButton
-
+                android:textSize="25dp"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 fbutton:buttonColor="#144257"
@@ -179,7 +186,7 @@
                 />
 
             <info.hoang8f.widget.FButton
-
+                android:textSize="25dp"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 fbutton:buttonColor="#144257"
