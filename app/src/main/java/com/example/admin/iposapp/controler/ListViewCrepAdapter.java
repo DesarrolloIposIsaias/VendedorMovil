@@ -2,6 +2,9 @@ package com.example.admin.iposapp.controler;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,17 +53,17 @@ public class ListViewCrepAdapter
         assert crep != null;
         switch (view.getId()){
             case R.id.item_info:
-                Toast.makeText(
-                        context,
-                        "Id pressed: " + crep.getId(),
-                        Toast.LENGTH_LONG).show();
+                CrepInfoFragment crepInfoFragment = new CrepInfoFragment();
+                crepInfoFragment.show(
+                        ((FragmentActivity)context).getSupportFragmentManager(),
+                        "client_changed_dialog");
                 break;
 
             case R.id.go_pay_crep:
-                Toast.makeText(
-                        context,
-                        "Client pressed: " + crep.getCliente(),
-                        Toast.LENGTH_LONG).show();
+                SinglePaymentFragment fragment = new SinglePaymentFragment();
+                fragment.show(
+                        ((FragmentActivity)context).getSupportFragmentManager(),
+                        "client_changed_dialog");
                 break;
         }
     }

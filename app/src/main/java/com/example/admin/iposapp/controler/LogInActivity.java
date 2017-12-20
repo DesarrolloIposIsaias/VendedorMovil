@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -69,21 +70,15 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v)
     {
-            try
-            {
+            try {
                /*database.open();
                 Settings setting = Database.settingsDAO.fetchSettingsBySeller(
                         user.getText().toString(),
                         pswd.getText().toString());
 
-                Log.w("CREDENCIALES: ",
-                        setting.getAppUser() + "-" + setting.getAppUserPass() + "-"
-                        + setting.getClientSerie());
-
                 if(user.getText().toString().equals(setting.getAppUser()) &&
                         pswd.getText().toString().equals(setting.getAppUserPass()))
                 {
-
                     if(setting.getClientSerie() == null)
                     {
                         setting.setClientSerie("0");
@@ -99,11 +94,14 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                     Toast.makeText(ctx, "Datos incorrectos", Toast.LENGTH_SHORT).show();
                 }*/
 
+               /*database.open();
+               database.upgrade();
+               database.close();*/
+
                 Intent intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
             }
-            catch(Exception ex)
-            {
+            catch(Exception ex) {
                 Toast.makeText(ctx, "Usuario invalido", Toast.LENGTH_SHORT).show();
                 ex.printStackTrace();
             }

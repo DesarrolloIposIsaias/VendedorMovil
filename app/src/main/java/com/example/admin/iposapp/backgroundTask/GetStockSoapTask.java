@@ -29,10 +29,6 @@ import org.ksoap2.transport.HttpTransportSE;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by admin on 05/08/2016.
- */
 public class GetStockSoapTask extends AsyncTask<Void, Void, String>
 {
 
@@ -80,7 +76,7 @@ public class GetStockSoapTask extends AsyncTask<Void, Void, String>
     @Override
     protected String doInBackground(Void... params)
     {
-        String url = CurrentData.getSettings().getSoapServer();
+        //String url = CurrentData.getSettings().getSoapServer();
 
         SoapObject request = new SoapObject(namespace, methodName);
 
@@ -89,33 +85,26 @@ public class GetStockSoapTask extends AsyncTask<Void, Void, String>
 
         request.addProperty("jsonStr", jsonStr);
         request.addProperty("strConnection", "C:\\test\\IPOSDB.fdb");
-        request.addProperty("p_IVENDEDOR", CurrentData.getSettings().getSoapSellerId());
-        request.addProperty("ftpFolder", CurrentData.getSettings().getFolder());
-        request.addProperty("ftpPass", CurrentData.getSettings().getFolderPass());
 
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.dotNet = true;
         envelope.setOutputSoapObject(request);
 
-        try
-        {
+        try {
             HttpTransportSE transport;
-            transport = new HttpTransportSE(url);
+            transport = new HttpTransportSE("");
             transport.debug = true;
             transport.call(soapAction, envelope);
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             e.printStackTrace();
             Log.w("SOAP ERROR: ", e.getMessage());
         }
 
-        try
-        {
+        try {
             String strResponse = "Null response";
             SoapPrimitive response = (SoapPrimitive)envelope.getResponse();
-            if(response != null)
-            {
+            if(response != null) {
                 strResponse = response.toString();
             }
 
@@ -124,8 +113,7 @@ public class GetStockSoapTask extends AsyncTask<Void, Void, String>
             return  strResponse;
 
         }
-        catch (SoapFault soapFault)
-        {
+        catch (SoapFault soapFault) {
             soapFault.printStackTrace();
         }
 

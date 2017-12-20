@@ -7,9 +7,6 @@ import android.util.Log;
 
 import com.example.admin.iposapp.model.Settings;
 
-/**
- * Created by admin on 14/07/2016.
- */
 public class SettingsDAO extends DbContentProvider
         implements InterfaceSettingsSchema, InterfaceSettingsDAO
 {
@@ -27,20 +24,14 @@ public class SettingsDAO extends DbContentProvider
 
         int idIndex;
         int serverIndex;
-        int userIndex;
-        int passwordIndex;
-        int sellerIndex;
-        int soapSellerIndex;
-        int folderIndex;
-        int folderPassIndex;
+        int branchIndex;
+        int companyIndex;
         int appUserIndex;
         int appUserPassIndex;
         int lastSaleIndex;
         int billingIndex;
         int sellerSerieIndex;
         int clientSerieIdnex;
-        int soapServerIndex;
-
 
         if (cursor != null)
         {
@@ -56,43 +47,24 @@ public class SettingsDAO extends DbContentProvider
                 settings.setServer(cursor.getString(serverIndex));
             }
 
-            if(cursor.getColumnIndex(columnUser) != -1)
+            if(cursor.getColumnIndex(columnBranch) != -1)
             {
-                userIndex = cursor.getColumnIndexOrThrow(columnUser);
-                settings.setUser(cursor.getString(userIndex));
+                branchIndex = cursor.getColumnIndexOrThrow(columnBranch);
+                settings.setBranch(cursor.getString(branchIndex));
             }
 
-            if(cursor.getColumnIndex(columnPassword) != -1)
+            if(cursor.getColumnIndex(columnCompany) != -1)
             {
-                passwordIndex = cursor.getColumnIndexOrThrow(columnPassword);
-                settings.setPassword(cursor.getString(passwordIndex));
+                companyIndex = cursor.getColumnIndexOrThrow(columnCompany);
+                settings.setCompany(cursor.getString(companyIndex));
             }
 
-            if (cursor.getColumnIndex(columnSeller) != -1)
-            {
-                sellerIndex = cursor.getColumnIndexOrThrow(columnSeller);
-                settings.setSeller(cursor.getString(sellerIndex));
-            }
-            if(cursor.getColumnIndex(columnSoapSellerId) != -1)
-            {
-                soapSellerIndex = cursor.getColumnIndexOrThrow(columnSoapSellerId);
-                settings.setSoapSellerId(cursor.getString(soapSellerIndex));
-            }
-            if(cursor.getColumnIndex(columnFolder) != -1)
-            {
-                folderIndex = cursor.getColumnIndexOrThrow(columnFolder);
-                settings.setFolder(cursor.getString(folderIndex));
-            }
-            if(cursor.getColumnIndex(columnFolderPass) != -1)
-            {
-                folderPassIndex = cursor.getColumnIndexOrThrow(columnFolderPass);
-                settings.setFolderPass(cursor.getString(folderPassIndex));
-            }
             if(cursor.getColumnIndex(columnAppUser) != -1)
             {
                 appUserIndex = cursor.getColumnIndexOrThrow(columnAppUser);
                 settings.setAppUser(cursor.getString(appUserIndex));
             }
+
             if(cursor.getColumnIndex(columnAppUserPass) != -1)
             {
                 appUserPassIndex = cursor.getColumnIndexOrThrow(columnAppUserPass);
@@ -118,11 +90,6 @@ public class SettingsDAO extends DbContentProvider
                 clientSerieIdnex = cursor.getColumnIndexOrThrow(columnClientSerie);
                 settings.setClientSerie(cursor.getString(clientSerieIdnex));
             }
-            if(cursor.getColumnIndex(columnSoapServer) != -1)
-            {
-                soapServerIndex = cursor.getColumnIndexOrThrow(columnSoapServer);
-                settings.setSoapServer(cursor.getString(soapServerIndex));
-            }
         }
 
         return settings;
@@ -134,19 +101,14 @@ public class SettingsDAO extends DbContentProvider
 
         initialValues.put(columnId, settings.getId());
         initialValues.put(columnServer, settings.getServer());
-        initialValues.put(columnUser, settings.getUser());
-        initialValues.put(columnPassword, settings.getPassword());
-        initialValues.put(columnSeller, settings.getSeller());
-        initialValues.put(columnSoapSellerId, settings.getSoapSellerId());
-        initialValues.put(columnFolder, settings.getFolder());
-        initialValues.put(columnFolderPass, settings.getFolderPass());
+        initialValues.put(columnBranch, settings.getBranch());
+        initialValues.put(columnCompany, settings.getCompany());
         initialValues.put(columnAppUser, settings.getAppUser());
         initialValues.put(columnAppUserPass, settings.getAppUserPass());
         initialValues.put(columnLastSale, settings.getLastSale());
         initialValues.put(columnBilling, settings.getBilling());
         initialValues.put(columnSellerSerie, settings.getSellerSerie());
         initialValues.put(columnClientSerie, settings.getClientSerie());
-        initialValues.put(columnSoapServer, settings.getSoapServer());
     }
 
 

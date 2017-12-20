@@ -204,7 +204,12 @@ public class SelectClientFragment extends BaseFragment
                 }
                 else
                 {
-                    CurrentData.setClientId(idClient.substring(idClient.indexOf("<") + 1, idClient.indexOf(">")));
+                    CurrentData.setClientId(
+                            idClient.substring(
+                                    idClient.indexOf("<") + 1,
+                                    idClient.indexOf(">")
+                            )
+                    );
                     CurrentData.setClientName(actualClient.getNombre());
                     sale.setClient(actualClient.getClave());
                     CurrentData.setSended("N");

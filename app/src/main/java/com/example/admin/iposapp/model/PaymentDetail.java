@@ -5,6 +5,7 @@ package com.example.admin.iposapp.model;
  */
 
 public class PaymentDetail {
+
     private String pago;
     private String fecha;
     private String venta;
