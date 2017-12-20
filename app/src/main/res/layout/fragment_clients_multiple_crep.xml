@@ -14,7 +14,7 @@
         android:imeOptions="flagNoExtractUi"
         android:layout_width="300dp"
         android:background="@drawable/roundedshadow_et"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:inputType="textNoSuggestions|textUri"
         android:singleLine="true"
         android:scrollHorizontally="true"
@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         fbutton:buttonColor="#144257"
         fbutton:shadowColor="#263238"
+        android:textSize="12dp"
         fbutton:shadowEnabled="true"
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
@@ -42,16 +43,16 @@
         android:text="Seleccionar fecha"
         android:id="@+id/datePicker"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/clientAutoCompleteTextView"
         />
 
     <TextView
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:textColor="#ffff"
         android:textAlignment="center"
-        android:textSize="21dp"
+        android:textSize="17dp"
         android:id="@+id/date"
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
@@ -59,13 +60,13 @@
 
     <EditText
         android:privateImeOptions="nm"
+        android:inputType="numberDecimal"
         android:imeOptions="flagNoExtractUi"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:inputType="textNoSuggestions|textUri"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/monto"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffff"
@@ -76,7 +77,7 @@
 
     <Spinner
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/payForm"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffffff"
@@ -89,7 +90,7 @@
 
     <Spinner
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/bank"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffffff"
@@ -108,7 +109,7 @@
         android:layout_centerHorizontal="true"
         android:inputType="textNoSuggestions|textUri"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/reference"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffff"
@@ -125,7 +126,7 @@
         android:layout_centerHorizontal="true"
         android:inputType="textNoSuggestions|textUri"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/notes"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffff"
@@ -136,6 +137,7 @@
 
     <info.hoang8f.widget.FButton
         android:layout_width="150dp"
+        android:textSize="12dp"
         android:layout_height="wrap_content"
         fbutton:buttonColor="#144257"
         fbutton:shadowColor="#263238"
@@ -149,7 +151,7 @@
         android:text="Siguiente paso"
         android:id="@+id/nextStep"
         android:layout_centerInParent="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/notes"
         />
 
