@@ -12,10 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.admin.iposapp.R;
+import com.example.admin.iposapp.database.Database;
+import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
+import com.example.admin.iposapp.utility.CurrentData;
 
 import java.util.ArrayList;
 
@@ -27,8 +31,9 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment {
     private Button goApplyPaymentBtn;
     private ListView crepsListView;
     private ArrayList<Crep> creps;
-    private ListViewCrepAdapter listViewCrepAdapter;
-    private AutoCompleteTextView filterAutoComTxtVw;
+    private ListViewMultipleCrepAdapter listViewCrepAdapter;
+    private TextView aCuentaTxtVw;
+
 
     public ListViewMultipleCrepPaymentFragment() {
         // Required empty public constructor
@@ -43,18 +48,26 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment {
 
         try{
             creps = new ArrayList<>();
-            creps.add(new Crep("1234", "4321"));
-            creps.add(new Crep("4567", "7654"));
+            /*creps.add(new Crep("1234", "4321"));
+            creps.add(new Crep("4567", "7654"));*/
+            Database db = new Database(this.getContext());
+            db.open();
+            creps = (ArrayList<Crep>) Database.crepDAO.fetchAllCreps();
+            db.close();
+
+            aCuentaTxtVw = (TextView) view.findViewById(R.id.quantity);
 
             crepsListView = (ListView)view.findViewById(R.id.lvCreps);
-            listViewCrepAdapter = new ListViewCrepAdapter(getContext(), creps);
+            listViewCrepAdapter = new ListViewMultipleCrepAdapter(getContext(), creps);
             crepsListView.setAdapter(listViewCrepAdapter);
+
+            aCuentaTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
         }
         catch (Exception ex){
             ex.printStackTrace();
         }
 
-        filterAutoComTxtVw = (AutoCompleteTextView)view.findViewById(R.id.crepAutoCompleteTextView);
+        /*filterAutoComTxtVw = (AutoCompleteTextView)view.findViewById(R.id.crepAutoCompleteTextView);
         filterAutoComTxtVw.setThreshold(1);
         filterAutoComTxtVw.addTextChangedListener(new TextWatcher() {
             @Override
@@ -82,7 +95,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment {
                     filterAutoComTxtVw.setAdapter(autoCompleteAdapter);
                 }
             }
-        });
+        });*/
 
         return view;
     }

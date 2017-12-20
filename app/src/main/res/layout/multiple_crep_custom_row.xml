@@ -7,26 +7,30 @@
 
     <TextView
         android:id="@+id/crep_sale"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@android:color/black"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
         tools:ignore="RelativeOverlap" />
 
 
     <TextView
         android:id="@+id/crep_total"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
         android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/crep_saldo_movil"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
         android:textColor="@android:color/black" />
 
     <ImageView
@@ -35,14 +39,17 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icons8_eye_50"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="250dp"
-        android:contentDescription="@string/todo"
-        android:layout_marginStart="250dp" />
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/crep_abono"
-        android:layout_width="80dp"
+        android:layout_width="70dp"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="numberDecimal"
         android:hint="Abono" />
 
 </LinearLayout>

@@ -1,8 +1,8 @@
 package com.example.admin.iposapp.utility;
 
 import com.example.admin.iposapp.model.Client;
+import com.example.admin.iposapp.model.MultiplePaymentHeader;
 import com.example.admin.iposapp.model.Product;
-import com.example.admin.iposapp.model.Sale;
 import com.example.admin.iposapp.model.SaleDetail;
 import com.example.admin.iposapp.model.Settings;
 
@@ -37,6 +37,7 @@ public class CurrentData
     private static String company;
     private static String branch;
     private static String remoteDbName;
+    private static MultiplePaymentHeader actualMultiplePaymentHeader;
 
     public static int getLastClientInserted()
     {
@@ -287,5 +288,13 @@ public class CurrentData
 
     public static void setRemoteDbName(String remoteDbName) {
         CurrentData.remoteDbName = remoteDbName;
+    }
+
+    public static MultiplePaymentHeader getActualMultiplePaymentHeader() {
+        return actualMultiplePaymentHeader;
+    }
+
+    public static void setActualMultiplePaymentHeader(MultiplePaymentHeader actualMultiplePaymentHeader) {
+        CurrentData.actualMultiplePaymentHeader = actualMultiplePaymentHeader;
     }
 }

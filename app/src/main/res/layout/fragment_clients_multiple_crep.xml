@@ -63,7 +63,7 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:inputType="textNoSuggestions|textUri"
+        android:inputType="numberDecimal"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:id="@+id/monto"
