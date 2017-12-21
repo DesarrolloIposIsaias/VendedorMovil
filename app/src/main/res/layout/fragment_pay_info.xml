@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.iposapp.controler.PayInfoFragment"
+    android:background="#0F4057"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/client"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_view_client"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_method"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_view_payment_method"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_view_total"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/reference"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_view_reference"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/notes"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_view_notes"/>
+
+</LinearLayout>

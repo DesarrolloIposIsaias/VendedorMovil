@@ -2,6 +2,7 @@ package com.example.admin.iposapp.controler;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,10 +51,10 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         assert crep != null;
         switch (view.getId()){
             case R.id.item_info:
-                Toast.makeText(
-                        context,
-                        "Id pressed: " + crep.getId(),
-                        Toast.LENGTH_LONG).show();
+                PayInfoFragment payInfoFragment = new PayInfoFragment();
+                payInfoFragment.show(
+                        ((FragmentActivity)context).getSupportFragmentManager(),
+                        "client_changed_dialog");
                 break;
 
             case R.id.crep_abono:

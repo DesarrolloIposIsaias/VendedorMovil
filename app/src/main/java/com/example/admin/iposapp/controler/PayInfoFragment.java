@@ -19,15 +19,14 @@ import org.w3c.dom.Text;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CrepInfoFragment extends DialogFragment {
 
+public class PayInfoFragment extends DialogFragment {
 
-    public CrepInfoFragment() {
+    public PayInfoFragment() {
         // Required empty public constructor
     }
 
     private Dialog dialog;
-
 
     @NonNull
     @Override
@@ -38,12 +37,12 @@ public class CrepInfoFragment extends DialogFragment {
         Context context;
 
         inflater = getActivity().getLayoutInflater();
-        view = inflater.inflate(R.layout.fragment_crep_info, null);
+        view = inflater.inflate(R.layout.fragment_pay_info, null);
         context = view.getContext();
 
         try
         {
-            viewCustom = inflater.inflate(R.layout.fragment_crep_info, null);
+            viewCustom = inflater.inflate(R.layout.fragment_pay_info, null);
 
             TextView clientTextView = (TextView) viewCustom.findViewById(
                     R.id.text_view_client
