@@ -1,5 +1,7 @@
 package com.example.admin.iposapp.utility;
 
+import android.os.Bundle;
+
 import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.MultiplePaymentHeader;
 import com.example.admin.iposapp.model.Product;
@@ -38,6 +40,15 @@ public class CurrentData
     private static String branch;
     private static String remoteDbName;
     private static MultiplePaymentHeader actualMultiplePaymentHeader;
+    private static Bundle itemMultipleCrep = new Bundle();
+
+    public static Bundle getItemMultipleCrep() {
+        return itemMultipleCrep;
+    }
+
+    public static void setItemMultipleCrep(Bundle args) {
+        CurrentData.itemMultipleCrep = args;
+    }
 
     public static int getLastClientInserted()
     {
