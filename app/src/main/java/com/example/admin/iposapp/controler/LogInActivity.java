@@ -71,14 +71,18 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v)
     {
             try {
-               /*database.open();
+
+                /*database.open();
+                database.upgrade();
+                database.close();*/
+
+               database.open();
                 Settings setting = Database.settingsDAO.fetchSettingsBySeller(
                         user.getText().toString(),
                         pswd.getText().toString());
 
                 if(user.getText().toString().equals(setting.getAppUser()) &&
-                        pswd.getText().toString().equals(setting.getAppUserPass()))
-                {
+                        pswd.getText().toString().equals(setting.getAppUserPass())) {
                     if(setting.getClientSerie() == null)
                     {
                         setting.setClientSerie("0");
@@ -92,14 +96,10 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                 else
                 {
                     Toast.makeText(ctx, "Datos incorrectos", Toast.LENGTH_SHORT).show();
-                }*/
+                }
 
-               /*database.open();
-               database.upgrade();
-               database.close();*/
-
-                Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);*/
             }
             catch(Exception ex) {
                 Toast.makeText(ctx, "Usuario invalido", Toast.LENGTH_SHORT).show();

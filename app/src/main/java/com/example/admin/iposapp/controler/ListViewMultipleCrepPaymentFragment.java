@@ -47,7 +47,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment {
             creps.add(new Crep("4567", "7654"));
 
             crepsListView = (ListView)view.findViewById(R.id.lvCreps);
-            listViewCrepAdapter = new ListViewCrepAdapter(getContext(), creps);
+            listViewCrepAdapter = new ListViewCrepAdapter(getContext(), creps, this);
             crepsListView.setAdapter(listViewCrepAdapter);
         }
         catch (Exception ex){

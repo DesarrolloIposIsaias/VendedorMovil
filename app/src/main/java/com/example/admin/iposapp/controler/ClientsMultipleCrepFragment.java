@@ -120,7 +120,11 @@ public class ClientsMultipleCrepFragment extends Fragment {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(getTag(), "onDataSet: dd/mm/yyyy: " + day + " / " + month + " / " + year);
+                Log.d(
+                        getTag(),
+                        "onDataSet: dd/mm/yyyy: " + day + " / " + month + " / " + year
+                );
+
                 String date = day + "/" + month + "/" + year;
                 dateTxtVw.setText(date);
             }

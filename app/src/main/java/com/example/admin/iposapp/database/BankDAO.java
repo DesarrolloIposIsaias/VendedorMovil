@@ -56,6 +56,38 @@ public class BankDAO extends DbContentProvider
         return bank;
     }
 
+    private ArrayList<String> getNames(ArrayList<Bank> banks){
+
+        ArrayList<String> names = new ArrayList<>();
+
+        for (Bank bank : banks)
+        {
+            names.add(bank.getNombre());
+        }
+
+        return names;
+    }
+
+    public ArrayList<String> fetchBanksNames()
+    {
+        ArrayList<Bank> bankList = new ArrayList<Bank>();
+        cursor = super.query(tableName, bankColumns, null, null, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Bank bank = cursorToEntity(cursor);
+                bankList.add(bank);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return getNames(bankList);
+    }
+
     public List<Bank> fetchAllBanks()
     {
         List<Bank> bankList = new ArrayList<Bank>();

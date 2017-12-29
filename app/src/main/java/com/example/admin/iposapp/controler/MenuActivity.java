@@ -231,7 +231,8 @@ public class MenuActivity extends AppCompatActivity
         }
         else if (id == R.id.pagos)
         {
-            ClientsMultipleCrepFragment cmcFragment = new ClientsMultipleCrepFragment();
+            //ClientsMultipleCrepFragment cmcFragment = new ClientsMultipleCrepFragment();
+            PaymentOptionsFragment cmcFragment = new PaymentOptionsFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
                     cmcFragment,

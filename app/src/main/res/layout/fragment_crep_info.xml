@@ -10,7 +10,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/client"
         android:textColor="#ffff"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
@@ -19,16 +18,30 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/payment_method"
         android:textColor="#ffff"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
-        android:id="@+id/text_view_payment_method"/>
+        android:id="@+id/text_view_client_name"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/total"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_view_payment_date"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:id="@+id/text_view_sale"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textColor="#ffff"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
@@ -37,19 +50,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reference"
         android:textColor="#ffff"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
-        android:id="@+id/text_view_reference"/>
+        android:id="@+id/text_view_balance"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/notes"
         android:textColor="#ffff"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
-        android:id="@+id/text_view_notes"/>
+        android:id="@+id/text_view_bank"/>
 
 </LinearLayout>

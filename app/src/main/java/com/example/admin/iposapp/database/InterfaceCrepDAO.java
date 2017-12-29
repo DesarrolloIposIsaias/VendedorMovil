@@ -15,8 +15,6 @@ public interface InterfaceCrepDAO
     boolean addCrep(Crep crep);
     boolean addCreps(List<Crep> creps);
     boolean deleteAllCreps();
-    List<Crep> searchByFirstLetter(char search);
-    boolean isEmpty();
     int getNumberOfCreps();
     boolean updateCrep(Crep crep);
 }

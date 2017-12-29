@@ -75,12 +75,48 @@ public class PaymentDetailDAO
 
     @Override
     public boolean addPaymentDetail(PaymentDetail paymentDetail) {
+
+
+        cursor = super.query(
+                tableName,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        String[] columnNames = cursor.getColumnNames();
+
         setContentValue(paymentDetail);
 
         try{
-            return super.insert(tableName, initialValues) > 0;
+            String query =
+                    "INSERT INTO " + tableName + "(" +
+                            columnPayment + "," +
+                            columnDate + "," +
+                            columnSale + "," +
+                            columnCharge + "," +
+                            columnPartialPayment + "," +
+                            columnBalance + "," +
+                            columnInterest + "," +
+                            columnNumber + ") " +
+
+                            "VALUES (" +
+                            "'" + paymentDetail.getPago() + "'," +
+                            "'" + paymentDetail.getFecha() + "'," +
+                            "'" + paymentDetail.getVenta() + "'," +
+                            "'" + paymentDetail.getCargo() + "'," +
+                            "'" + paymentDetail.getAbono() + "'," +
+                            "'" + paymentDetail.getSaldo() + "'," +
+                            "'" + paymentDetail.getIntereses() + "'," +
+                            "'" + paymentDetail.getNumero() + "')";
+
+            database.execSQL(query);
+
+            return true;
         }
-        catch (SQLiteConstraintException ex){
+        catch (Exception ex){
 
             Log.w("Database:", ex.getMessage());
             return false;

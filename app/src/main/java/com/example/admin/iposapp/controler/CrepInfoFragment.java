@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
+import com.example.admin.iposapp.utility.CurrentData;
 
 import org.w3c.dom.Text;
 
@@ -22,13 +24,18 @@ import org.w3c.dom.Text;
  */
 public class CrepInfoFragment extends DialogFragment {
 
+    private TextView clientTextView;
+    private TextView balanceTextView;
+    private Dialog dialog;
+    private TextView totalTextView;
+    private TextView saleTextView;
+    private TextView bankTextView;
+    private TextView paymentDateTextView;
+    private TextView clientNameTextView;
 
     public CrepInfoFragment() {
         // Required empty public constructor
     }
-
-    private Dialog dialog;
-
 
     @NonNull
     @Override
@@ -46,29 +53,42 @@ public class CrepInfoFragment extends DialogFragment {
         {
             viewCustom = inflater.inflate(R.layout.fragment_crep_info, null);
 
-            TextView clientTextView = (TextView) viewCustom.findViewById(
+            clientTextView = (TextView) view.findViewById(
                     R.id.text_view_client
             );
 
-            TextView paymentMethodTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_payment_method
+            balanceTextView = (TextView) view.findViewById(
+                    R.id.text_view_balance
             );
 
-            TextView totalTextView = (TextView) viewCustom.findViewById(
+            totalTextView = (TextView) view.findViewById(
                     R.id.text_view_total
             );
 
-            TextView referenceTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_reference
+            saleTextView = (TextView) view.findViewById(
+                    R.id.text_view_sale
             );
 
-            TextView notesTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_notes
+            bankTextView = (TextView) view.findViewById(
+                    R.id.text_view_bank
             );
+
+            paymentDateTextView = (TextView) view.findViewById(
+                    R.id.text_view_payment_date
+            );
+
+            clientNameTextView = (TextView) view.findViewById(
+                    R.id.text_view_client_name
+            );
+
+            loadData();
         }
-        catch (Exception e)
-        {
-
+        catch (Exception e) {
+            Toast.makeText(
+                    getContext(),
+                    "Problema al crear la vista",
+                    Toast.LENGTH_SHORT
+            ).show();
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -81,6 +101,39 @@ public class CrepInfoFragment extends DialogFragment {
     @Override
     public Dialog getDialog(){
         return dialog;
+    }
+
+    private void loadData(){
+        if(CurrentData.getSelectedCrep() != null){
+            String clientStr =
+                    "Cliente: " + CurrentData.getSelectedCrep().getNombre();
+            clientNameTextView.setText(clientStr);
+
+            String clientKeyStr =
+                    "Clave: " + CurrentData.getSelectedCrep().getCliente();
+            clientTextView.setText(clientKeyStr);
+
+            String paymentDateStr =
+                    "Fecha Pago: " + CurrentData.getSelectedCrep().getFechaPago();
+            paymentDateTextView.setText(paymentDateStr);
+
+            String totalStr =
+                    "Total: " + String.valueOf(CurrentData.getSelectedCrep().getTotal());
+            totalTextView.setText(totalStr);
+
+            String balanceStr =
+                    "Saldo: " + String.valueOf(CurrentData.getSelectedCrep().getSaldo());
+            balanceTextView.setText(balanceStr);
+
+            String bankStr =
+                    CurrentData.getSelectedCrep().getBanco() != null ?
+                    "Banco: " + CurrentData.getSelectedCrep().getBanco() :
+                    "Banco no especificado";
+            bankTextView.setText(bankStr);
+
+            String saleStr = "Venta: " + CurrentData.getSelectedCrep().getVenta();
+            saleTextView.setText(saleStr);
+        }
     }
 
 }

@@ -15,8 +15,10 @@ import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.model.Crep;
+import com.example.admin.iposapp.utility.CurrentData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sopor on 13/12/2017.
@@ -27,19 +29,22 @@ public class ListViewCrepAdapter
         implements View.OnClickListener {
 
     private ArrayList<Crep> dataSet;
+    private Fragment parent;
     Context context;
 
     private static class ViewHolder{
         TextView txtId;
         TextView txtClient;
+        TextView txtClientName;
         ImageView imgInfo;
         ImageView imgPayment;
     }
 
-    public ListViewCrepAdapter(@NonNull Context ctx, ArrayList<Crep> data) {
+    public ListViewCrepAdapter(@NonNull Context ctx, ArrayList<Crep> data, Fragment caller) {
         super(ctx, R.layout.crep_custom_row, data);
         dataSet = data;
         context = ctx;
+        parent = caller;
     }
 
     @Override
@@ -49,8 +54,8 @@ public class ListViewCrepAdapter
         Object object = getItem(position);
         Crep crep = (Crep)object;
 
+        CurrentData.setSelectedCrep(crep);
 
-        assert crep != null;
         switch (view.getId()){
             case R.id.item_info:
                 CrepInfoFragment crepInfoFragment = new CrepInfoFragment();
@@ -61,6 +66,7 @@ public class ListViewCrepAdapter
 
             case R.id.go_pay_crep:
                 SinglePaymentFragment fragment = new SinglePaymentFragment();
+                fragment.setTargetFragment(parent, 1);
                 fragment.show(
                         ((FragmentActivity)context).getSupportFragmentManager(),
                         "client_changed_dialog");
@@ -79,12 +85,14 @@ public class ListViewCrepAdapter
         final View result;
 
         if(convertView == null){
+
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
 
             convertView = inflater.inflate(R.layout.crep_custom_row, parent, false);
             viewHolder.txtId = (TextView) convertView.findViewById(R.id.crep_id);
             viewHolder.txtClient = (TextView) convertView.findViewById(R.id.crep_client);
+            viewHolder.txtClientName = (TextView) convertView.findViewById(R.id.crep_client_name);
             viewHolder.imgInfo = (ImageView) convertView.findViewById(R.id.item_info);
             viewHolder.imgPayment = (ImageView) convertView.findViewById(R.id.go_pay_crep);
 
@@ -97,13 +105,18 @@ public class ListViewCrepAdapter
         }
 
         assert crep != null;
-        viewHolder.txtId.setText(crep.getId());
+        viewHolder.txtId.setText(crep.getVenta());
         viewHolder.txtClient.setText(crep.getCliente());
+        viewHolder.txtClientName.setText(crep.getNombre());
         viewHolder.imgInfo.setOnClickListener(this);
         viewHolder.imgInfo.setTag(position);
         viewHolder.imgPayment.setOnClickListener(this);
         viewHolder.imgPayment.setTag(position);
 
         return convertView;
+    }
+
+    public List<Crep> getData(){
+        return dataSet;
     }
 }
