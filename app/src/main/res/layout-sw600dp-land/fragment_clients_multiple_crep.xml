@@ -17,7 +17,7 @@
         <AutoCompleteTextView
             android:privateImeOptions="nm"
             android:imeOptions="flagNoExtractUi"
-            android:layout_width="470dp"
+            android:layout_width="410dp"
             android:background="@drawable/roundedshadow_et"
             android:layout_height="70dp"
             android:inputType="textNoSuggestions|textUri"
@@ -30,7 +30,7 @@
             android:textColor="#ffff"
             android:visibility="visible"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="30dp"/>
 
         <info.hoang8f.widget.FButton
             android:layout_width="300dp"
@@ -46,7 +46,7 @@
             android:id="@+id/datePicker"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="115dp"
+            android:layout_marginLeft="130dp"
             android:layout_below="@+id/clientAutoCompleteTextView"
             />
 
@@ -62,11 +62,11 @@
             android:privateImeOptions="nm"
             android:imeOptions="flagNoExtractUi"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
             android:inputType="numberDecimal"
-            android:layout_width="470dp"
+            android:layout_width="410dp"
             android:layout_height="70dp"
             android:id="@+id/monto"
             android:background="@drawable/roundedshadow_et"
@@ -77,15 +77,15 @@
             android:layout_below="@+id/date"/>
 
         <TextView
-            android:layout_width="470dp"
+            android:layout_width="410dp"
             android:layout_height="70dp"
             android:textColor="#ffff"
             android:textAlignment="center"
             android:textSize="21dp"
             android:id="@+id/date"
             android:layout_centerInParent="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="70dp"
             android:layout_below="@+id/datePicker" />
 
     </LinearLayout>
@@ -97,21 +97,20 @@
         android:layout_below="@+id/linearLayout2">
 
         <Spinner
-            android:layout_width="470dp"
+            android:layout_width="410dp"
             android:layout_height="70dp"
             android:id="@+id/payForm"
             android:background="@drawable/roundedshadow_et"
             android:textColorHint="#ffffff"
             android:textColor="#ffffff"
             android:textAlignment="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/monto"/>
 
         <Spinner
-            android:layout_width="470dp"
+            android:layout_width="410dp"
             android:layout_height="70dp"
             android:id="@+id/bank"
             android:background="@drawable/roundedshadow_et"
@@ -119,7 +118,7 @@
             android:textColor="#ffffff"
             android:textAlignment="center"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="70dp"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/payForm"/>
@@ -136,11 +135,11 @@
             android:privateImeOptions="nm"
             android:imeOptions="flagNoExtractUi"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
             android:inputType="textNoSuggestions|textUri"
-            android:layout_width="470dp"
+            android:layout_width="410dp"
             android:layout_height="70dp"
             android:id="@+id/reference"
             android:background="@drawable/roundedshadow_et"
@@ -154,11 +153,11 @@
             android:privateImeOptions="nm"
             android:imeOptions="flagNoExtractUi"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginLeft="70dp"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
             android:inputType="textNoSuggestions|textUri"
-            android:layout_width="470dp"
+            android:layout_width="410dp"
             android:layout_height="70dp"
             android:id="@+id/notes"
             android:background="@drawable/roundedshadow_et"
@@ -179,13 +178,11 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
         android:textColor="#ffff"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:text="Siguiente paso"
         android:id="@+id/nextStep"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="330dp"
         android:layout_below="@+id/linearLayout4"
         />
 

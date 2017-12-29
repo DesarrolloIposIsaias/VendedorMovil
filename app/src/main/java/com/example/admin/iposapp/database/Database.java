@@ -73,6 +73,18 @@ public class   Database
         return this;
     }
 
+    public void beginTransaction(){
+        dataBase.getWritableDatabase().beginTransaction();
+    }
+
+    public void commitTransaction(){
+        dataBase.getWritableDatabase().setTransactionSuccessful();
+    }
+
+    public void closeTransaction(){
+        dataBase.getWritableDatabase().endTransaction();
+    }
+
     public void close()
     {
         SQLiteDatabase db = dataBase.getWritableDatabase();

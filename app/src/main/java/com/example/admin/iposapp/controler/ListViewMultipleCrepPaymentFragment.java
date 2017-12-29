@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
-import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
 import com.example.admin.iposapp.utility.CurrentData;
@@ -57,7 +56,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
 
             Database db = new Database(this.getContext());
             db.open();
-            creps = (ArrayList<Crep>) Database.crepDAO.fetchCrepsByClient(getClientCode(CurrentData.getActualMultiplePaymentHeader().getClient()));
+            creps = (ArrayList<Crep>) Database.crepDAO.fetchCrepsByClientList(getClientCode(CurrentData.getActualMultiplePaymentHeader().getClient()));
             db.close();
 
             aCuentaTxtVw = (TextView) view.findViewById(R.id.quantity);

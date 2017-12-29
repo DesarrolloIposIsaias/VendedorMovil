@@ -1,0 +1,246 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.iposapp.controler.PayInfoFragment"
+    android:background="#0F4057"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Factura"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/factura"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtFactura"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Estatus"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/estatus"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtEstatus"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/linearLayout"
+        >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Cobranza"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/cobranza"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtCobranza"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Venta"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/venta"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtVenta"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/linearLayout3"
+        android:layout_below="@+id/linearLayou2"
+        >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/total"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtTotal"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Saldo movil"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/saldoMovil"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtSaldoMovil"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/linearLayout4"
+        android:layout_below="@+id/linearLayout3">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Pago actual"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/pagoActual"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtPagoActual"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Anticipo actual"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/anticipoActual"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtAnticipoActual"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/linearLayout5"
+        android:layout_below="@+id/linearLayout4">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Saldo despues"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/saldoDespues"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtSaldoDespues"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Abonos movil"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/abonosMovil"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtAbonosMovil"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/linearLayout6"
+        android:layout_below="@+id/linearLayout5">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Dias"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/dias"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtDias"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="A cuenta"
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/aCuenta"/>
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#ffff"
+            android:layout_marginTop="8dp"
+            android:id="@+id/txtACuenta"/>
+
+    </LinearLayout>
+
+</LinearLayout>

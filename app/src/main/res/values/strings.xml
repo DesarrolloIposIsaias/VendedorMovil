@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">iPosApp</string>
 
-    <!-- Strings related to login -->
+    <!-- Login strings -->
     <string name="prompt_email"><font fgcolor="white">Email</font></string>
     <string name="prompt_password"><font fgcolor="white">Password</font></string>
     <string name="action_sign_in">Sign in or register</string>
@@ -104,8 +104,18 @@
     <string name="company">Empresa</string>
     <string name="branch">Sucursal</string>
     <string name="payment_method">METODO DE PAGO</string>
+    <string name="cliente">Cliente</string>
+    <string name="Sale">Venta</string>
+    <string name="bank">Banco</string>
+    <string name="balance">Saldo</string>
+    <string name="payment_amount">Monto</string>
     <string name="reference">Referencia</string>
     <string name="notes">Notas</string>
+    <string name="apply">Aplicar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="set_date">Seleccionar fecha</string>
+    <string name="new_payment">Nuevo</string>
+    <string name="admin">Administar</string>
 
     <string-array name="days">
         <item>LUNES</item>

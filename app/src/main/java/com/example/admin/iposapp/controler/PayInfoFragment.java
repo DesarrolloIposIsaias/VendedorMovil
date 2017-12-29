@@ -10,9 +10,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.admin.iposapp.R;
+import com.example.admin.iposapp.utility.CurrentData;
 
 import org.w3c.dom.Text;
 
@@ -26,6 +28,20 @@ public class PayInfoFragment extends DialogFragment {
         // Required empty public constructor
     }
 
+    Bundle mArgs = CurrentData.getItemMultipleCrep();
+    public String factura = mArgs.getString("Factura");
+    public String estatus = mArgs.getString("Estatus");
+    public String cobranza = mArgs.getString("Cobranza");
+    public String venta = mArgs.getString("Venta");
+    public String total = mArgs.getString("Total");
+    public String saldoMovil = mArgs.getString("SaldoMovil");
+    public String pagoActual = mArgs.getString("PagoActual");
+    public String anticipoActual = mArgs.getString("AnticipoActual");
+    public String saldoDespues = mArgs.getString("SaldoDespues");
+    public String abonosMovil = mArgs.getString("AbonosMovil");
+    public String dias = mArgs.getString("Dias");
+    public String aCuenta = mArgs.getString("ACuenta");
+
     private Dialog dialog;
 
     @NonNull
@@ -33,7 +49,7 @@ public class PayInfoFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         LayoutInflater inflater;
-        View view, viewCustom;
+        View view;
         Context context;
 
         inflater = getActivity().getLayoutInflater();
@@ -42,27 +58,78 @@ public class PayInfoFragment extends DialogFragment {
 
         try
         {
-            viewCustom = inflater.inflate(R.layout.fragment_pay_info, null);
 
-            TextView clientTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_client
+            TextView facturaTV = (TextView) view.findViewById(
+                    R.id.txtFactura
             );
 
-            TextView paymentMethodTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_payment_method
+            facturaTV.setText(factura != null ? factura.toString() : "No asignado");
+
+            TextView estatusTV = (TextView) view.findViewById(
+                    R.id.txtEstatus
             );
 
-            TextView totalTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_total
+            estatusTV.setText(estatus != null ? estatus : "No asignado");
+
+            TextView cobranzaTV = (TextView) view.findViewById(
+                    R.id.txtCobranza
             );
 
-            TextView referenceTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_reference
+            cobranzaTV.setText(cobranza);
+
+            TextView ventaTV = (TextView) view.findViewById(
+                    R.id.txtVenta
             );
 
-            TextView notesTextView = (TextView) viewCustom.findViewById(
-                    R.id.text_view_notes
+            ventaTV.setText(venta);
+
+            TextView totalTV = (TextView) view.findViewById(
+                    R.id.txtTotal
             );
+
+            totalTV.setText(total);
+
+            TextView saldoMovilTV = (TextView) view.findViewById(
+                    R.id.txtSaldoMovil
+            );
+
+            saldoMovilTV.setText(saldoMovil);
+
+            TextView pagoActualTV = (TextView) view.findViewById(
+                    R.id.txtPagoActual
+            );
+
+            pagoActualTV.setText(pagoActual);
+
+            TextView anticipoActualTV = (TextView) view.findViewById(
+                    R.id.txtAnticipoActual
+            );
+
+            anticipoActualTV.setText(anticipoActual);
+
+            TextView saldoDespuesTV = (TextView) view.findViewById(
+                    R.id.txtSaldoDespues
+            );
+
+            saldoDespuesTV.setText(saldoDespues);
+
+            TextView abonosMovilTV = (TextView) view.findViewById(
+                    R.id.txtAbonosMovil
+            );
+
+            abonosMovilTV.setText(abonosMovil);
+
+            TextView diasTV = (TextView) view.findViewById(
+                    R.id.txtDias
+            );
+
+            diasTV.setText(dias);
+
+            TextView aCuentaTV = (TextView) view.findViewById(
+                    R.id.txtACuenta
+            );
+
+            aCuentaTV.setText(aCuenta);
         }
         catch (Exception e)
         {

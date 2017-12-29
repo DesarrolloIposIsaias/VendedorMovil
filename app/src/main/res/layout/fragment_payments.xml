@@ -4,7 +4,7 @@
     xmlns:htext="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".controler.ClientsCrepFragment"
+    tools:context=".controler.PaymentsFragment"
     android:visibility="visible"
     >
 
@@ -29,7 +29,7 @@
             android:inputType="textNoSuggestions|textUri"
             android:singleLine="true"
             android:scrollHorizontally="true"
-            android:id="@+id/edit_text_filter"
+            android:id="@+id/edit_text_filter_payments"
             android:hint="@string/filter"
             android:textColorHint="#FFFF"
             android:layout_gravity="center"
@@ -42,13 +42,13 @@
 
         <info.hoang8f.widget.FButton
 
-            android:id="@+id/button_filter"
+            android:id="@+id/button_filter_payments"
             android:layout_width="100dp"
             android:layout_height="35dp"
             android:text="@string/search"
             android:textAlignment="center"
             android:textColor="#ffff"
-            android:layout_below="@id/edit_text_filter"
+            android:layout_below="@id/edit_text_filter_payments"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             fbutton:buttonColor="#144257"

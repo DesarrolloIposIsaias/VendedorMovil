@@ -1,28 +1,51 @@
 package com.example.admin.iposapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by sopor on 12/12/2017.
  */
 
-public class Payment {
+public class Payment implements java.io.Serializable{
 
-    private String pago;
+    @SerializedName("Venta")
+    @Expose
+    private String venta;
+    @SerializedName("Fecha")
+    @Expose
     private String fecha;
+    @SerializedName("Tipo")
+    @Expose
     private String tipo;
+    @SerializedName("Banco")
+    @Expose
     private String banco;
+    @SerializedName("IdNum")
+    @Expose
     private String idNum;
+    @SerializedName("Importe")
+    @Expose
     private String importe;
+    @SerializedName("Saldo")
+    @Expose
     private String saldo;
+    @SerializedName("Intereses")
+    @Expose
     private String intereses;
+    @SerializedName("FolioDeposito")
+    @Expose
     private String folioDeposito;
+    @SerializedName("Id")
+    @Expose
     private String id;
 
-    public String getPago() {
-        return pago;
+    public String getVenta() {
+        return venta;
     }
 
-    public void setPago(String pago) {
-        this.pago = pago;
+    public void setVenta(String venta) {
+        this.venta = venta;
     }
 
     public String getFecha() {
