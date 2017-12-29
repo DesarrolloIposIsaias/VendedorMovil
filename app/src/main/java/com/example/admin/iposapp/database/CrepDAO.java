@@ -77,6 +77,28 @@ public class CrepDAO extends DbContentProvider
         return crepList;
     }
 
+    public List<Crep> fetchCrepsByClient(String cliente)
+    {
+        final String selectionArgs[] = {String.valueOf(cliente)};
+        final String selection =  "cliente = '" + cliente + "' ";
+        List<Crep> crepList = new ArrayList<Crep>();
+        cursor = super.query(tableName, crepColumns, selection, null, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Crep crep = cursorToEntity(cursor);
+                crepList.add(crep);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return crepList;
+    }
+
     public boolean addCrep(Crep crep)
     {
         setContentValue(crep);
