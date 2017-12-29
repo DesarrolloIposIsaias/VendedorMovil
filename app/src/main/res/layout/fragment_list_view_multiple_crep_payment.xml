@@ -65,17 +65,58 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayout">
+        android:layout_below="@+id/relativeLayout"
+        android:id="@+id/relativeLayout5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/linearLayout2">
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="5dp"
+                android:textSize="18dp"
+                android:hint="Venta"
+                />
+            <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:layout_marginLeft="18dp"
+                android:textSize="18dp"
+            android:hint="Total"
+            />
 
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="0dp"
+                android:textSize="18dp"
+                android:hint="Saldo mov"
+                />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="55dp"
+                android:textSize="18dp"
+                android:hint="Abono"
+                />
+        </LinearLayout>
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:longClickable="true"
             android:id="@+id/lvCreps"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout2"/>
 
     </RelativeLayout>
+
 
 
 

@@ -1,7 +1,9 @@
 package com.example.admin.iposapp.controler;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.model.Crep;
+import com.example.admin.iposapp.utility.CurrentData;
 
 import java.util.ArrayList;
 
@@ -46,14 +49,28 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         Object object = getItem(position);
         Crep crep = (Crep)object;
 
-
         assert crep != null;
         switch (view.getId()){
             case R.id.item_info:
-                Toast.makeText(
-                        context,
-                        "Id pressed: " + crep.getId(),
-                        Toast.LENGTH_LONG).show();
+                Bundle args = new Bundle();
+                args.putString("Factura", crep.getFactura());
+                args.putString("Estatus", crep.getEstatus());
+                args.putString("Cobranza", crep.getCobranza());
+                args.putString("Venta", crep.getVenta());
+                args.putString("Total", Float.toString(crep.getTotal()));
+                args.putString("SaldoMovil", Float.toString(crep.getSaldo()));
+                args.putString("PagoActual", Float.toString(crep.getPago()));
+                args.putString("AnticipoActual", "Anticipo");
+                args.putString("SaldoDespues", "Saldo después");
+                args.putString("AbonosMovil", "Abono movi");
+                args.putString("Dias", Float.toString(crep.getDias()));
+                args.putString("ACuenta", Float.toString(crep.getaCuenta()));
+
+                CurrentData.setItemMultipleCrep(args);
+                PayInfoFragment payInfoFragment = new PayInfoFragment();
+                payInfoFragment.show(
+                        ((FragmentActivity)context).getSupportFragmentManager(),
+                        "client_changed_dialog");
                 break;
 
             case R.id.crep_abono:

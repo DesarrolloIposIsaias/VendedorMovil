@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/crep_sale"
-        android:layout_width="70dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/crep_total"
-        android:layout_width="70dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
@@ -27,7 +27,7 @@
 
     <TextView
         android:id="@+id/crep_saldo_movil"
-        android:layout_width="70dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
@@ -40,12 +40,12 @@
         android:src="@drawable/icons8_eye_50"
         android:layout_centerVertical="true"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="300dp"
         android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/crep_abono"
-        android:layout_width="70dp"
+        android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
