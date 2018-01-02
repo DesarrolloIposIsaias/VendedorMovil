@@ -47,7 +47,6 @@
             android:textColor="#ffff"
             android:textColorHint="#ffff"
             android:hint="@string/branch"
-            android:inputType="textPassword"
             android:layout_below="@id/edit_text_company"
             android:layout_centerHorizontal="true"/>
 
