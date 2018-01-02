@@ -63,6 +63,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
             aCuentaAbonadaTxtVw = (TextView) view.findViewById(R.id.abonadoQty);
             crepsListView = (ListView)view.findViewById(R.id.lvCreps);
             listViewCrepAdapter = new ListViewMultipleCrepAdapter(getContext(), creps);
+            goApplyPaymentBtn = (Button)view.findViewById(R.id.applyBtn);
 
             crepsListView.setAdapter(listViewCrepAdapter);
 
@@ -72,6 +73,12 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
             ex.printStackTrace();
         }
 
+        goApplyPaymentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         return view;
     }
