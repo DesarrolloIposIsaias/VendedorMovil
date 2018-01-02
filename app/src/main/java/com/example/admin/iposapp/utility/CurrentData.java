@@ -10,7 +10,7 @@ import com.example.admin.iposapp.model.Settings;
 
 import java.util.List;
 
-/**
+/*
  * Created by admin on 29/06/2016.
  */
 public class CurrentData
