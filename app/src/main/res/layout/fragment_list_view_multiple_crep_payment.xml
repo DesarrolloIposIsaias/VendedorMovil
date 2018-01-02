@@ -9,7 +9,7 @@
     <RelativeLayout
 
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_gravity="center"
         android:background="#144257"
         android:id="@+id/relativeLayout"
@@ -18,11 +18,40 @@
         android:layout_margin="0dp">
 
         <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="#144257"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="0dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="A cuenta: "
+            android:textSize="20dp"
+            android:textColor="#ffff"
+            android:id="@+id/monto"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text=""
+            android:textSize="20dp"
+            android:textColor="#ffff"
+            android:id="@+id/quantity"
+            />
+    </LinearLayout>
+        <LinearLayout
             android:layout_width="400dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="#144257"
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayout3"
+            android:layout_below="@+id/linearLayout"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_margin="0dp"
@@ -30,19 +59,19 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:text="A cuenta: "
+                android:layout_height="35dp"
+                android:text="Abonado: "
                 android:textSize="20dp"
                 android:textColor="#ffff"
-                android:id="@+id/monto"
+                android:id="@+id/abonado"
                 />
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="45dp"
+                android:layout_height="35dp"
                 android:text=""
                 android:textSize="20dp"
                 android:textColor="#ffff"
-                android:id="@+id/quantity"
+                android:id="@+id/abonadoQty"
                 />
         </LinearLayout>
         <info.hoang8f.widget.FButton
@@ -52,7 +81,7 @@
             android:text="Aplicar"
             android:textAlignment="center"
             android:textColor="#ffff"
-            android:layout_below="@id/linearLayout"
+            android:layout_below="@id/linearLayout3"
             android:layout_centerHorizontal="true"
             fbutton:buttonColor="#144257"
             fbutton:cornerRadius="5dp"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/crep_id"
+        android:id="@+id/payment_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,39 +16,29 @@
 
 
     <TextView
-        android:id="@+id/crep_client"
+        android:id="@+id/payment_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/crep_id"
+        android:layout_below="@+id/payment_id"
         android:layout_marginTop="5dp"
         android:textColor="@android:color/black" />
 
     <TextView
-        android:id="@+id/crep_client_name"
+        android:id="@+id/payment_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/crep_client"
+        android:layout_below="@+id/payment_amount"
         android:layout_marginTop="5dp"
         android:textColor="@android:color/black" />
-    
-    <ImageView
-        android:id="@+id/item_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_info"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="300dp"
-        android:contentDescription="@string/todo"
-        android:layout_marginStart="300dp" />
 
     <ImageView
-        android:id="@+id/go_pay_crep"
+        android:id="@+id/cancel_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_pay"
+        android:src="@mipmap/cancelred"
         android:contentDescription="@string/todo" />
 
 </RelativeLayout>

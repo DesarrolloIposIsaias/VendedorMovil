@@ -5,8 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
-import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Payment;
 
 import java.util.ArrayList;
@@ -48,6 +48,25 @@ public class PaymentDAO
         return payment;
     }
 
+    public ArrayList<Payment> fetchPayments() {
+        ArrayList<Payment> paymentList = new ArrayList<Payment>();
+        cursor = super.query(tableName, paymentColumns, null, null, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Payment payment = cursorToEntity(cursor);
+                paymentList.add(payment);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return paymentList;
+    }
+
     @Override
     public List<Payment> fetchAllPayments() {
         List<Payment> paymentList = new ArrayList<Payment>();
@@ -68,16 +87,52 @@ public class PaymentDAO
         return paymentList;
     }
 
+    public boolean deletePayment(String id){
+        try{
+            String selection = columnId + " = ?";
+            String[] selectionArgs = new String[]{id};
+
+            return super.delete(tableName, selection, selectionArgs) > 0;
+
+        }
+        catch (Exception e){
+
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Payment getLastInserted(){
+        List<Payment> paymentList = new ArrayList<Payment>();
+        cursor = super.query(tableName, paymentColumns, null, null, columnId);
+
+        Payment payment = null;
+
+        if(cursor != null)
+        {
+            cursor.moveToLast();
+            payment = cursorToEntity(cursor);
+
+            cursor.close();
+        }
+
+        return payment;
+    }
+
     @Override
     public boolean addPayment(Payment payment) {
         setContentValue(payment);
 
         try{
-            return super.insert(tableName, initialValues) > 0;
+
+            long res = super.insert(tableName, initialValues);
+
+            return res > 0;
         }
-        catch (SQLiteConstraintException ex){
+        catch (Exception ex){
 
             Log.w("Database:", ex.getMessage());
+
             return false;
         }
     }
@@ -137,7 +192,7 @@ public class PaymentDAO
             if(cursor.getColumnIndex(columnPayment) != -1)
             {
                 int paymentIndex = cursor.getColumnIndexOrThrow(columnPayment);
-                payment.setPago(cursor.getString(paymentIndex));
+                payment.setVenta(cursor.getString(paymentIndex));
             }
 
             if(cursor.getColumnIndex(columnDate) != -1)
@@ -197,7 +252,7 @@ public class PaymentDAO
 
         initialValues = new ContentValues();
         initialValues.put(columnId, payment.getId());
-        initialValues.put(columnPayment, payment.getPago());
+        initialValues.put(columnPayment, payment.getVenta());
         initialValues.put(columnDate, payment.getFecha());
         initialValues.put(columnType, payment.getTipo());
         initialValues.put(columnBank, payment.getBanco());

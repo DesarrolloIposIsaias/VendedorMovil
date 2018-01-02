@@ -57,10 +57,106 @@ public class CrepDAO extends DbContentProvider
         return crep;
     }
 
+    public boolean updateCrepBalance(float saldo, float partialPayment, String id){
+
+        String newBalance = String.valueOf(saldo-partialPayment);
+
+        try{
+
+            initialValues = new ContentValues();
+            initialValues.put(columnSaldo, newBalance);
+
+            String selection = columnSale + " = ?";
+            String[] selectionArgs = new String[]{id};
+
+            return super.update(tableName, initialValues, selection, selectionArgs) > 0;
+        }
+        catch (Exception e){
+
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public ArrayList<Crep> fetchCrepsByClient(String client){
+        ArrayList<Crep> crepList = new ArrayList<>();
+
+        String selectionStr = columnClient + " = ? and " + columnSaldo + " > 0";
+        String[] selectionArgs = new String[]{client};
+        cursor = super.query(tableName, crepColumns, selectionStr, selectionArgs, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast()) {
+                Crep crep = cursorToEntity(cursor);
+                crepList.add(crep);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return crepList;
+    }
+
+    public ArrayList<Crep> fetchMatchingCreps(String filter, String clientId){
+
+        try{
+            ArrayList<Crep> crepList = new ArrayList<Crep>();
+
+            String query = " SELECT * FROM " + tableName +
+                           " WHERE (" + columnVendedor + " LIKE '%"+filter+"%' OR " +
+                                       columnSale + " LIKE '%"+filter+"%' OR " +
+                                       columnId + " LIKE '%"+filter+"%') AND " +
+                                       columnClient + " = '" + clientId + "'";
+
+            cursor = super.rawQuery(query, null);
+
+            if(cursor != null)
+            {
+                cursor.moveToFirst();
+                while(!cursor.isAfterLast())
+                {
+                    Crep crep = cursorToEntity(cursor);
+                    crepList.add(crep);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+            }
+
+            return crepList;
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
     public List<Crep> fetchAllCreps()
     {
         List<Crep> crepList = new ArrayList<Crep>();
         cursor = super.query(tableName, crepColumns, null, null, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Crep crep = cursorToEntity(cursor);
+                crepList.add(crep);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return crepList;
+    }
+
+    public List<Crep> fetchCrepsByClientList(String cliente)
+    {
+        final String selectionArgs[] = {String.valueOf(cliente)};
+        final String selection =  "cliente = '" + cliente + "' ";
+        List<Crep> crepList = new ArrayList<Crep>();
+        cursor = super.query(tableName, crepColumns, selection, null, columnId);
 
         if(cursor != null)
         {
@@ -371,46 +467,6 @@ public class CrepDAO extends DbContentProvider
     private ContentValues getContentValue()
     {
         return initialValues;
-    }
-
-    public List<Crep> searchByFirstLetter(char search)
-    {
-        List<Crep> crepList = new ArrayList<Crep>();
-        cursor = database.rawQuery("SELECT * FROM CREP WHERE id LIKE '" +
-                search +"%' or nombre like '"+ search + "%' or cliente like '"+ search + "%'", null);
-
-        Log.w("FETCH BANK", "SELECT * FROM CREP WHERE id LIKE '" +
-                search +"%' or nombre like '"+ search + "%' or cliente like '"+ search + "%'");
-
-        if(cursor != null)
-        {
-            cursor.moveToFirst();
-            while(!cursor.isAfterLast())
-            {
-                Crep crep = cursorToEntity(cursor);
-                crepList.add(crep);
-                cursor.moveToNext();
-            }
-            cursor.close();
-        }
-        else
-        {
-            Log.w("Crep", "NOT FOUND");
-        }
-
-        return crepList;
-
-    }
-
-    @Override
-    public boolean isEmpty()
-    {
-        cursor = super.rawQuery("SELECT " + columnId +
-                " FROM " + tableName +
-                " WHERE " + columnId +
-                " LIKE '%1'", null);
-
-        return cursor.getCount() < 1;
     }
 
     @Override

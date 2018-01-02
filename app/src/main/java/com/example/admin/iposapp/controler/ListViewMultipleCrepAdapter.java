@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
  * Created by Desarrollo IPOS on 14/12/2017.
  */
 
-public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements View.OnClickListener{
+public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements View.OnClickListener, View.OnFocusChangeListener{
 
     private ArrayList<Crep> dataSet;
     Context context;
@@ -35,6 +36,9 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         ImageView imgInfo;
         EditText actualPayment;
     }
+    private EditText auxEditText;
+   // private TextView aCuentaTxtVw;
+    private float auxAcount;
 
     public ListViewMultipleCrepAdapter(@NonNull Context ctx, ArrayList<Crep> data) {
         super(ctx, R.layout.multiple_crep_custom_row, data);
@@ -82,6 +86,30 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         }
     }
 
+    @Override
+    public void onFocusChange(View view, boolean hasFocus) {
+    /* When focus is lost check that the text field
+    * has valid values.
+    *
+    *
+    */
+        int position = (Integer) view.getTag();
+        Object object = getItem(position);
+        Crep crep = (Crep)object;
+
+
+        assert crep != null;
+        switch (view.getId()){
+            case R.id.crep_abono:
+                if (!hasFocus) {
+
+                    recalculateACount();
+                }
+
+                break;
+        }
+    }
+
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
@@ -95,6 +123,7 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         if(convertView == null){
             viewHolder = new ListViewMultipleCrepAdapter.ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
+
 
             convertView = inflater.inflate(R.layout.multiple_crep_custom_row, parent, false);
             viewHolder.txtSale = (TextView) convertView.findViewById(R.id.crep_sale);
@@ -119,7 +148,23 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         viewHolder.imgInfo.setTag(position);
         viewHolder.actualPayment.setOnClickListener(this);
         viewHolder.actualPayment.setTag(position);
+        viewHolder.actualPayment.setOnFocusChangeListener(this);
 
         return convertView;
+    }
+
+    private void recalculateACount(){
+        Float totalAuxCount = Float.valueOf(0);
+        for(int i=0; i<this.getCount(); i++)
+        {
+            View v = this.getView(i, ListViewMultipleCrepPaymentFragment.crepsListView.getChildAt(i),ListViewMultipleCrepPaymentFragment.crepsListView );
+            auxEditText = (EditText) v.findViewById(R.id.crep_abono);
+            if(auxEditText != null && auxEditText.getText().length() > 0)
+            {
+                totalAuxCount += Float.parseFloat(auxEditText.getText().toString());
+            }
+        }
+
+        ListViewMultipleCrepPaymentFragment.aCuentaAbonadaTxtVw.setText(totalAuxCount.toString());
     }
 }

@@ -5,7 +5,7 @@ package com.example.admin.iposapp.database;
  */
 
 public interface InterfacePaymentSchema {
-    String tableName = "PAYMENT";
+    String tableName = "PAGO";
     String columnId = "id";
     String columnPayment = "pago";
     String columnDate = "fecha";
