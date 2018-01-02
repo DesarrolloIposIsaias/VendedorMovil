@@ -196,7 +196,8 @@ public class ClientsMultipleCrepFragment extends Fragment {
                         }
                     }
                     CurrentData.setActualMultiplePaymentHeader(paymentHeader);
-                    ListViewMultipleCrepPaymentFragment cmcFragment = new ListViewMultipleCrepPaymentFragment();
+                    ListViewMultipleCrepPaymentFragment cmcFragment =
+                            new ListViewMultipleCrepPaymentFragment();
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
                             cmcFragment,
