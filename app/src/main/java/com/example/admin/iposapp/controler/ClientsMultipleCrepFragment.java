@@ -29,6 +29,7 @@ import com.example.admin.iposapp.model.Bank;
 import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.model.MultiplePaymentHeader;
+import com.example.admin.iposapp.model.Payment;
 import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
 import com.example.admin.iposapp.utility.CurrentData;
 
@@ -58,6 +59,7 @@ public class ClientsMultipleCrepFragment extends Fragment {
     private List<Bank> banks;
     private ArrayList<String> banksName;
     public MultiplePaymentHeader paymentHeader;
+    private Database db;
 
 
     static final int DIALOG_ID = 0;
@@ -76,7 +78,7 @@ public class ClientsMultipleCrepFragment extends Fragment {
                 container,
                 false);
 
-        Database db = new Database(this.getContext());
+        db = new Database(this.getContext());
         db.open();
         clients = (ArrayList<Client>) Database.clientDao.fetchAllClients();
         banks = Database.bankDAO.fetchAllBanks();
@@ -196,12 +198,59 @@ public class ClientsMultipleCrepFragment extends Fragment {
                         }
                     }
                     CurrentData.setActualMultiplePaymentHeader(paymentHeader);
-                    ListViewMultipleCrepPaymentFragment cmcFragment =
-                            new ListViewMultipleCrepPaymentFragment();
-                    FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
-                            cmcFragment,
-                            cmcFragment.getTag()).commit();
+
+                    try{
+                        Payment payment = createPayment();
+
+                        if (payment == null)
+                            throw new Exception("Problema al obtener datos de pago");
+
+                        db.open();
+                        db.beginTransaction();
+
+                        boolean success = Database.paymentDAO.addPayment(payment);
+
+                        if(!success)
+                            throw new Exception("Problema al agregar pago");
+
+                        payment = Database.paymentDAO.getLastInserted();
+
+                        if(payment == null)
+                            throw new Exception("Problema al obtener ultimo registro insertado");
+
+
+
+
+
+
+
+                        db.commitTransaction();
+
+                        Toast.makeText(
+                                getContext(),
+                                "Proceso exitoso",
+                                Toast.LENGTH_SHORT
+                        ).show();
+
+                        ListViewMultipleCrepPaymentFragment cmcFragment = new ListViewMultipleCrepPaymentFragment();
+                        FragmentManager fragmentManager = getFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
+                                cmcFragment,
+                                cmcFragment.getTag()).commit();
+                    }
+                    catch (Exception e){
+                        Toast.makeText(
+                                getContext(),
+                                e.getMessage(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                    finally {
+                        db.closeTransaction();
+                        db.close();
+                        //getDialog().dismiss();
+                    }
+
                 }
             }
         });
@@ -266,6 +315,27 @@ public class ClientsMultipleCrepFragment extends Fragment {
         for (Bank item : banks)
         {
             banksName.add(item.getNombre());
+        }
+    }
+
+    private Payment createPayment(){
+
+        try{
+            Payment payment = new Payment();
+            payment.setFolioDeposito(referenciasTxtVw.getText().toString());
+            //payment.setIntereses(String.valueOf(CurrentData.getSelectedCrep().getIntereses()));
+            //payment.setSaldo(String.valueOf(CurrentData.getSelectedCrep().getSaldo()));
+            payment.setFecha(dateTxtVw.getText().toString());
+            payment.setBanco(bankSpinner.getSelectedItem().toString());
+            payment.setVenta("0");
+            payment.setTipo(payFormSpinner.getSelectedItem().toString());
+            payment.setImporte(montoTxtVw.getText().toString());
+
+            return payment;
+        }
+        catch (Exception e){
+
+            return null;
         }
     }
 

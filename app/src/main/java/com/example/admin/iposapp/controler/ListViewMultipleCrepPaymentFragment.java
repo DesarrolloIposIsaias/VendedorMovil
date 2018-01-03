@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.Crep;
+import com.example.admin.iposapp.model.Payment;
+import com.example.admin.iposapp.model.PaymentDetail;
 import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
 import com.example.admin.iposapp.utility.CurrentData;
 
@@ -37,7 +39,9 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
     private ListViewMultipleCrepAdapter listViewCrepAdapter;
     public static TextView aCuentaTxtVw;
     public static TextView aCuentaAbonadaTxtVw;
+    private Database db;
     private EditText auxEditText;
+
 
 
     public ListViewMultipleCrepPaymentFragment() {
@@ -54,7 +58,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
         try{
             creps = new ArrayList<>();
 
-            Database db = new Database(this.getContext());
+            db = new Database(this.getContext());
             db.open();
             creps = (ArrayList<Crep>) Database.crepDAO.fetchCrepsByClientList(getClientCode(CurrentData.getActualMultiplePaymentHeader().getClient()));
             db.close();
@@ -63,6 +67,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
             aCuentaAbonadaTxtVw = (TextView) view.findViewById(R.id.abonadoQty);
             crepsListView = (ListView)view.findViewById(R.id.lvCreps);
             listViewCrepAdapter = new ListViewMultipleCrepAdapter(getContext(), creps);
+            goApplyPaymentBtn = (Button)view.findViewById(R.id.applyBtn);
 
             crepsListView.setAdapter(listViewCrepAdapter);
 
@@ -72,10 +77,107 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
             ex.printStackTrace();
         }
 
+        goApplyPaymentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Float.parseFloat(aCuentaTxtVw.getText().toString()) >= Float.parseFloat(aCuentaAbonadaTxtVw.getText().toString())) {
+                    try {
+                        Payment payment;
+
+
+                        db.open();
+                        db.beginTransaction();
+
+                        boolean success;
+                        payment = Database.paymentDAO.getLastInserted();
+
+                        if (payment == null)
+                            throw new Exception("Problema al obtener ultimo registro insertado");
+
+                        PaymentDetail paymentDetail;
+
+                        for (int i = 0; i < listViewCrepAdapter.getCount(); i++) {
+                            paymentDetail = new PaymentDetail();
+                            View v = listViewCrepAdapter.getView(i, ListViewMultipleCrepPaymentFragment.crepsListView.getChildAt(i), ListViewMultipleCrepPaymentFragment.crepsListView);
+                            auxEditText = (EditText) v.findViewById(R.id.crep_abono);
+                            if (auxEditText != null && auxEditText.getText().length() > 0) {
+                                paymentDetail = createPaymentDetail(payment.getId(), auxEditText.getText().toString(), i);
+                                if (paymentDetail == null) {
+                                    throw new Exception("Problema al craer el detalle del pago");
+                                }
+
+                                success = Database.paymentDetailDAO.addPaymentDetail(paymentDetail);
+
+                                if (!success) {
+                                    throw new Exception("Problema al agregar detalle de pago");
+                                }
+
+                                success = Database.crepDAO.updateCrepBalance(
+                                        creps.get(i).getSaldo(),
+                                        Float.valueOf(auxEditText.getText().toString()),
+                                        creps.get(i).getVenta()
+                                );
+
+                                if (!success) {
+                                    throw new Exception("Problema al actualizar saldo de venta");
+                                }
+                            }
+
+                        }
+
+                        db.commitTransaction();
+
+                        Toast.makeText(
+                                getContext(),
+                                "Proceso exitoso",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    } catch (Exception e) {
+                        Toast.makeText(
+                                getContext(),
+                                e.getMessage(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    } finally {
+                        db.closeTransaction();
+                        db.close();
+                        //getDialog().dismiss();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(
+                            getContext(),
+                            "La cantidad abonada es mayor a la cantidad del pago",
+                            Toast.LENGTH_LONG
+                    ).show();
+                }
+            }
+        });
 
         return view;
     }
 
+    private PaymentDetail createPaymentDetail(String pago, String selectedAmount, int actualPosition){
+
+        try{
+            PaymentDetail paymentDetail = new PaymentDetail();
+
+            paymentDetail.setIntereses(String.valueOf(creps.get(actualPosition).getIntereses()));
+            paymentDetail.setSaldo(String.valueOf(creps.get(actualPosition).getSaldo()));
+            paymentDetail.setFecha(CurrentData.getActualMultiplePaymentHeader().getDate());
+            paymentDetail.setVenta(creps.get(actualPosition).getVenta());
+            paymentDetail.setFecha(CurrentData.getActualMultiplePaymentHeader().getDate());
+            paymentDetail.setPago(pago);
+            paymentDetail.setAbono(selectedAmount);
+
+            return paymentDetail;
+        }
+        catch (Exception e){
+
+            return null;
+        }
+    }
 
     private String getClientCode(String clientAux)
     {
