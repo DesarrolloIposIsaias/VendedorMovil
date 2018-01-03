@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -155,6 +156,7 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
 
     private void recalculateACount(){
         Float totalAuxCount = Float.valueOf(0);
+        Float totalPayment = Float.parseFloat(ListViewMultipleCrepPaymentFragment.aCuentaTxtVw.getText().toString());
         for(int i=0; i<this.getCount(); i++)
         {
             View v = this.getView(i, ListViewMultipleCrepPaymentFragment.crepsListView.getChildAt(i),ListViewMultipleCrepPaymentFragment.crepsListView );
@@ -166,5 +168,13 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         }
 
         ListViewMultipleCrepPaymentFragment.aCuentaAbonadaTxtVw.setText(totalAuxCount.toString());
+        if(totalPayment < totalAuxCount)
+        {
+            ListViewMultipleCrepPaymentFragment.aCuentaAbonadaTxtVw.setTextColor(Color.RED);
+        }
+        else
+        {
+            ListViewMultipleCrepPaymentFragment.aCuentaAbonadaTxtVw.setTextColor(Color.WHITE);
+        }
     }
 }
