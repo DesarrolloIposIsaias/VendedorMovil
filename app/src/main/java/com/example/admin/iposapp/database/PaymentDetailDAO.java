@@ -48,6 +48,34 @@ public class PaymentDetailDAO
         return paymentDetail;
     }
 
+    public boolean deletePaymentDetailsByPayment(String payment){
+        final String selectionArgs[] = {payment};
+        final String selection = columnPayment + " = ?";
+
+        return super.delete(tableName, selection, selectionArgs) > 0;
+    }
+
+    public ArrayList<PaymentDetail> fetchPaymentDetailsByPayment(String payment){
+        final String selectionArgs[] = {payment};
+        final String selection = columnPayment + " = ?";
+        ArrayList<PaymentDetail> paymentDetails = new ArrayList<>();
+
+        cursor = super.query(tableName, paymentDetailColumns, selection, selectionArgs, columnId);
+
+        if(cursor != null) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()){
+                PaymentDetail paymentDetail1 = cursorToEntity(cursor);
+                paymentDetails.add(paymentDetail1);
+                cursor.moveToNext();
+            }
+
+            cursor.close();
+        } else return null;
+
+        return paymentDetails;
+    }
+
     @Override
     public List<PaymentDetail> fetchAllPaymentDetails() {
         List<PaymentDetail> paymentDetailList = new ArrayList<>();

@@ -6,7 +6,6 @@ import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.model.MultiplePaymentHeader;
 import com.example.admin.iposapp.model.Product;
-import com.example.admin.iposapp.model.Sale;
 import com.example.admin.iposapp.model.SaleDetail;
 import com.example.admin.iposapp.model.Settings;
 
@@ -44,6 +43,15 @@ public class CurrentData
     private static Crep selectedCrep;
     private static MultiplePaymentHeader actualMultiplePaymentHeader;
     private static Bundle itemMultipleCrep;
+    private static String selectedPayment;
+
+    public static Crep getSelectedCrep() {
+        return selectedCrep;
+    }
+
+    public static void setSelectedCrep(Crep selectedCrep) {
+        CurrentData.selectedCrep = selectedCrep;
+    }
 
     public static int getLastClientInserted()
     {
@@ -296,12 +304,12 @@ public class CurrentData
         CurrentData.remoteDbName = remoteDbName;
     }
 
-    public static Crep getSelectedCrep() {
-        return selectedCrep;
+    public static Bundle getItemMultipleCrep() {
+        return itemMultipleCrep;
     }
 
-    public static void setSelectedCrep(Crep selectedCrep) {
-        CurrentData.selectedCrep = selectedCrep;
+    public static void setItemMultipleCrep(Bundle itemMultipleCrep) {
+        CurrentData.itemMultipleCrep = itemMultipleCrep;
     }
 
     public static MultiplePaymentHeader getActualMultiplePaymentHeader() {
@@ -312,11 +320,11 @@ public class CurrentData
         CurrentData.actualMultiplePaymentHeader = actualMultiplePaymentHeader;
     }
 
-    public static Bundle getItemMultipleCrep() {
-        return itemMultipleCrep;
+    public static String getSelectedPayment() {
+        return selectedPayment;
     }
 
-    public static void setItemMultipleCrep(Bundle itemMultipleCrep) {
-        CurrentData.itemMultipleCrep = itemMultipleCrep;
+    public static void setSelectedPayment(String selectedPayment) {
+        CurrentData.selectedPayment = selectedPayment;
     }
 }

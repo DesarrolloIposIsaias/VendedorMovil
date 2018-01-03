@@ -24,7 +24,8 @@
             android:textStyle="bold"
             android:background="#227195"
             android:textColor="#ffff"
-            android:layout_width="10dp"/>
+            android:layout_width="10dp"
+            android:gravity="start" />
 
         <TextView
             android:layout_column="1"
@@ -37,7 +38,8 @@
             android:textAlignment="textStart"
             android:background="#227195"
             android:textColor="#ffff"
-            android:layout_width="40dp"/>
+            android:layout_width="40dp"
+            android:gravity="start" />
 
         <TextView
             android:layout_column="2"
@@ -50,7 +52,8 @@
             android:textStyle="bold"
             android:background="#227195"
             android:textColor="#ffff"
-            android:layout_width="30dp"/>
+            android:layout_width="30dp"
+            android:gravity="start" />
         <TextView
             android:layout_column="2"
             android:focusable="false"
@@ -62,6 +65,7 @@
             android:textStyle="bold"
             android:background="#227195"
             android:textColor="#ffff"
-            android:layout_width="30dp"/>
+            android:layout_width="30dp"
+            android:gravity="start" />
 </TableRow>
 </TableLayout>

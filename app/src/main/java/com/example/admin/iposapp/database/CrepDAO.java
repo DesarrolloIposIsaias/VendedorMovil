@@ -78,6 +78,47 @@ public class CrepDAO extends DbContentProvider
         }
     }
 
+    public Crep fetchCrepBySale(String sale){
+
+        String selectionStr = columnSale + " = ?";
+        String[] selectionArgs = new String[]{sale};
+        cursor = super.query(tableName, crepColumns, selectionStr, selectionArgs, columnId);
+
+        Crep crep = null;
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast()) {
+                crep = cursorToEntity(cursor);
+
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return crep;
+    }
+
+    public boolean updateSaleTotal(double newVal, String crepId){
+
+        try{
+
+            initialValues = new ContentValues();
+            initialValues.put(columnSaldo, newVal);
+
+            String selection = columnSale + " = ?";
+            String[] selectionArgs = new String[]{crepId};
+
+            return super.update(tableName, initialValues, selection, selectionArgs) > 0;
+        }
+        catch (Exception e){
+
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public ArrayList<Crep> fetchCrepsByClient(String client){
         ArrayList<Crep> crepList = new ArrayList<>();
 
@@ -135,6 +176,28 @@ public class CrepDAO extends DbContentProvider
     {
         List<Crep> crepList = new ArrayList<Crep>();
         cursor = super.query(tableName, crepColumns, null, null, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Crep crep = cursorToEntity(cursor);
+                crepList.add(crep);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return crepList;
+    }
+
+    public List<Crep> fetchCrepsByClientList(String cliente)
+    {
+        final String selectionArgs[] = {String.valueOf(cliente)};
+        final String selection =  "cliente = '" + cliente + "' ";
+        List<Crep> crepList = new ArrayList<Crep>();
+        cursor = super.query(tableName, crepColumns, selection, null, columnId);
 
         if(cursor != null)
         {
@@ -475,44 +538,6 @@ public class CrepDAO extends DbContentProvider
         return true;
     }
 
-    public void updateCreps(Context ctx)
-    {
-        database.execSQL("delete from CREP where id != -1");
-
-        File file = new File(CurrentData.getInternalStoragePath() + "/creps.sql");
-
-        Log.d("UPDATE", "path: " + file.getAbsolutePath());
-
-        InputStream is = null;
-        try
-        {
-            is = new FileInputStream(file);
-        }
-        catch(FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-
-        BufferedReader r = new BufferedReader(new InputStreamReader(is));
-        String line;
-        try{
-            while((line = r.readLine()) != null)
-            {
-                String header = line;
-                line = r.readLine();
-                String values = line;
-                String query = header + values;
-                database.execSQL(query);
-
-            }
-        }
-        catch(Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
-
-    }
     public Crep fetchCrepById(String crepId) {
         Crep crep = new Crep();
         //cursor = super.query(tableName, productColumns, selection, selectionArgs, columnId);

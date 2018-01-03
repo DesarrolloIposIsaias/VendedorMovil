@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -27,6 +28,7 @@ import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.listeners.SinglePaymentDialogCloseListener;
 import com.example.admin.iposapp.model.Payment;
 import com.example.admin.iposapp.model.PaymentDetail;
+import com.example.admin.iposapp.model.PaymentMethod;
 import com.example.admin.iposapp.utility.CurrentData;
 
 import java.security.spec.ECField;
@@ -77,6 +79,28 @@ public class SinglePaymentFragment extends DialogFragment {
             depositSpinner = (Spinner) view.findViewById(R.id.deposit);
             paymentMethodSpinner = (Spinner) view.findViewById(R.id.payForm);
             banksSpinner = (Spinner) view.findViewById(R.id.bank);
+
+            paymentMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    if(i == PaymentMethod.DEPOSITO || i == PaymentMethod.TRANSFERENCIA){
+                        banksSpinner.setVisibility(View.VISIBLE);
+                        reference.setVisibility(View.VISIBLE);
+                    }
+                    else{
+
+                        banksSpinner.setVisibility(View.GONE);
+                        reference.setVisibility(View.GONE);
+
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
 
             apply.setOnClickListener(new View.OnClickListener() {
                 @Override

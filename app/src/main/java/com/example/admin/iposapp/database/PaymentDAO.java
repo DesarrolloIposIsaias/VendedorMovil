@@ -48,6 +48,25 @@ public class PaymentDAO
         return payment;
     }
 
+    public ArrayList<Payment> fetchPayments() {
+        ArrayList<Payment> paymentList = new ArrayList<Payment>();
+        cursor = super.query(tableName, paymentColumns, null, null, columnId);
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Payment payment = cursorToEntity(cursor);
+                paymentList.add(payment);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return paymentList;
+    }
+
     @Override
     public List<Payment> fetchAllPayments() {
         List<Payment> paymentList = new ArrayList<Payment>();

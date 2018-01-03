@@ -50,7 +50,11 @@ public class PaymentOptionsFragment extends Fragment {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                PaymentsFragment fragment = new PaymentsFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
+                        fragment,
+                        fragment.getTag()).commit();
             }
         });
 
