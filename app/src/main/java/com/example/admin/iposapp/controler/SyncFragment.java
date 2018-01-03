@@ -82,8 +82,6 @@ public class SyncFragment extends Fragment
         download = (Button)view.findViewById(R.id.downloadBtn);
         upload = (Button)view.findViewById(R.id.uploadBtn);
         database = new Database(getContext());
-        progress = (ProgressBar)view.findViewById(R.id.progressBar);
-        progress.setMax(100);
 
         download.setOnClickListener(new View.OnClickListener()
         {
@@ -115,7 +113,7 @@ public class SyncFragment extends Fragment
                                             database.open();
                                             database.upgrade();
                                             database.close();
-                                            progress.setVisibility(View.VISIBLE);
+                                            //progress.setVisibility(View.VISIBLE);
                                             WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(getContext());
 
 

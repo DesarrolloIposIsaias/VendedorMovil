@@ -1,11 +1,13 @@
 package com.example.admin.iposapp.utility;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Payment;
@@ -92,6 +94,12 @@ public class WSMobileSalesHelper {
 
     public void getClients(){
         String methodName = "WSClients.svc/GetClients";
+        final ProgressDialog progress;
+        progress = new ProgressDialog(context, R.style.Theme_AppCompat_Dialog_MinWidth);
+        progress.setCancelable(false);
+        progress.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progress.setMessage("Descargando clientes");
+        progress.show();
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, baseUrl + methodName, null,
                 new Response.Listener<JSONObject>() {
@@ -125,6 +133,7 @@ public class WSMobileSalesHelper {
                             }
                             finally {
                                 database.close();
+                                progress.dismiss();
                             }
 
                         }
@@ -157,6 +166,12 @@ public class WSMobileSalesHelper {
 
     public void getBanks(){
         String methodName = "WSBanks.svc/GetBanks";
+        final ProgressDialog progress;
+        progress = new ProgressDialog(context, R.style.Theme_AppCompat_Dialog_MinWidth);
+        progress.setCancelable(false);
+        progress.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progress.setMessage("Descargando bancos");
+        progress.show();
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, baseUrl + methodName, null,
                 new Response.Listener<JSONObject>() {
@@ -164,7 +179,6 @@ public class WSMobileSalesHelper {
                     public void onResponse(JSONObject response) {
                         if (response != null) {
                             try {
-
                                 JSONArray jarray = response.getJSONArray("Data");
                                 Gson objGson = new Gson();
                                 Type listType = new TypeToken<List<Bank>>(){}.getType();
@@ -186,6 +200,7 @@ public class WSMobileSalesHelper {
                             }
                             finally {
                                 database.close();
+                                progress.dismiss();
                             }
 
                         }
@@ -216,6 +231,12 @@ public class WSMobileSalesHelper {
 
     public void getCrep(){
         String methodName = "WSCrep.svc/GetCrep";
+        final ProgressDialog progress;
+        progress = new ProgressDialog(context, R.style.Theme_AppCompat_Dialog_MinWidth);
+        progress.setCancelable(false);
+        progress.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progress.setMessage("Descargando creps");
+        progress.show();
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, baseUrl + methodName, null,
                 new Response.Listener<JSONObject>() {
@@ -249,6 +270,7 @@ public class WSMobileSalesHelper {
                             }
                             finally {
                                 database.close();
+                                progress.dismiss();
                             }
                         }
                     }
@@ -280,6 +302,12 @@ public class WSMobileSalesHelper {
 
     public void getStates(){
         String methodName = "WSStates.svc/GetStates";
+        final ProgressDialog progress;
+        progress = new ProgressDialog(context, R.style.Theme_AppCompat_Dialog_MinWidth);
+        progress.setCancelable(false);
+        progress.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progress.setMessage("Descargando estados");
+        progress.show();
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, baseUrl + methodName, null,
                 new Response.Listener<JSONObject>() {
@@ -313,6 +341,7 @@ public class WSMobileSalesHelper {
                             }
                             finally {
                                 database.close();
+                                progress.dismiss();
                             }
                         }
                     }
@@ -344,6 +373,12 @@ public class WSMobileSalesHelper {
 
     public void getProducts(){
         String methodName = "WSProducts.svc/GetProducts";
+        final ProgressDialog progress;
+        progress = new ProgressDialog(context, R.style.Theme_AppCompat_Dialog_MinWidth);
+        progress.setCancelable(false);
+        progress.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progress.setMessage("Descargando productos");
+        progress.show();
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, baseUrl + methodName, null,
                 new Response.Listener<JSONObject>() {
@@ -377,6 +412,7 @@ public class WSMobileSalesHelper {
                             }
                             finally {
                                 database.close();
+                                progress.dismiss();
                             }
                         }
                     }
@@ -408,6 +444,12 @@ public class WSMobileSalesHelper {
 
     public void getKits(){
         String methodName = "WSKits.svc/GetKits";
+        final ProgressDialog progress;
+        progress = new ProgressDialog(context, R.style.Theme_AppCompat_Dialog_MinWidth);
+        progress.setCancelable(false);
+        progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progress.setMessage("Descargando kits");
+        progress.show();
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, baseUrl + methodName, null,
                 new Response.Listener<JSONObject>() {
@@ -438,6 +480,7 @@ public class WSMobileSalesHelper {
                             }
                             finally {
                                 database.close();
+                                progress.dismiss();
                             }
                         }
                     }
