@@ -12,6 +12,8 @@ import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Payment;
 import com.example.admin.iposapp.model.PaymentDetail;
+import com.example.admin.iposapp.model.Sale;
+import com.example.admin.iposapp.model.SaleDetail;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +45,57 @@ public class WSMobileSalesHelper {
 
     public void postPayments(Payment payment, ArrayList<PaymentDetail> paymentDetails){
         String methodName = "WSPayments.svc/PostPayments";
+
+        Gson gsonHelper = new Gson();
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST, baseUrl + methodName, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        if (response != null) {
+                            try {
+                                JSONArray jarray = response.getJSONArray("Data");
+                                Gson objGson = new Gson();
+                                Type listType = new TypeToken<List<Client>>(){}.getType();
+                                List<Client> clientes = objGson.fromJson(
+                                        jarray.toString(),
+                                        listType
+                                );
+
+                            }catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
+
+                error.printStackTrace();
+
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders(){
+
+                HashMap<String, String> headers = new HashMap<>();
+
+                headers.put("company", CurrentData.getSettings().getCompany());
+                headers.put("branch", CurrentData.getSettings().getBranch());
+                headers.put("db", "VENMOV.FDB");
+
+                return headers;
+            }
+        };
+
+        VolleySingleton.getInstance(context).addToRequestQueue(request);
+    }
+
+    public void postSales(Sale sale, ArrayList<SaleDetail> saleDetails){
+        String methodName = "WSSales.svc/PostDetails";
 
         Gson gsonHelper = new Gson();
 
