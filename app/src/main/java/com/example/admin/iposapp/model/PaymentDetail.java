@@ -15,6 +15,7 @@ public class PaymentDetail {
     private String intereses;
     private String numero;
     private String id;
+    private String anticipo;
 
     public String getPago() {
         return pago;
@@ -86,5 +87,13 @@ public class PaymentDetail {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getAnticipo() {
+        return anticipo;
+    }
+
+    public void setAnticipo(String anticipo) {
+        this.anticipo = anticipo;
     }
 }

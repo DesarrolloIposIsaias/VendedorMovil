@@ -15,6 +15,7 @@ public interface InterfacePaymentDetailSchema {
     String columnBalance = "saldo";
     String columnInterest = "intereses";
     String columnNumber = "numero";
+    String columnAnticipo = "anticipo";
 
     String createQuery = "CREATE TABLE IF NOT EXISTS "
             + tableName
@@ -27,7 +28,8 @@ public interface InterfacePaymentDetailSchema {
             + columnPartialPayment + " TEXT,"
             + columnBalance + " TEXT,"
             + columnInterest + " TEXT,"
-            + columnNumber + " TEXT"
+            + columnNumber + " TEXT,"
+            + columnAnticipo + " TEXT"
             + ")";
 
     String[] paymentDetailColumns = new String[]{
@@ -39,6 +41,7 @@ public interface InterfacePaymentDetailSchema {
             columnPartialPayment,
             columnBalance,
             columnInterest,
-            columnNumber
+            columnNumber,
+            columnAnticipo
     };
 }

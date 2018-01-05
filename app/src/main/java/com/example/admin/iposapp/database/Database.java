@@ -35,6 +35,7 @@ public class   Database
     public static CrepDAO crepDAO;
     public static KitDAO kitDAO;
     public static StateDAO stateDAO;
+    public static ClientBalanceDAO clientBalanceDAO;
 
     public Context getCtx() {
         return ctx;
@@ -63,6 +64,7 @@ public class   Database
             crepDAO = new CrepDAO(mDb);
             kitDAO = new KitDAO(mDb);
             stateDAO = new StateDAO(mDb);
+            clientBalanceDAO = new ClientBalanceDAO(mDb);
 
         }
         catch (Exception e)
@@ -125,6 +127,7 @@ public class   Database
                 db.execSQL(InterfaceCrepSchema.createQuery);
                 db.execSQL(InterfaceKitSchema.createQuery);
                 db.execSQL(InterfaceStateSchema.createQuery);
+                db.execSQL(InterfaceClientBalanceSchema.createQuery);
 
             }
             catch (Exception e)
@@ -170,6 +173,9 @@ public class   Database
 
             db.execSQL("DROP TABLE IF EXISTS "
                     + InterfaceStateSchema.tableName);
+
+            db.execSQL("DROP TABLE IF EXISTS "
+                    + InterfaceClientBalanceSchema.tableName);
 
             onCreate(db);
         }

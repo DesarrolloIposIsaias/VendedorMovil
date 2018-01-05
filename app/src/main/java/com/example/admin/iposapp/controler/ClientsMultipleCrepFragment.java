@@ -1,7 +1,9 @@
 package com.example.admin.iposapp.controler;
 
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.nfc.Tag;
@@ -27,11 +29,13 @@ import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.Bank;
 import com.example.admin.iposapp.model.Client;
+import com.example.admin.iposapp.model.ClientBalance;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.model.MultiplePaymentHeader;
 import com.example.admin.iposapp.model.Payment;
 import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
 import com.example.admin.iposapp.utility.CurrentData;
+import com.example.admin.iposapp.utility.WSMobileSalesHelper;
 
 import org.w3c.dom.Text;
 
@@ -170,6 +174,36 @@ public class ClientsMultipleCrepFragment extends Fragment {
 
                     filterAutoComTxtVw.setAdapter(autoCompleteAdapter);
                 }
+                /*ClientBalance clientBalance = new ClientBalance();
+                clientBalance = Database.clientBalanceDAO.fetchClientBalanceByClient(getClientCode(filterAutoComTxtVw.getText().toString()));
+
+                if(clientBalance != null)
+                {
+                    if(Float.parseFloat(clientBalance.getBalance()) > 0)
+                    {
+                        new AlertDialog.Builder(getContext())
+                                .setTitle("Existe un saldo a favor del cliente")
+                                .setMessage("desea utilizarlo?")
+                                .setCancelable(false)
+                                .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                                {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which)
+                                    {
+                                        try
+                                        {
+
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                })
+                                .setNegativeButton("No", null).show();
+                    }
+                }*/
             }
 
 
@@ -236,7 +270,10 @@ public class ClientsMultipleCrepFragment extends Fragment {
                         FragmentManager fragmentManager = getFragmentManager();
                         fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
                                 cmcFragment,
-                                cmcFragment.getTag()).commit();
+                                cmcFragment.getTag()).addToBackStack(null).commit();
+
+                        filterAutoComTxtVw.setText("");
+
                     }
                     catch (Exception e){
                         Toast.makeText(
@@ -336,6 +373,18 @@ public class ClientsMultipleCrepFragment extends Fragment {
         catch (Exception e){
 
             return null;
+        }
+    }
+
+    private String getClientCode(String clientAux)
+    {
+        if(clientAux.contains("<") && clientAux.contains(">"))
+        {
+            return clientAux.substring(clientAux.indexOf("<") + 1, clientAux.indexOf(">"));
+        }
+        else
+        {
+            return clientAux;
         }
     }
 

@@ -236,7 +236,7 @@ public class MenuActivity extends AppCompatActivity
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
                     cmcFragment,
-                    cmcFragment.getTag()).commit();
+                    cmcFragment.getTag()).addToBackStack(null).commit();
 
         }
         else if(id == R.id.settings)

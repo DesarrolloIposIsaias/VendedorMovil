@@ -134,7 +134,9 @@ public class FtpSettingFragment extends Fragment
                 settings.setAppUser(appUserET.getText().toString());
                 settings.setAppUserPass(appUserPassET.getText().toString());
                 settings.setSellerSerie(serieET.getText().toString());
+
                 CurrentData.setSettings(settings);
+
                 try
                 {
                     database.open();

@@ -1,6 +1,10 @@
 package com.example.admin.iposapp.controler;
 
 
+import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
+import com.example.admin.iposapp.model.ClientBalance;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.model.Payment;
 import com.example.admin.iposapp.model.PaymentDetail;
@@ -41,6 +46,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
     public static TextView aCuentaAbonadaTxtVw;
     private Database db;
     private EditText auxEditText;
+    private PaymentDetail paymentDetailAnticipo;
 
 
 
@@ -94,7 +100,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
                         if (payment == null)
                             throw new Exception("Problema al obtener ultimo registro insertado");
 
-                        PaymentDetail paymentDetail;
+                        PaymentDetail paymentDetail = new PaymentDetail();
 
                         for (int i = 0; i < listViewCrepAdapter.getCount(); i++) {
                             paymentDetail = new PaymentDetail();
@@ -112,6 +118,8 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
                                     throw new Exception("Problema al agregar detalle de pago");
                                 }
 
+                                paymentDetailAnticipo = paymentDetail;
+
                                 success = Database.crepDAO.updateCrepBalance(
                                         creps.get(i).getSaldo(),
                                         Float.valueOf(auxEditText.getText().toString()),
@@ -123,6 +131,80 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
                                 }
                             }
 
+                        }
+
+                        if(Float.parseFloat(aCuentaTxtVw.getText().toString()) > Float.parseFloat(aCuentaAbonadaTxtVw.getText().toString()))
+                        {
+                            paymentDetailAnticipo.setAnticipo("S");
+                            String currentAnticipo = Float.toString(Float.parseFloat(aCuentaTxtVw.getText().toString()) - Float.parseFloat(aCuentaAbonadaTxtVw.getText().toString()));
+                            paymentDetailAnticipo.setAbono(currentAnticipo);
+
+
+                            CharSequence options[] = new CharSequence[] {"Agregar saldo a favor del cliente", "Realizar pagos de otro cliente"};
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                            builder.setCancelable(false);
+                            builder.setTitle("Hay un saldo a favor, que desea hacer:");
+                            builder.setItems(options, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // the user clicked on options[which]
+                                    if(which == 0)
+                                    {
+                                        db = new Database(getContext());
+                                        db.open();
+                                        boolean successBalance = db.paymentDetailDAO.addPaymentDetail(paymentDetailAnticipo);
+                                        db.close();
+
+
+                                        if (!successBalance) {
+                                            //throw new Exception("Problema al agregar detalle de pago");
+                                            Toast.makeText(
+                                                    getContext(),
+                                                    "Error en el proceso!",
+                                                    Toast.LENGTH_SHORT
+                                            ).show();
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(
+                                                    getContext(),
+                                                    "Procesado con exito!",
+                                                    Toast.LENGTH_SHORT
+                                            ).show();
+                                        }
+
+                                        getFragmentManager().popBackStack();
+
+                                        /*Float saldoAFavor = Float.parseFloat(aCuentaTxtVw.getText().toString()) - Float.parseFloat(aCuentaAbonadaTxtVw.getText().toString());
+                                        ClientBalance clientBalance = new ClientBalance();
+                                        clientBalance.setClient(getClientCode(CurrentData.getActualMultiplePaymentHeader().getClient()));
+                                        clientBalance.setBalance(saldoAFavor.toString());
+
+                                        boolean successBalance = Database.clientBalanceDAO.addClientBalance(clientBalance);
+
+                                        if (!successBalance) {
+                                            //throw new Exception("Problema al agregar detalle de pago");
+                                            Toast.makeText(
+                                                    getContext(),
+                                                    "Error en el proceso!",
+                                                    Toast.LENGTH_SHORT
+                                            ).show();
+                                        }*/
+                                    }
+                                    else if(which == 1)
+                                    {
+
+                                    }
+                                }
+                            });
+                            builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //the user clicked on Cancel
+                                }
+                            });
+                            builder.show();
                         }
 
                         db.commitTransaction();
@@ -178,6 +260,27 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
             return null;
         }
     }
+
+   /* private PaymentDetail createPaymentAdvanceDetail(String pago, String selectedAmount, int actualPosition){
+
+        try{
+            PaymentDetail paymentDetail = new PaymentDetail();
+
+            paymentDetail.setIntereses(String.valueOf(creps.get(actualPosition).getIntereses()));
+            paymentDetail.setSaldo(String.valueOf(creps.get(actualPosition).getSaldo()));
+            paymentDetail.setFecha(CurrentData.getActualMultiplePaymentHeader().getDate());
+            paymentDetail.setVenta(creps.get(actualPosition).getVenta());
+            paymentDetail.setFecha(CurrentData.getActualMultiplePaymentHeader().getDate());
+            paymentDetail.setPago(pago);
+            paymentDetail.setAbono(selectedAmount);
+
+            return paymentDetail;
+        }
+        catch (Exception e){
+
+            return null;
+        }
+    }*/
 
     private String getClientCode(String clientAux)
     {

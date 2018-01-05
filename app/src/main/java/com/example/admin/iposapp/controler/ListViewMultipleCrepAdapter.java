@@ -163,6 +163,12 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
             auxEditText = (EditText) v.findViewById(R.id.crep_abono);
             if(auxEditText != null && auxEditText.getText().length() > 0)
             {
+                Object object = getItem(i);
+                Crep crep = (Crep)object;
+                if(Float.parseFloat(auxEditText.getText().toString()) > crep.getSaldo())
+                {
+                    auxEditText.setText(String.valueOf(crep.getSaldo()));
+                }
                 totalAuxCount += Float.parseFloat(auxEditText.getText().toString());
             }
         }
