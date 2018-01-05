@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -98,6 +99,10 @@ public class ListViewCrepAdapter
 
             result = convertView;
             result.setTag(viewHolder);
+
+            if(position % 2 == 1){
+                result.setBackgroundColor(Color.LTGRAY);
+            }
         }
         else{
             viewHolder = (ViewHolder) convertView.getTag();
@@ -105,8 +110,8 @@ public class ListViewCrepAdapter
         }
 
         assert crep != null;
-        viewHolder.txtId.setText(crep.getVenta());
-        viewHolder.txtClient.setText(crep.getCliente());
+        viewHolder.txtId.setText("Venta: " + crep.getVenta());
+        viewHolder.txtClient.setText("Clave Cliente: " + crep.getCliente());
         viewHolder.txtClientName.setText(crep.getNombre());
         viewHolder.imgInfo.setOnClickListener(this);
         viewHolder.imgInfo.setTag(position);

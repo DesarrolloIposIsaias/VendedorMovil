@@ -43,7 +43,12 @@ public class ListViewAdapter extends ArrayAdapter<String>
         View rowView = convertView;
         if(rowView == null)
         {
-            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(
+                    Context.LAYOUT_INFLATER_SERVICE
+            );
+
+            assert inflater != null;
             rowView = inflater.inflate(vg, parent, false);
             ViewHolder holder = new ViewHolder();
             holder.descriptionTxtView = (TextView)rowView.findViewById(R.id.description);

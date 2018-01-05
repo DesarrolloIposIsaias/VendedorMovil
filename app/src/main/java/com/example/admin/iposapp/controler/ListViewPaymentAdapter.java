@@ -1,11 +1,10 @@
 package com.example.admin.iposapp.controler;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.provider.ContactsContract;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,19 +13,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
 import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.model.Payment;
-import com.example.admin.iposapp.utility.CurrentData;
-
+import com.example.admin.iposapp.model.PaymentDetail;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ListViewPaymentAdapter
         extends ArrayAdapter<Payment>
-        implements View.OnClickListener  {
+        implements View.OnClickListener{
 
     private ArrayList<Payment> dataSet;
     private Fragment parent;
@@ -34,10 +32,15 @@ public class ListViewPaymentAdapter
     Context context;
 
     private static class ViewHolder{
+
         TextView txtId;
         TextView txtAmount;
         TextView txtBalance;
+        TextView txtClientName;
+        TextView txtPaymentMethod;
+        TextView txtFactura;
         ImageView imgCancel;
+
     }
 
     public ListViewPaymentAdapter(
@@ -66,18 +69,26 @@ public class ListViewPaymentAdapter
                     if(payment == null)
                         throw new Exception("No se pudo recuperar el pago");
 
-                    Crep crep = getSale(payment.getVenta());
-
                     db.open();
                     db.beginTransaction();
 
-                    boolean updateSaleSuccess = updateSaleTotal(
-                            crep.getSaldo() + Double.parseDouble(payment.getImporte()),
-                            crep.getVenta()
-                    );
+                    ArrayList<PaymentDetail> details = getPaymentDetails(payment.getId());
 
-                    if(updateSaleSuccess)
-                        throw new Exception("Problema al actualizar la venta");
+                    for(int i = 0; i < details.size(); i++){
+                        PaymentDetail detail = details.get(i);
+                        Crep sale = getSale(detail.getVenta());
+
+                        double newTotal =
+                                sale.getSaldo() + Double.parseDouble(detail.getAbono());
+
+                        boolean updateSaleSuccess = updateSaleTotal(
+                                newTotal,
+                                sale.getVenta()
+                        );
+
+                        if(!updateSaleSuccess)
+                            throw new Exception("Problema al actualizar la venta");
+                    }
 
                     boolean deletePaymentSuccess = deletePayment(payment.getId());
 
@@ -111,54 +122,48 @@ public class ListViewPaymentAdapter
 
                 break;
             default:
+                PartialPaymentFragment partialPaymentFragment = new PartialPaymentFragment();
+                partialPaymentFragment.setTargetFragment(parent, 1);
+                partialPaymentFragment.show(((FragmentActivity)context).getSupportFragmentManager(),
+                        "client_changed_dialog");
                 break;
         }
     }
 
-    private boolean deletePaymentDetails(String payment){
-        db.open();
-        boolean result = Database.paymentDetailDAO.deletePaymentDetailsByPayment(payment);
-        db.close();
+    private ArrayList<PaymentDetail> getPaymentDetails(String payment){
 
-        return result;
+        return Database.paymentDetailDAO.fetchPaymentDetailsByPayment(payment);
+    }
+
+    private boolean deletePaymentDetails(String payment){
+
+        return Database.paymentDetailDAO.deletePaymentDetailsByPayment(payment);
     }
 
     private ArrayList<Payment> getPayments(){
-        db.open();
-        ArrayList<Payment> payments = Database.paymentDAO.fetchPayments();
-        db.close();
 
-        return payments;
+        return Database.paymentDAO.fetchPayments();
     }
 
     private Crep getSale(String saleId){
-        db.open();
-        Crep crep = Database.crepDAO.fetchCrepBySale(saleId);
-        db.close();
 
-        return crep;
+        return Database.crepDAO.fetchCrepBySale(saleId);
     }
 
     private boolean deletePayment(String paymentId){
-        db.open();
-        boolean result = Database.paymentDAO.deletePayment(paymentId);
-        db.close();
 
-        return result;
+        return Database.paymentDAO.deletePayment(paymentId);
     }
 
     private boolean updateSaleTotal(double newTotal, String crepId){
-        db.open();
-        boolean result = Database.crepDAO.updateSaleTotal(newTotal, crepId);
-        db.close();
 
-        return result;
+        return Database.crepDAO.updateSaleTotal(newTotal, crepId);
     }
 
     @SuppressLint("SetTextI18n")
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, @NonNull ViewGroup parent){
 
         Payment payment = getItem(position);
 
@@ -171,23 +176,53 @@ public class ListViewPaymentAdapter
             viewHolder = new ListViewPaymentAdapter.ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
 
-            convertView = inflater.inflate(R.layout.payment_custom_row, parent, false);
+            convertView = inflater.inflate(
+                    R.layout.payment_custom_row,
+                    parent,
+                    false
+            );
+
             viewHolder.txtId = (TextView) convertView.findViewById(R.id.payment_id);
             viewHolder.txtAmount = (TextView) convertView.findViewById(R.id.payment_amount);
             viewHolder.txtBalance = (TextView) convertView.findViewById(R.id.payment_balance);
             viewHolder.imgCancel = (ImageView) convertView.findViewById(R.id.cancel_payment);
+            viewHolder.txtClientName = (TextView)convertView.findViewById(R.id.payment_client_name);
+            viewHolder.txtPaymentMethod = (TextView)convertView.findViewById(R.id.payment_method);
+            viewHolder.txtFactura = (TextView)convertView.findViewById(R.id.payment_factura);
 
             result = convertView;
             result.setTag(viewHolder);
+
+            if(position % 2 == 1){
+                result.setBackgroundColor(Color.LTGRAY);
+            }
         }
         else{
             viewHolder = (ListViewPaymentAdapter.ViewHolder) convertView.getTag();
         }
 
         assert payment != null;
-        viewHolder.txtId.setText(payment.getVenta());
-        viewHolder.txtAmount.setText(payment.getImporte());
+
+        String venta = payment.getVenta().equals("0") ? "MULTI" : payment.getVenta();
+        viewHolder.txtId.setText(venta);
+        viewHolder.txtAmount.setText(
+                String.format(
+                        Locale.getDefault(),
+                        "%.2f",
+                        Double.valueOf(payment.getImporte())
+                )
+        );
+
+        db.open();
+        Crep saleInfo = Database.crepDAO.fetchCrepBySale(payment.getVenta());
+        db.close();
+
+        String factura = saleInfo.getFactura() == null ? "No especificado" : saleInfo.getFactura();
+
         viewHolder.txtBalance.setText(payment.getFecha());
+        viewHolder.txtClientName.setText("Cliente: " + saleInfo.getNombre());
+        viewHolder.txtPaymentMethod.setText("Metodo de pago: " + payment.getTipo());
+        viewHolder.txtFactura.setText("Factura: " + factura);
         viewHolder.imgCancel.setOnClickListener(this);
         viewHolder.imgCancel.setTag(position);
 

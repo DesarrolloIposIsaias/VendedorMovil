@@ -148,6 +148,8 @@ public class CrepDAO extends DbContentProvider
             String query = " SELECT * FROM " + tableName +
                            " WHERE (" + columnVendedor + " LIKE '%"+filter+"%' OR " +
                                        columnSale + " LIKE '%"+filter+"%' OR " +
+                                       columnSaldo + " LIKE '%"+filter+"%' OR " +
+                                       columnFactura + " LIKE '%"+filter+"%' OR " +
                                        columnId + " LIKE '%"+filter+"%') AND " +
                                        columnClient + " = '" + clientId + "'";
 

@@ -18,6 +18,8 @@ import com.example.admin.iposapp.utility.CurrentData;
 
 import org.w3c.dom.Text;
 
+import java.util.Locale;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -113,15 +115,25 @@ public class CrepInfoFragment extends DialogFragment {
             clientTextView.setText(clientKeyStr);
 
             String paymentDateStr =
-                    "Fecha Pago: " + CurrentData.getSelectedCrep().getFechaPago();
+                    "Fecha Pago: " + CurrentData.getSelectedCrep()
+                                                .getFechaPago()
+                                                .split(" ")[0];
             paymentDateTextView.setText(paymentDateStr);
 
             String totalStr =
-                    "Total: " + String.valueOf(CurrentData.getSelectedCrep().getTotal());
+                    "Total: " + String.format(
+                            Locale.getDefault(),
+                            "%.2f",
+                            CurrentData.getSelectedCrep().getTotal()
+                    );
             totalTextView.setText(totalStr);
 
             String balanceStr =
-                    "Saldo: " + String.valueOf(CurrentData.getSelectedCrep().getSaldo());
+                    "Saldo: " + String.format(
+                            Locale.getDefault(),
+                            "%.2f",
+                            CurrentData.getSelectedCrep().getSaldo()
+                    );
             balanceTextView.setText(balanceStr);
 
             String bankStr =

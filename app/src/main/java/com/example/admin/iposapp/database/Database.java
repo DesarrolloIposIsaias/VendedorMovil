@@ -152,8 +152,6 @@ public class   Database
                     +  InterfaceSaleSchema.tableName);
             db.execSQL("DROP TABLE IF EXISTS "
                     +  InterfaceSaleDetailSchema.tableName);
-            /*db.execSQL("DROP TABLE IF EXISTS "
-                    +  InterfaceSettingsSchema.tableName);*/
             db.execSQL("DROP TABLE IF EXISTS "
                     +  InterfaceDataBaseVersionSchema.tableName);
             db.execSQL("DROP TABLE IF EXISTS "

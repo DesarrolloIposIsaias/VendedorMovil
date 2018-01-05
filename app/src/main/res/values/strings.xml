@@ -121,6 +121,7 @@
     <string name="dateMayus">FECHA</string>
     <string name="partialPaymentMayus">PAGOS RELCIONADOS</string>
     <string name="paymentMayus">PAGO</string>
+    <string name="saleDesc">Venta:</string>
 
     <string-array name="days">
         <item>LUNES</item>

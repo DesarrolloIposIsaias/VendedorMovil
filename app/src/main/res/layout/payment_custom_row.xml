@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,10 +8,11 @@
 
     <TextView
         android:id="@+id/payment_id"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
         tools:ignore="RelativeOverlap"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
@@ -20,20 +21,20 @@
 
     <TextView
         android:id="@+id/payment_amount"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginStart="110dp"
         android:padding="10dp"/>
 
     <TextView
         android:id="@+id/payment_balance"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginStart="230dp"
         android:padding="10dp"/>
 
     <ImageView
@@ -42,8 +43,38 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/cancelred"
         android:contentDescription="@string/todo"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginStart="330dp"
         android:padding="10dp"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/payment_client_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/payment_id"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@+id/payment_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/payment_client_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@+id/payment_factura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/payment_method"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp" />
+
+</RelativeLayout>

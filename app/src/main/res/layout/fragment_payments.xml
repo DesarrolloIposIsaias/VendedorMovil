@@ -56,32 +56,6 @@
             fbutton:shadowEnabled="true"
             fbutton:shadowHeight="5dp" />
 
-        <com.hanks.htextview.HTextView
-            android:id="@+id/tvTotalBalance"
-            android:foregroundGravity="bottom"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
-            android:background="#144257"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            htext:animateType="anvil"
-            android:textAlignment="center"
-            android:imeOptions="actionDone" />
-
-        <com.hanks.htextview.HTextView
-            android:id="@+id/tvTotalPartialPayments"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
-            android:background="#144257"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            htext:animateType="anvil"
-            android:textAlignment="center"
-            android:imeOptions="actionDone"
-            android:layout_alignParentBottom="true" />
-
     </RelativeLayout>
 
 
