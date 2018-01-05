@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -83,6 +84,7 @@ public class ClientsCrepFragment extends Fragment implements SinglePaymentDialog
 
                 }
                 else {
+
                     creps = Database.crepDAO.fetchMatchingCreps(filter, CurrentData.getClientId());
                 }
 

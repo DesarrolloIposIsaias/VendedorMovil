@@ -3,9 +3,10 @@ package com.example.admin.iposapp.controler;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,35 +44,43 @@ public class PartialPaymentFragment extends DialogFragment {
                 null
         );
 
-        db = new Database(getActivity());
+        try{
 
-        final ViewGroup headerView = (ViewGroup) getActivity().getLayoutInflater().inflate(
-                R.layout.partial_payment_custom_row_header,
-                partialPaymentsListView,
-                false
-        );
+            db = new Database(getActivity());
 
-        partialPaymentsListView.addHeaderView(
-                headerView,
-                null,
-                false
-        );
+            partialPaymentsListView = (ListView) view.findViewById(R.id.list_view_partial_payments);
 
-        db.open();
-        Database.paymentDetailDAO.fetchPaymentDetailsByPayment(CurrentData.getSelectedPayment());
-        db.close();
+            final ViewGroup headerView = (ViewGroup) getActivity().getLayoutInflater().inflate(
+                    R.layout.partial_payment_custom_row_header,
+                    partialPaymentsListView,
+                    false
+            );
 
-        listViewPartialPaymentAdapter = new ListViewPartialPaymentAdapter(
-                getActivity(),
-                paymentDetails
-        );
+            partialPaymentsListView.addHeaderView(
+                    headerView,
+                    null,
+                    false
+            );
 
-        partialPaymentsListView.setAdapter(listViewPartialPaymentAdapter);
+            db.open();
+            paymentDetails = Database.paymentDetailDAO.fetchPaymentDetailsByPayment(CurrentData.getSelectedPayment());
+            db.close();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setView(view);
+            listViewPartialPaymentAdapter = new ListViewPartialPaymentAdapter(
+                    getActivity(),
+                    paymentDetails
+            );
 
-        dialog = builder.create();
+            partialPaymentsListView.setAdapter(listViewPartialPaymentAdapter);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setView(view);
+
+            dialog = builder.create();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
         return dialog;
     }

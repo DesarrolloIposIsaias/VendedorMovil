@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.example.admin.iposapp.model.Payment;
 import com.example.admin.iposapp.model.PaymentDetail;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Created by sopor on 02/01/2018.
@@ -77,6 +79,10 @@ public class ListViewPartialPaymentAdapter
 
             result = convertView;
             result.setTag(viewHolder);
+
+            if(position % 2 == 1){
+                result.setBackgroundColor(Color.LTGRAY);
+            }
         }
         else{
             viewHolder = (ListViewPartialPaymentAdapter.ViewHolder) convertView.getTag();
@@ -84,7 +90,13 @@ public class ListViewPartialPaymentAdapter
 
         assert payment != null;
         viewHolder.txtPayment.setText(payment.getPago());
-        viewHolder.txtAmount.setText(payment.getAbono());
+        viewHolder.txtAmount.setText(
+                String.format(
+                        Locale.getDefault(),
+                        "%.2f",
+                        Double.valueOf(payment.getAbono())
+                )
+        );
         viewHolder.txtSale.setText(payment.getVenta());
         viewHolder.txtDate.setText(payment.getFecha());
 

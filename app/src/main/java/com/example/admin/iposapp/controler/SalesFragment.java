@@ -96,7 +96,11 @@ public class SalesFragment extends BaseFragment
                              Bundle savedInstanceState)
     {
         final View view = inflater.inflate(R.layout.fragment_sales, container, false);
-        final View clientChange = inflater.inflate(R.layout.client_changed_dialog, container, false);
+        final View clientChange = inflater.inflate(
+                R.layout.client_changed_dialog,
+                container,
+                false
+        );
         //Context context = view.getContext();
 
         //adjust margin on products autocomplete

@@ -56,6 +56,7 @@ public class PaymentDetailDAO
     }
 
     public ArrayList<PaymentDetail> fetchPaymentDetailsByPayment(String payment){
+
         final String selectionArgs[] = {payment};
         final String selection = columnPayment + " = ?";
         ArrayList<PaymentDetail> paymentDetails = new ArrayList<>();
@@ -71,7 +72,7 @@ public class PaymentDetailDAO
             }
 
             cursor.close();
-        } else return null;
+        }
 
         return paymentDetails;
     }
@@ -201,6 +202,7 @@ public class PaymentDetailDAO
 
     @Override
     protected PaymentDetail cursorToEntity(Cursor cursor) {
+
         PaymentDetail paymentDetail = new PaymentDetail();
 
         if(cursor != null){

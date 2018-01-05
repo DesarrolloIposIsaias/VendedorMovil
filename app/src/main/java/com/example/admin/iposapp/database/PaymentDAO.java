@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.model.Payment;
 
 import java.util.ArrayList;
@@ -46,6 +47,72 @@ public class PaymentDAO
         } else return null;
 
         return payment;
+    }
+
+    public ArrayList<Payment> fetchPaymentsByClientAndBill(String filter){
+
+        try{
+            ArrayList<Payment> payments = new ArrayList<>();
+
+            String query =
+                    " SELECT " + tableName + ".* FROM CREP " +
+                    "INNER JOIN " + tableName +
+                            " ON " + tableName + "." + columnPayment + " = CREP.venta" +
+                    " WHERE CREP.nombre  LIKE '%"+filter+"%' OR " +
+                    " CREP.cliente LIKE '%"+filter+"%' OR " +
+                    " CREP.factura LIKE '%"+filter+"%'";
+
+            cursor = super.rawQuery(query, null);
+
+            if(cursor != null)
+            {
+                cursor.moveToFirst();
+                while(!cursor.isAfterLast())
+                {
+                    Payment payment = cursorToEntity(cursor);
+                    payments.add(payment);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+            }
+
+            return payments;
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
+    public ArrayList<Payment> fetchMatchingPayments(String filter){
+
+        try{
+            ArrayList<Payment> payments = new ArrayList<>();
+
+            String query = " SELECT * FROM " + tableName +
+                    " WHERE (" + columnPayment + " LIKE '%"+filter+"%' OR " +
+                    columnDate + " LIKE '%"+filter+"%' OR " +
+                    columnImporte + " LIKE '%"+filter+"%' OR " +
+                    columnType + " LIKE '%" + filter+"%')";
+
+            cursor = super.rawQuery(query, null);
+
+            if(cursor != null)
+            {
+                cursor.moveToFirst();
+                while(!cursor.isAfterLast())
+                {
+                    Payment payment = cursorToEntity(cursor);
+                    payments.add(payment);
+                    cursor.moveToNext();
+                }
+                cursor.close();
+            }
+
+            return payments;
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     public ArrayList<Payment> fetchPayments() {
@@ -89,7 +156,9 @@ public class PaymentDAO
 
     public boolean deletePayment(String id){
         try{
+
             String selection = columnId + " = ?";
+
             String[] selectionArgs = new String[]{id};
 
             return super.delete(tableName, selection, selectionArgs) > 0;

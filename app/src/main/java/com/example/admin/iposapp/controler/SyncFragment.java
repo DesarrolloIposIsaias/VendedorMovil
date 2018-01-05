@@ -35,6 +35,7 @@ public class SyncFragment extends Fragment
     private FTPConnection ftpClient;
     private Button download, upload;
     private AlertDialog alertDialog;
+    private WSMobileSalesHelper wsHelper;
     Database database;
 
     public SyncFragment()
@@ -111,7 +112,7 @@ public class SyncFragment extends Fragment
                                             database.upgrade();
                                             database.close();
 
-                                            WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(getContext());
+                                            wsHelper = new WSMobileSalesHelper(getContext());
                                             wsHelper.getBanks();
                                             wsHelper.getCrep();
                                             wsHelper.getStates();
@@ -153,30 +154,14 @@ public class SyncFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                AddSaleSoapTask task = new AddSaleSoapTask(getContext());
-                task.execute();
+                wsHelper = new WSMobileSalesHelper(getContext());
+                wsHelper.postPayments();
+
             }
         });
 
         return view;
     }
-
-    void cleanFilesFolder(String path)
-    {
-        File dir = new File(path);
-        if (dir.isDirectory())
-        {
-            String[] children = dir.list();
-            for (int i = 0; i < children.length; i++)
-            {
-                File file = new File(dir, children[i]);
-                boolean deleted = file.delete();
-                if(deleted)
-                    Log.w("File: ", "Deleted");
-            }
-        }
-    }
-
 }
 
 
