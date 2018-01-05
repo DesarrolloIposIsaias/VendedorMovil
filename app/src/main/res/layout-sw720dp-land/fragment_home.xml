@@ -13,7 +13,7 @@
         android:layout_height="400dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="54dp"
         android:src="@mipmap/material_logo" />
 
     <TextView

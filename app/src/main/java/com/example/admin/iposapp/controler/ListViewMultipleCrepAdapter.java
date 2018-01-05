@@ -157,6 +157,7 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
     private void recalculateACount(){
         Float totalAuxCount = Float.valueOf(0);
         Float totalPayment = Float.parseFloat(ListViewMultipleCrepPaymentFragment.aCuentaTxtVw.getText().toString());
+        Float restanteAuxCount = totalPayment;
         for(int i=0; i<this.getCount(); i++)
         {
             View v = this.getView(i, ListViewMultipleCrepPaymentFragment.crepsListView.getChildAt(i),ListViewMultipleCrepPaymentFragment.crepsListView );
@@ -170,10 +171,12 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
                     auxEditText.setText(String.valueOf(crep.getSaldo()));
                 }
                 totalAuxCount += Float.parseFloat(auxEditText.getText().toString());
+                restanteAuxCount -= Float.parseFloat(auxEditText.getText().toString());
             }
         }
 
         ListViewMultipleCrepPaymentFragment.aCuentaAbonadaTxtVw.setText(totalAuxCount.toString());
+        ListViewMultipleCrepPaymentFragment.aCuentaRestanteTxtVw.setText(restanteAuxCount.toString());
         if(totalPayment < totalAuxCount)
         {
             ListViewMultipleCrepPaymentFragment.aCuentaAbonadaTxtVw.setTextColor(Color.RED);
