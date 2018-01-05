@@ -44,6 +44,7 @@ public class CurrentData
     private static MultiplePaymentHeader actualMultiplePaymentHeader;
     private static Bundle itemMultipleCrep;
     private static String selectedPayment;
+    private static String nextPayment;
 
     public static Crep getSelectedCrep() {
         return selectedCrep;
@@ -326,5 +327,13 @@ public class CurrentData
 
     public static void setSelectedPayment(String selectedPayment) {
         CurrentData.selectedPayment = selectedPayment;
+    }
+
+    public static String getNextPayment() {
+        return nextPayment;
+    }
+
+    public static void setNextPayment(String nextPayment) {
+        CurrentData.nextPayment = nextPayment;
     }
 }

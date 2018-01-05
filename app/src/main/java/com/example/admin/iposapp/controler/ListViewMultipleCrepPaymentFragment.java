@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -194,7 +195,11 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
                                     }
                                     else if(which == 1)
                                     {
-
+                                        NextPaymentFragment nextPaymentFragment = new NextPaymentFragment();
+                                        nextPaymentFragment.show(
+                                                ((FragmentActivity)getContext()).getSupportFragmentManager(),
+                                                "next_payment");
+                                        //aqui josue
                                     }
                                 }
                             });
