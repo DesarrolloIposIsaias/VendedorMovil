@@ -9,7 +9,7 @@
     <RelativeLayout
 
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="160dp"
         android:layout_gravity="center"
         android:background="#144257"
         android:id="@+id/relativeLayout"
@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="400dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="#144257"
             android:id="@+id/linearLayout"
@@ -45,6 +45,36 @@
                 android:id="@+id/quantity"
                 />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="#144257"
+            android:id="@+id/linearLayout3"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="0dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Abonado: "
+                android:textSize="23dp"
+                android:textColor="#ffff"
+                android:id="@+id/abonado"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text=""
+                android:textSize="23dp"
+                android:textColor="#ffff"
+                android:id="@+id/abonadoQty"
+                />
+        </LinearLayout>
         <info.hoang8f.widget.FButton
             android:id="@+id/applyBtn"
             android:textSize="19dp"
@@ -53,7 +83,7 @@
             android:text="Aplicar"
             android:textAlignment="center"
             android:textColor="#ffff"
-            android:layout_below="@id/linearLayout"
+            android:layout_below="@id/linearLayout3"
             android:layout_centerHorizontal="true"
             fbutton:buttonColor="#144257"
             fbutton:cornerRadius="5dp"
@@ -68,6 +98,46 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/relativeLayout">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/linearLayout2">
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"
+                android:textSize="22dp"
+                android:hint="Venta"
+                />
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"
+                android:textSize="22dp"
+                android:hint="Total"
+                />
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp"
+                android:textSize="22dp"
+                android:hint="Saldo mov"
+                />
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginLeft="150dp"
+                android:textSize="22dp"
+                android:hint="Abono"
+                />
+        </LinearLayout>
+
         <ListView
             android:textSize="23dp"
             android:layout_width="match_parent"
@@ -75,7 +145,8 @@
             android:longClickable="true"
             android:id="@+id/lvCreps"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/linearLayout2"/>
 
     </RelativeLayout>
 

@@ -129,7 +129,8 @@ public class PaymentDetailDAO
                             columnPartialPayment + "," +
                             columnBalance + "," +
                             columnInterest + "," +
-                            columnNumber + ") " +
+                            columnNumber + "," +
+                            columnAnticipo + ") " +
 
                             "VALUES (" +
                             "'" + paymentDetail.getPago() + "'," +
@@ -139,7 +140,8 @@ public class PaymentDetailDAO
                             "'" + paymentDetail.getAbono() + "'," +
                             "'" + paymentDetail.getSaldo() + "'," +
                             "'" + paymentDetail.getIntereses() + "'," +
-                            "'" + paymentDetail.getNumero() + "')";
+                            "'" + paymentDetail.getNumero() + "'," +
+                            "'" + paymentDetail.getAnticipo() + "')";
 
             database.execSQL(query);
 
@@ -164,6 +166,7 @@ public class PaymentDetailDAO
         initialValues.put(columnBalance, paymentDetail.getSaldo());
         initialValues.put(columnInterest, paymentDetail.getIntereses());
         initialValues.put(columnNumber, paymentDetail.getNumero());
+        initialValues.put(columnAnticipo, paymentDetail.getAnticipo());
     }
 
     @Override
@@ -249,6 +252,11 @@ public class PaymentDetailDAO
             if(cursor.getColumnIndex(columnNumber) != -1){
                 int numberIndex = cursor.getColumnIndex(columnNumber);
                 paymentDetail.setNumero(cursor.getString(numberIndex));
+            }
+
+            if(cursor.getColumnIndex(columnAnticipo) != -1){
+                int anticipoIndex = cursor.getColumnIndex(columnAnticipo);
+                paymentDetail.setAnticipo(cursor.getString(anticipoIndex));
             }
 
         }else return null;

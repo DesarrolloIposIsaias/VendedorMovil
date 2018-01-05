@@ -1,33 +1,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.admin.iposapp.controler.FtpMenu">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.iposapp.controler.FtpMenu">
 
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
 
     <View android:id="@+id/fakeView"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:layout_centerInParent="true"
-          android:layout_centerVertical="true"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"/>
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="CONFIGURACIÓN"
+        android:text="@string/new_payment"
         android:gravity="bottom"
-        android:paddingBottom="50dp"
-        android:paddingTop="20dp"
-        android:textSize="46sp"
-        android:id="@+id/uploadBtn"
+        android:paddingBottom="135dp"
+        android:paddingTop="145dp"
+        android:textSize="32sp"
+        android:id="@+id/button_new_payment"
         android:layout_gravity="center_horizontal|top"
         android:background = "@drawable/bluesquarebutton"
         android:textAlignment="center"
         android:textColor="#ffff"
-        android:drawableTop="@mipmap/ic_ftp"
+        android:drawableTop="@drawable/ic_add_tinted"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -35,23 +32,20 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="SINCRONIZAR"
+        android:text="@string/admin"
         android:gravity="bottom"
-        android:paddingBottom="50dp"
-        android:paddingTop="20dp"
-        android:textSize="46dp"
-        android:id="@+id/toSync"
+        android:paddingBottom="135dp"
+        android:paddingTop="145dp"
+        android:textSize="32sp"
+        android:id="@+id/button_edit_payments"
         android:layout_gravity="center_horizontal|top"
         android:background = "@drawable/whitesquarebutton"
         android:textAlignment="center"
         android:textColor="#144257"
-        android:drawableTop="@mipmap/ic_sync"
+        android:drawableTop="@drawable/ic_edit_tinted"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/fakeView"/>
 
-
-
-</RelativeLayout>
 </RelativeLayout>
