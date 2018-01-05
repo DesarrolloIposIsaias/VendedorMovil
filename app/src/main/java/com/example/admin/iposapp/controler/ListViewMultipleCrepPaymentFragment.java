@@ -44,6 +44,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
     private ListViewMultipleCrepAdapter listViewCrepAdapter;
     public static TextView aCuentaTxtVw;
     public static TextView aCuentaAbonadaTxtVw;
+    public static TextView aCuentaRestanteTxtVw;
     private Database db;
     private EditText auxEditText;
     private PaymentDetail paymentDetailAnticipo;
@@ -71,6 +72,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
 
             aCuentaTxtVw = (TextView) view.findViewById(R.id.quantity);
             aCuentaAbonadaTxtVw = (TextView) view.findViewById(R.id.abonadoQty);
+            aCuentaRestanteTxtVw = (TextView) view.findViewById(R.id.restantes);
             crepsListView = (ListView)view.findViewById(R.id.lvCreps);
             listViewCrepAdapter = new ListViewMultipleCrepAdapter(getContext(), creps);
             goApplyPaymentBtn = (Button)view.findViewById(R.id.applyBtn);
@@ -78,6 +80,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
             crepsListView.setAdapter(listViewCrepAdapter);
 
             aCuentaTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
+            aCuentaRestanteTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
         }
         catch (Exception ex){
             ex.printStackTrace();
