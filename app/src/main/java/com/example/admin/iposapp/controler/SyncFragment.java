@@ -14,7 +14,10 @@ import android.widget.Toast;
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.backgroundTask.AddSaleSoapTask;
 import com.example.admin.iposapp.database.Database;
+import com.example.admin.iposapp.model.Payment;
+import com.example.admin.iposapp.model.PaymentDetail;
 import com.example.admin.iposapp.model.Sale;
+import com.example.admin.iposapp.model.SaleDetail;
 import com.example.admin.iposapp.utility.CurrentData;
 import com.example.admin.iposapp.utility.FTPConnection;
 import com.example.admin.iposapp.utility.WSMobileSalesHelper;
@@ -155,12 +158,46 @@ public class SyncFragment extends Fragment
             public void onClick(View v)
             {
                 wsHelper = new WSMobileSalesHelper(getContext());
-                wsHelper.postPayments();
+
+                wsHelper.postSales(getSales());
+                wsHelper.postPayments(getPayments());
 
             }
         });
 
         return view;
+    }
+
+    private List<Payment> getPayments(){
+        database.open();
+        List<Payment> payments = Database.paymentDAO.fetchAllPayments();
+        for(int i = 0; i < payments.size(); i++){
+
+            List<PaymentDetail> details = Database.paymentDetailDAO.fetchPaymentDetailsByPayment(
+                    payments.get(i).getId()
+            );
+
+            payments.get(i).setDetails(details);
+        }
+        database.close();
+
+        return payments;
+    }
+
+    private List<Sale> getSales(){
+        database.open();
+        List<Sale> sales = Database.saleDAO.fetchPendingSales();
+        for(int i = 0; i < sales.size(); i++){
+
+            List<SaleDetail> details = Database.saleDetailDAO.fetchSaleDetailsBySale(
+                    sales.get(i).getId()
+            );
+
+            sales.get(i).setDetails(details);
+        }
+        database.close();
+
+        return sales;
     }
 }
 

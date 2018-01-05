@@ -1,9 +1,45 @@
 package com.example.admin.iposapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 /**
  * Created by admin on 24/06/2016.
  */
 public class Sale {
+
+    @SerializedName("Id")
+    @Expose
+    private String id;
+    @SerializedName("Client")
+    @Expose
+    private String client;
+    @SerializedName("Total")
+    @Expose
+    private float total;
+    @SerializedName("Description1")
+    @Expose
+    private String description1;
+    @SerializedName("Description2")
+    @Expose
+    private String description2;
+    @SerializedName("PaymentMethod")
+    @Expose
+    private String paymentMethod;
+    @SerializedName("Status1")
+    @Expose
+    private String status1;
+    @SerializedName("Status2")
+    @Expose
+    private String status2;
+    @SerializedName("Send")
+    @Expose
+    private String send;
+    @SerializedName("Details")
+    @Expose
+    private List<SaleDetail> details;
 
     public Sale()
     {
@@ -84,13 +120,11 @@ public class Sale {
         this.send = send;
     }
 
-    private String id;
-    private String client;
-    private float total;
-    private String description1;
-    private String description2;
-    private String paymentMethod;
-    private String status1;
-    private String status2;
-    private String send;
+    public List<SaleDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<SaleDetail> details) {
+        this.details = details;
+    }
 }

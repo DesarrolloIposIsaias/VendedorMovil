@@ -70,6 +70,9 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v)
     {
+        /*database.open();
+        database.upgrade();
+        database.close();*/
 
         if(user.getText().toString().equals("sistemas") &&
                 pswd.getText().toString().equals("kabu")){
