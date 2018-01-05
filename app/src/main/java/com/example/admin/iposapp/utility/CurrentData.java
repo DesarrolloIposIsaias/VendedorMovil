@@ -11,7 +11,7 @@ import com.example.admin.iposapp.model.Settings;
 
 import java.util.List;
 
-/**
+/*
  * Created by admin on 29/06/2016.
  */
 public class CurrentData
@@ -40,9 +40,10 @@ public class CurrentData
     private static String company;
     private static String branch;
     private static String remoteDbName;
-    private static MultiplePaymentHeader actualMultiplePaymentHeader;
-    private static Bundle itemMultipleCrep = new Bundle();
     private static Crep selectedCrep;
+    private static MultiplePaymentHeader actualMultiplePaymentHeader;
+    private static Bundle itemMultipleCrep;
+    private static String selectedPayment;
 
     public static Crep getSelectedCrep() {
         return selectedCrep;
@@ -50,14 +51,6 @@ public class CurrentData
 
     public static void setSelectedCrep(Crep selectedCrep) {
         CurrentData.selectedCrep = selectedCrep;
-    }
-
-    public static Bundle getItemMultipleCrep() {
-        return itemMultipleCrep;
-    }
-
-    public static void setItemMultipleCrep(Bundle args) {
-        CurrentData.itemMultipleCrep = args;
     }
 
     public static int getLastClientInserted()
@@ -311,11 +304,27 @@ public class CurrentData
         CurrentData.remoteDbName = remoteDbName;
     }
 
+    public static Bundle getItemMultipleCrep() {
+        return itemMultipleCrep;
+    }
+
+    public static void setItemMultipleCrep(Bundle itemMultipleCrep) {
+        CurrentData.itemMultipleCrep = itemMultipleCrep;
+    }
+
     public static MultiplePaymentHeader getActualMultiplePaymentHeader() {
         return actualMultiplePaymentHeader;
     }
 
     public static void setActualMultiplePaymentHeader(MultiplePaymentHeader actualMultiplePaymentHeader) {
         CurrentData.actualMultiplePaymentHeader = actualMultiplePaymentHeader;
+    }
+
+    public static String getSelectedPayment() {
+        return selectedPayment;
+    }
+
+    public static void setSelectedPayment(String selectedPayment) {
+        CurrentData.selectedPayment = selectedPayment;
     }
 }

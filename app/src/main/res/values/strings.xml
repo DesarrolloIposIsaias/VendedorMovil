@@ -116,6 +116,11 @@
     <string name="set_date">Seleccionar fecha</string>
     <string name="new_payment">Nuevo</string>
     <string name="admin">Administar</string>
+    <string name="saleMayus">VENTA</string>
+    <string name="amountMayus">IMPORTE</string>
+    <string name="dateMayus">FECHA</string>
+    <string name="partialPaymentMayus">PAGOS RELCIONADOS</string>
+    <string name="paymentMayus">PAGO</string>
 
     <string-array name="days">
         <item>LUNES</item>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    android:orientation="horizontal"
+    android:background="#227195">
+
+    <TextView
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/paymentMayus"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        android:textColor="#ffff"
+        android:layout_width="wrap_content"
+        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/amountMayus"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textColor="#ffff"
+        android:layout_width="wrap_content"
+        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/saleMayus"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        android:textColor="#ffff"
+        android:layout_width="wrap_content"
+        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/dateMayus"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        android:textColor="#ffff"
+        android:layout_width="wrap_content"
+        android:gravity="start"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"/>
+
+</LinearLayout>

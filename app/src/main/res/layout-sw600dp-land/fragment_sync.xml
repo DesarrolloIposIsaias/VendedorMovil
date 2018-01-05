@@ -13,11 +13,11 @@
           android:layout_centerVertical="true"/>
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="281dp"
+        android:layout_height="wrap_content"
         android:text="SUBIR"
         android:gravity="bottom"
-        android:paddingBottom="50dp"
-        android:paddingTop="60dp"
+        android:paddingBottom="30dp"
+        android:paddingTop="20dp"
         android:textSize="46sp"
         android:id="@+id/uploadBtn"
         android:layout_gravity="center_horizontal|top"
@@ -27,16 +27,16 @@
         android:drawableTop="@mipmap/ic_upload"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/uploadBtn"/>
+        android:layout_alignParentStart="true"/>
+
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="281dp"
+        android:layout_height="wrap_content"
         android:text="DESCARGAR"
         android:gravity="bottom"
-        android:paddingBottom="50dp"
-        android:paddingTop="40dp"
-        android:textSize="46sp"
+        android:paddingBottom="70dp"
+        android:paddingTop="20dp"
+        android:textSize="46dp"
         android:id="@+id/downloadBtn"
         android:layout_gravity="center_horizontal|top"
         android:background = "@drawable/bluesquarebutton"
@@ -47,6 +47,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/uploadBtn"/>
+
+
 
 
 </RelativeLayout>

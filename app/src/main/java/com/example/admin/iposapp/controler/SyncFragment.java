@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
@@ -34,6 +35,7 @@ public class SyncFragment extends Fragment
     private String mParam2;
     private FTPConnection ftpClient;
     private Button download, upload;
+    private ProgressBar progress;
     private AlertDialog alertDialog;
     Database database;
 
@@ -76,7 +78,7 @@ public class SyncFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.fragment_sync, container, false);
+        final View view = inflater.inflate(R.layout.fragment_sync, container, false);
         download = (Button)view.findViewById(R.id.downloadBtn);
         upload = (Button)view.findViewById(R.id.uploadBtn);
         database = new Database(getContext());
@@ -94,6 +96,7 @@ public class SyncFragment extends Fragment
                     database.close();
                     boolean pending = sales.size() > 0;
 
+
                     if (!pending)
                     {
                         new AlertDialog.Builder(getContext())
@@ -110,8 +113,11 @@ public class SyncFragment extends Fragment
                                             database.open();
                                             database.upgrade();
                                             database.close();
-
+                                            //progress.setVisibility(View.VISIBLE);
                                             WSMobileSalesHelper wsHelper = new WSMobileSalesHelper(getContext());
+
+
+
                                             wsHelper.getBanks();
                                             wsHelper.getCrep();
                                             wsHelper.getStates();
@@ -119,13 +125,15 @@ public class SyncFragment extends Fragment
                                             wsHelper.getClients();
                                             wsHelper.getKits();
 
+
                                         }
                                         catch (Exception e)
                                         {
                                             e.printStackTrace();
+                                            progress.setVisibility(View.GONE);
                                         }
-
                                     }
+
                                 })
                                 .setNegativeButton("No", null).show();
                     }
