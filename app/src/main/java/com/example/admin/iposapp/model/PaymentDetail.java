@@ -1,20 +1,43 @@
 package com.example.admin.iposapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by sopor on 12/12/2017.
  */
 
 public class PaymentDetail {
 
+    @SerializedName("Pago")
+    @Expose
     private String pago;
+    @SerializedName("Fecha")
+    @Expose
     private String fecha;
+    @SerializedName("Venta")
+    @Expose
     private String venta;
+    @SerializedName("Cargo")
+    @Expose
     private String cargo;
+    @SerializedName("Abono")
+    @Expose
     private String abono;
+    @SerializedName("Saldo")
+    @Expose
     private String saldo;
+    @SerializedName("Intereses")
+    @Expose
     private String intereses;
+    @SerializedName("Numero")
+    @Expose
     private String numero;
+    @SerializedName("Id")
+    @Expose
     private String id;
+    @SerializedName("Anticipo")
+    @Expose
     private String anticipo;
 
     public String getPago() {

@@ -57,24 +57,40 @@ public class PaymentDetailDAO
 
     public ArrayList<PaymentDetail> fetchPaymentDetailsByPayment(String payment){
 
-        final String selectionArgs[] = {payment};
-        final String selection = columnPayment + " = ?";
-        ArrayList<PaymentDetail> paymentDetails = new ArrayList<>();
+        try{
 
-        cursor = super.query(tableName, paymentDetailColumns, selection, selectionArgs, columnId);
+            final String selectionArgs[] = {payment};
+            final String selection = columnPayment + " = ?";
+            ArrayList<PaymentDetail> paymentDetails = new ArrayList<>();
 
-        if(cursor != null) {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()){
-                PaymentDetail paymentDetail1 = cursorToEntity(cursor);
-                paymentDetails.add(paymentDetail1);
-                cursor.moveToNext();
+            cursor = super.query(
+                    tableName,
+                    paymentDetailColumns,
+                    selection,
+                    selectionArgs,
+                    columnId
+            );
+
+            if(cursor != null) {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()){
+                    PaymentDetail paymentDetail1 = cursorToEntity(cursor);
+                    paymentDetails.add(paymentDetail1);
+                    cursor.moveToNext();
+                }
+
+                cursor.close();
             }
 
-            cursor.close();
-        }
+            return paymentDetails;
 
-        return paymentDetails;
+        }
+        catch(Exception e){
+
+            e.printStackTrace();
+
+            return null;
+        }
     }
 
     @Override
