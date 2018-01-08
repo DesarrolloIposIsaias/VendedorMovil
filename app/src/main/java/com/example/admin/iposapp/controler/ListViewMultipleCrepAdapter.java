@@ -20,6 +20,7 @@ import com.example.admin.iposapp.model.Crep;
 import com.example.admin.iposapp.utility.CurrentData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Desarrollo IPOS on 14/12/2017.
@@ -185,5 +186,9 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
         {
             ListViewMultipleCrepPaymentFragment.aCuentaAbonadaTxtVw.setTextColor(Color.WHITE);
         }
+    }
+
+    public List<Crep> getData(){
+        return dataSet;
     }
 }
