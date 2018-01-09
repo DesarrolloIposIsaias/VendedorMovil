@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
@@ -124,6 +125,15 @@ public class NextPaymentFragment extends DialogFragment {
         goApplyPaymentBtn.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!clientExist(filterAutoComTxtVw.getText().toString()))
+                {
+                    Toast.makeText(
+                            getContext(),
+                            "Cliente inexistente, utilice el autocompletado!",
+                            Toast.LENGTH_LONG).show();
+                    filterAutoComTxtVw.requestFocus();
+                    return;
+                }
                     getDialog().dismiss();
                 }
             }));
@@ -136,6 +146,30 @@ public class NextPaymentFragment extends DialogFragment {
         CurrentData.setNextPayment(filterAutoComTxtVw.getText().toString());
         callback = (SinglePaymentDialogCloseListener)getTargetFragment();
         callback.handleDialogClose("APPLY");
+    }
+
+    private boolean clientExist(String clientSearch)
+    {
+        for(int i = 0; i < clients.size(); i++)
+        {
+            if(clients.get(i).getClave().equals(getClientCode(clientSearch)))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private String getClientCode(String clientAux)
+    {
+        if(clientAux.contains("<") && clientAux.contains(">"))
+        {
+            return clientAux.substring(clientAux.indexOf("<") + 1, clientAux.indexOf(">"));
+        }
+        else
+        {
+            return clientAux;
+        }
     }
 
 }
