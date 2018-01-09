@@ -343,7 +343,28 @@ public class ClientsMultipleCrepFragment extends Fragment {
             dateTxtVw.requestFocus();
             return false;
         }
+        else if(!clientExist(filterAutoComTxtVw.getText().toString()))
+        {
+            Toast.makeText(
+                    getContext(),
+                    "Cliente inexistente, utilice el autocompletado!",
+                    Toast.LENGTH_LONG).show();
+            dateTxtVw.requestFocus();
+            return false;
+        }
         return true;
+    }
+
+    private boolean clientExist(String clientSearch)
+    {
+        for(int i = 0; i < clients.size(); i++)
+        {
+            if(clients.get(i).getClave() == clientSearch)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void fillBanks()

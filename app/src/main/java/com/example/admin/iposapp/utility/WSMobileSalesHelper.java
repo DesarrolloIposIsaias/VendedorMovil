@@ -44,16 +44,12 @@ public class WSMobileSalesHelper {
         database = new Database(context);
     }
 
-    public void postPayments(){
-        String methodName = "WSClients.svc/PostTest";
-
-        database.open();
-        List<Client> clients = Database.clientDao.fetchAllClients();
-        database.close();
+    public void postPayments(List<Payment> payments){
+        String methodName = "WSPayments.svc/PostPayment";
 
         Gson gsonHelper = new Gson();
 
-        String body = gsonHelper.toJson(clients);
+        String body = gsonHelper.toJson(payments);
 
         JSONArray jsonArray = null;
         try {
@@ -108,29 +104,33 @@ public class WSMobileSalesHelper {
         VolleySingleton.getInstance(context).addToRequestQueue(request);
     }
 
-    public void postSales(Sale sale, ArrayList<SaleDetail> saleDetails){
-        String methodName = "WSSales.svc/PostDetails";
+    public void postSales(List<Sale> sales){
+        String methodName = "WSSales.svc/PostSale";
 
         Gson gsonHelper = new Gson();
 
-        JsonObjectRequest request = new JsonObjectRequest(
-                Request.Method.POST, baseUrl + methodName, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        if (response != null) {
-                            try {
-                                JSONArray jarray = response.getJSONArray("Data");
-                                Gson objGson = new Gson();
-                                Type listType = new TypeToken<List<Client>>(){}.getType();
-                                List<Client> clientes = objGson.fromJson(
-                                        jarray.toString(),
-                                        listType
-                                );
+        String body = gsonHelper.toJson(sales);
 
-                            }catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+        JSONArray jsonArray = null;
+        try {
+            jsonArray = new JSONArray(body);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonArrayRequest request = new JsonArrayRequest(
+                Request.Method.POST, baseUrl + methodName, jsonArray,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        if (response != null) {
+
+                            Toast.makeText(
+                                    context,
+                                    "SUCCESS",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -139,6 +139,11 @@ public class WSMobileSalesHelper {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
 
+                Toast.makeText(
+                        context,
+                        "ERROR",
+                        Toast.LENGTH_SHORT
+                ).show();
                 error.printStackTrace();
 
             }

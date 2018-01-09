@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
+import com.example.admin.iposapp.listeners.SinglePaymentDialogCloseListener;
 import com.example.admin.iposapp.model.Bank;
 import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.MultiplePaymentHeader;
@@ -35,6 +37,7 @@ public class NextPaymentFragment extends DialogFragment {
     private ArrayList<Client> clients;
     private Database db;
 
+    private SinglePaymentDialogCloseListener callback;
 
     public NextPaymentFragment() {
         // Required empty public constructor
@@ -82,7 +85,6 @@ public class NextPaymentFragment extends DialogFragment {
                     );
 
                     filterAutoComTxtVw.setAdapter(autoCompleteAdapter);
-                    CurrentData.setNextPayment(filterAutoComTxtVw.getText().toString());
                 }
                 /*ClientBalance clientBalance = new ClientBalance();
                 clientBalance = Database.clientBalanceDAO.fetchClientBalanceByClient(getClientCode(filterAutoComTxtVw.getText().toString()));
@@ -128,6 +130,12 @@ public class NextPaymentFragment extends DialogFragment {
 
         return view;
 
+    }
+
+    public void onDismiss(DialogInterface dialog){
+        CurrentData.setNextPayment(filterAutoComTxtVw.getText().toString());
+        callback = (SinglePaymentDialogCloseListener)getTargetFragment();
+        callback.handleDialogClose("APPLY");
     }
 
 }

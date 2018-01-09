@@ -3,6 +3,9 @@ package com.example.admin.iposapp.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by sopor on 12/12/2017.
  */
@@ -39,6 +42,10 @@ public class Payment implements java.io.Serializable{
     @SerializedName("Id")
     @Expose
     private String id;
+
+    @SerializedName("Details")
+    @Expose
+    private List<PaymentDetail> details;
 
     public String getVenta() {
         return venta;
@@ -118,5 +125,13 @@ public class Payment implements java.io.Serializable{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<PaymentDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<PaymentDetail> details) {
+        this.details = details;
     }
 }

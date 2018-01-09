@@ -18,7 +18,7 @@
         android:layout_margin="0dp">
 
         <LinearLayout
-            android:layout_width="400dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="#144257"
@@ -43,6 +43,24 @@
                 android:textSize="23dp"
                 android:textColor="#ffff"
                 android:id="@+id/quantity"
+                />
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="35dp"
+                android:text="Restantes: "
+                android:textSize="20dp"
+                android:textColor="#ffff"
+                android:layout_marginLeft="300dp"
+                android:id="@+id/restantesLbl"
+                />
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="35dp"
+                android:text=""
+                android:textSize="20dp"
+                android:textColor="#ffff"
+                android:id="@+id/restantes"
                 />
         </LinearLayout>
 

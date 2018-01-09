@@ -25,8 +25,10 @@ import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.database.Database;
+import com.example.admin.iposapp.listeners.SinglePaymentDialogCloseListener;
 import com.example.admin.iposapp.model.ClientBalance;
 import com.example.admin.iposapp.model.Crep;
+import com.example.admin.iposapp.model.MultiplePaymentHeader;
 import com.example.admin.iposapp.model.Payment;
 import com.example.admin.iposapp.model.PaymentDetail;
 import com.example.admin.iposapp.utility.AutoCompleteContentProvider;
@@ -37,7 +39,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListViewMultipleCrepPaymentFragment extends Fragment{
+public class ListViewMultipleCrepPaymentFragment extends Fragment implements SinglePaymentDialogCloseListener{
 
     private Button goApplyPaymentBtn;
     public static ListView crepsListView;
@@ -45,9 +47,11 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
     private ListViewMultipleCrepAdapter listViewCrepAdapter;
     public static TextView aCuentaTxtVw;
     public static TextView aCuentaAbonadaTxtVw;
+    public static TextView aCuentaRestanteTxtVw;
     private Database db;
     private EditText auxEditText;
     private PaymentDetail paymentDetailAnticipo;
+    private Fragment parent;
 
 
 
@@ -63,6 +67,8 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_list_view_multiple_crep_payment, container, false);
 
         try{
+            parent = this;
+
             creps = new ArrayList<>();
 
             db = new Database(this.getContext());
@@ -72,6 +78,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
 
             aCuentaTxtVw = (TextView) view.findViewById(R.id.quantity);
             aCuentaAbonadaTxtVw = (TextView) view.findViewById(R.id.abonadoQty);
+            aCuentaRestanteTxtVw = (TextView) view.findViewById(R.id.restantes);
             crepsListView = (ListView)view.findViewById(R.id.lvCreps);
             listViewCrepAdapter = new ListViewMultipleCrepAdapter(getContext(), creps);
             goApplyPaymentBtn = (Button)view.findViewById(R.id.applyBtn);
@@ -79,6 +86,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
             crepsListView.setAdapter(listViewCrepAdapter);
 
             aCuentaTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
+            aCuentaRestanteTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -87,7 +95,19 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
         goApplyPaymentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Float.parseFloat(aCuentaTxtVw.getText().toString()) >= Float.parseFloat(aCuentaAbonadaTxtVw.getText().toString())) {
+                if(Float.parseFloat(aCuentaTxtVw.getText().toString()) >= Float.parseFloat(aCuentaAbonadaTxtVw.getText().toString())
+                        && aCuentaAbonadaTxtVw.getText().length() > 0) {
+
+                    if(Float.parseFloat(aCuentaAbonadaTxtVw.getText().toString()) <= 0)
+                    {
+                        Toast.makeText(
+                                getContext(),
+                                "No ha realizado abonos!",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                        return;
+                    }
+
                     try {
                         Payment payment;
 
@@ -196,10 +216,12 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
                                     else if(which == 1)
                                     {
                                         NextPaymentFragment nextPaymentFragment = new NextPaymentFragment();
+                                        nextPaymentFragment.setTargetFragment(parent, 1);
                                         nextPaymentFragment.show(
                                                 ((FragmentActivity)getContext()).getSupportFragmentManager(),
                                                 "next_payment");
                                         //aqui josue
+
                                     }
                                 }
                             });
@@ -289,7 +311,48 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment{
 
     private String getClientCode(String clientAux)
     {
-        return clientAux.substring(clientAux.indexOf("<") + 1, clientAux.indexOf(">"));
+        if(clientAux.contains("<") && clientAux.contains(">"))
+        {
+            return clientAux.substring(clientAux.indexOf("<") + 1, clientAux.indexOf(">"));
+        }
+        else
+        {
+            return clientAux;
+        }
     }
 
+    private void clearLisview()
+    {
+        for (int i = 0; i < listViewCrepAdapter.getCount(); i++) {
+            View v = listViewCrepAdapter.getView(i, ListViewMultipleCrepPaymentFragment.crepsListView.getChildAt(i), ListViewMultipleCrepPaymentFragment.crepsListView);
+            auxEditText = (EditText) v.findViewById(R.id.crep_abono);
+            if (auxEditText != null && auxEditText.getText().length() > 0) {
+                auxEditText.setText("");
+            }
+        }
+    }
+
+    @Override
+    public void handleDialogClose(String sender) {
+        if(sender.equals("APPLY")){
+            creps = new ArrayList<>();
+
+            db = new Database(getContext());
+            db.open();
+            creps = (ArrayList<Crep>) db.crepDAO.fetchCrepsByClientList(getClientCode(CurrentData.getNextPayment()));
+            db.close();
+
+
+            listViewCrepAdapter.getData().clear();
+            listViewCrepAdapter.getData().addAll(creps);
+            listViewCrepAdapter.notifyDataSetChanged();
+
+            clearLisview();
+
+            CurrentData.getActualMultiplePaymentHeader().setAmount(Float.parseFloat(aCuentaRestanteTxtVw.getText().toString()));
+
+            aCuentaTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
+            aCuentaAbonadaTxtVw.setText("");
+        }
+    }
 }

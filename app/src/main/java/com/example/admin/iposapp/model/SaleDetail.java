@@ -1,16 +1,36 @@
 package com.example.admin.iposapp.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by admin on 24/06/2016.
  */
 public class SaleDetail {
+
+    @SerializedName("Id")
+    @Expose
     String id;
+    @SerializedName("Client")
+    @Expose
     String client;
+    @SerializedName("ProductId")
+    @Expose
     String productId;
+    @SerializedName("Description")
+    @Expose
     String description;
+    @SerializedName("Price")
+    @Expose
     float price;
+    @SerializedName("Discount")
+    @Expose
     float discount;
+    @SerializedName("Amount")
+    @Expose
     float amount;
+    @SerializedName("SaleId")
+    @Expose
     String saleId;
 
     public String getSaleId()
