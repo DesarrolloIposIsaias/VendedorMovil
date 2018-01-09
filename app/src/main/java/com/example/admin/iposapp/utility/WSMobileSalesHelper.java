@@ -190,6 +190,7 @@ public class WSMobileSalesHelper {
                                 Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                progress.dismiss();
                             } catch (SQLException e) {
                                 database.upgrade();
                                 Toast.makeText(
@@ -197,6 +198,7 @@ public class WSMobileSalesHelper {
                                         "Error al Importar Clientes, vuelva a importar",
                                         Toast.LENGTH_LONG).show();
                                 e.printStackTrace();
+                                progress.dismiss();
                             }
                             finally {
                                 database.close();
@@ -212,6 +214,7 @@ public class WSMobileSalesHelper {
                 Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
 
                 error.printStackTrace();
+                progress.dismiss();
 
             }
         }){
@@ -257,6 +260,7 @@ public class WSMobileSalesHelper {
                                 //List<Bank> testData = database.bankDAO.fetchAllBanks();
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                progress.dismiss();
                             } catch (SQLException e) {
                                 database.upgrade();
                                 Toast.makeText(
@@ -264,6 +268,7 @@ public class WSMobileSalesHelper {
                                         "Error al Importar Bancos, vuelva a importar",
                                         Toast.LENGTH_LONG).show();
                                 e.printStackTrace();
+                                progress.dismiss();
                             }
                             finally {
                                 database.close();
@@ -278,6 +283,7 @@ public class WSMobileSalesHelper {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
                 error.printStackTrace();
+                progress.dismiss();
 
             }
         }){
@@ -327,6 +333,7 @@ public class WSMobileSalesHelper {
                                 Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                progress.dismiss();
                             } catch (SQLException e) {
                                 database.upgrade();
                                 Toast.makeText(
@@ -334,6 +341,7 @@ public class WSMobileSalesHelper {
                                         "Error al Importar Cobranzas, vuelva a importar",
                                         Toast.LENGTH_LONG).show();
                                 e.printStackTrace();
+                                progress.dismiss();
                             }
                             finally {
                                 database.close();
@@ -348,6 +356,7 @@ public class WSMobileSalesHelper {
                 Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
 
                 error.printStackTrace();
+                progress.dismiss();
 
             }
         }){
@@ -393,11 +402,13 @@ public class WSMobileSalesHelper {
                                 if(!Database.stateDAO.addStates(estados))
                                 {
                                     throw new SQLException("No se pudieron insertar los Estados");
+
                                 }
                                 //List<State> testData = database.stateDAO.fetchAllStates();
                                 Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                progress.dismiss();
                             } catch (SQLException e) {
                                 database.upgrade();
                                 Toast.makeText(
@@ -405,6 +416,7 @@ public class WSMobileSalesHelper {
                                         "Error al Importar Estados, vuelva a importar",
                                         Toast.LENGTH_LONG).show();
                                 e.printStackTrace();
+                                progress.dismiss();
                             }
                             finally {
                                 database.close();
@@ -419,7 +431,7 @@ public class WSMobileSalesHelper {
                 Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
 
                 error.printStackTrace();
-
+                progress.dismiss();
             }
         }){
             @Override
@@ -469,6 +481,7 @@ public class WSMobileSalesHelper {
                                 Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                progress.dismiss();
                             } catch (SQLException e) {
                                 database.upgrade();
                                 Toast.makeText(
@@ -476,6 +489,7 @@ public class WSMobileSalesHelper {
                                         "Error al Importar Productos, vuelva a importar",
                                         Toast.LENGTH_LONG).show();
                                 e.printStackTrace();
+                                progress.dismiss();
                             }
                             finally {
                                 database.close();
@@ -490,7 +504,7 @@ public class WSMobileSalesHelper {
                 Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
 
                 error.printStackTrace();
-
+                progress.dismiss();
             }
         }){
             @Override
@@ -537,6 +551,7 @@ public class WSMobileSalesHelper {
                                 Toast.makeText(context, "Success", Toast.LENGTH_LONG).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                progress.dismiss();
                             } catch (SQLException e) {
                                 database.upgrade();
                                 Toast.makeText(
@@ -544,6 +559,7 @@ public class WSMobileSalesHelper {
                                         "Error al Importar Kits, vuelva a importar",
                                         Toast.LENGTH_LONG).show();
                                 e.printStackTrace();
+                                progress.dismiss();
                             }
                             finally {
                                 database.close();
@@ -558,7 +574,7 @@ public class WSMobileSalesHelper {
                 Toast.makeText(context,"Server error..", Toast.LENGTH_SHORT).show();
 
                 error.printStackTrace();
-
+                progress.dismiss();
             }
         }){
             @Override

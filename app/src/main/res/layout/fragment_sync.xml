@@ -33,7 +33,7 @@
         android:layout_height="281dp"
         android:text="DESCARGAR"
         android:gravity="bottom"
-        android:paddingBottom="70dp"
+        android:paddingBottom="20dp"
         android:paddingTop="60dp"
         android:textSize="32sp"
         android:id="@+id/downloadBtn"
