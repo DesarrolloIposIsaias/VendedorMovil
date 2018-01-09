@@ -349,7 +349,7 @@ public class ClientsMultipleCrepFragment extends Fragment {
                     getContext(),
                     "Cliente inexistente, utilice el autocompletado!",
                     Toast.LENGTH_LONG).show();
-            dateTxtVw.requestFocus();
+            filterAutoComTxtVw.requestFocus();
             return false;
         }
         return true;
@@ -359,7 +359,7 @@ public class ClientsMultipleCrepFragment extends Fragment {
     {
         for(int i = 0; i < clients.size(); i++)
         {
-            if(clients.get(i).getClave() == clientSearch)
+            if(clients.get(i).getClave().equals(getClientCode(clientSearch)))
             {
                 return true;
             }
