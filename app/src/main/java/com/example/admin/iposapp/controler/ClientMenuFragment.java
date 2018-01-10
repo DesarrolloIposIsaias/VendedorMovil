@@ -39,13 +39,13 @@ public class ClientMenuFragment extends Fragment
             @Override
             public void onClick(View v) {
 
-                AllClientsFragment newFragment = new AllClientsFragment();
+                ClientsFragment newFragment = new ClientsFragment();
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack
-                transaction.replace(R.id.fragmentContainer, newFragment,"contact_information");
+                transaction.replace(R.id.fragmentContainer, newFragment,"all_clients");
                 transaction.addToBackStack(null);
 
                 // Commit the transaction

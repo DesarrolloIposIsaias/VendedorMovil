@@ -55,6 +55,32 @@ public class ClientDAO extends DbContentProvider
         return client;
     }
 
+    public ArrayList<Client> fetchClients(){
+        ArrayList<Client> clientList = new ArrayList<>();
+
+        cursor = super.query(
+                tableName,
+                clientColumns,
+                null,
+                null,
+                columnId
+        );
+
+        if(cursor != null)
+        {
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast())
+            {
+                Client client = cursorToEntity(cursor);
+                clientList.add(client);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
+        return clientList;
+    }
+
     public List<Client> fetchAllClients()
     {
         List<Client> clientList = new ArrayList<Client>();
@@ -523,6 +549,16 @@ public class ClientDAO extends DbContentProvider
         }
 
         return client;
+    }
+
+    public boolean deleteClient(String clientKey) {
+
+        String selection = columnId +  " = ?";
+        String[] selectionArgs = {clientKey};
+
+        int result = super.delete(tableName, selection, selectionArgs);
+
+        return result > 0;
     }
 
 }
