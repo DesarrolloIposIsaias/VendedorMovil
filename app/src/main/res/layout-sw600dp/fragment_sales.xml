@@ -86,8 +86,28 @@
             android:text="@string/addProduct"
             android:id="@+id/addProductBtn"
             android:layout_marginTop="8dp"
-            android:layout_below="@+id/discountEditText"
-            android:layout_centerHorizontal="true"/>
+            android:layout_marginLeft="110dp"
+            android:layout_below="@+id/discountEditText"/>
+
+        <info.hoang8f.widget.FButton
+
+            android:id="@+id/goCrepBtn"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:text="@string/goCrep"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:layout_alignTop="@+id/addProductBtn"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            fbutton:buttonColor="#144257"
+            fbutton:cornerRadius="5dp"
+            fbutton:shadowColor="#0e2e3c"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            android:layout_marginRight="110dp"
+            android:layout_below="@id/discountEditText" />
 
         <EditText
             android:layout_width="130dp"

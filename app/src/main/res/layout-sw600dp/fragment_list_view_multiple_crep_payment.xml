@@ -76,7 +76,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="35dp"
                 android:text="Abonado: "
                 android:textSize="20dp"
@@ -84,7 +84,7 @@
                 android:id="@+id/abonado"
                 />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="35dp"
                 android:text=""
                 android:textSize="20dp"

@@ -153,6 +153,23 @@ public class TabContactInformationFragment extends Fragment
         clientSecondPhoneTView = (HTextView) view.findViewById(R.id.tvSecondPhone);
         clientFirstContact = (HTextView) view.findViewById(R.id.tvFirstContact);
         clientSecondContact = (HTextView) view.findViewById(R.id.tvSecondContact);
+        //set animate text
+    /*    clientNameTView.animateText("NOMBRE DEL CLIENTE");
+        clientAdressTView.animateText("DOMICILIO");
+        clientColonyTView.animateText("COLONIA");
+        clientCityTView.animateText("CIUDAD");
+        clientStateTView.animateText("ESTADO");
+        clientCountryTView.animateText("PAIS");
+        clientCodePostalTView.animateText("CODIGO POSTAL");
+        clientRFCTView.animateText("RFC");
+        clientFirstMailTView.animateText("CORREO PRINCIPAL");
+        clientSecondMailTView.animateText("CORREO ALTERNO");
+        clientFirstPhoneTView.animateText("TELEFONO PRINCIPAL");
+        clientSecondPhoneTView.animateText("TELEFONO ALTERNO");
+        clientFirstContact.animateText("CONTACTO PRINCIPAL");
+        clientSecondContact.animateText("CONTACTO ALTERNO"); */
+
+
 
         fabSaveChanges.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
@@ -182,7 +199,7 @@ public class TabContactInformationFragment extends Fragment
                 Rect scrollBounds = new Rect();
                 //client name animation
                 if (clientNameTView.getLocalVisibleRect(scrollBounds)) {
-                    if(!nameIsDrawed){
+                    if(nameIsDrawed == false){
                         clientNameTView.animateText("NOMBRE DEL CLIENTE");
                         nameIsDrawed = true;
                         // Any portion of the imageView, even a single pixel, is within the visible window
@@ -196,7 +213,7 @@ public class TabContactInformationFragment extends Fragment
                 }
                 //client adress animation
                 if (clientAdressTView.getLocalVisibleRect(scrollBounds)) {
-                    if(!adressIsDrawed){
+                    if(adressIsDrawed == false){
                         clientAdressTView.animateText("DIRECCION");
                         adressIsDrawed = true;
                         // Any portion of the imageView, even a single pixel, is within the visible window

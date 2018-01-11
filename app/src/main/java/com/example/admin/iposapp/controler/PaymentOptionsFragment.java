@@ -52,9 +52,7 @@ public class PaymentOptionsFragment extends Fragment {
             public void onClick(View view) {
                 PaymentsFragment fragment = new PaymentsFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
-                        fragment,
-                        fragment.getTag()).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragmentContainer,fragment,fragment.getTag()).commit();
             }
         });
 

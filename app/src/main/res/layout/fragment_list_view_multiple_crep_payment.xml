@@ -32,15 +32,15 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="A cuenta: "
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textColor="#ffff"
             android:id="@+id/monto"
             />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="35dp"
             android:text=""
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textColor="#ffff"
             android:id="@+id/quantity"
             />
@@ -49,16 +49,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Restantes: "
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="#ffff"
-                android:layout_marginLeft="70dp"
+                android:layout_marginLeft="15dp"
                 android:id="@+id/restantesLbl"
                 />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="95dp"
                 android:layout_height="35dp"
                 android:text=""
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="#ffff"
                 android:id="@+id/restantes"
                 />
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="Abonado: "
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="#ffff"
                 android:id="@+id/abonado"
                 />
@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text=""
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="#ffff"
                 android:id="@+id/abonadoQty"
                 />
@@ -148,7 +148,7 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
-                android:layout_marginLeft="55dp"
+                android:layout_marginLeft="35dp"
                 android:textSize="18dp"
                 android:hint="Abono"
                 />

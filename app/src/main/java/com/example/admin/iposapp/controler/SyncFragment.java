@@ -160,7 +160,7 @@ public class SyncFragment extends Fragment
                 wsHelper = new WSMobileSalesHelper(getContext());
 
                 wsHelper.postSales(getSales());
-                //wsHelper.postPayments(getPayments());
+                wsHelper.postPayments(getPayments());
 
             }
         });

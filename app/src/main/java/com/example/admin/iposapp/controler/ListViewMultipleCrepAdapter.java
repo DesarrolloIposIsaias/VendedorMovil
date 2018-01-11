@@ -68,7 +68,7 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
                 args.putString("PagoActual", Float.toString(crep.getPago()));
                 args.putString("AnticipoActual", "Anticipo");
                 args.putString("SaldoDespues", "Saldo después");
-                args.putString("AbonosMovil", "Abono movi");
+                args.putString("AbonosMovil", "Abono movil");
                 args.putString("Dias", Float.toString(crep.getDias()));
                 args.putString("ACuenta", Float.toString(crep.getaCuenta()));
 

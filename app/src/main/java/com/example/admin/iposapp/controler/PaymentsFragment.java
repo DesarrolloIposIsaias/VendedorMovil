@@ -101,6 +101,7 @@ public class PaymentsFragment extends Fragment {
             );
 
             paymentsListView.setAdapter(listViewPaymentAdapter);
+
             paymentsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

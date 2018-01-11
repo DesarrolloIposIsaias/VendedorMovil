@@ -45,7 +45,6 @@ public class CurrentData
     private static Bundle itemMultipleCrep;
     private static String selectedPayment;
     private static String nextPayment;
-    private static Client selectedClient;
 
     public static Crep getSelectedCrep() {
         return selectedCrep;
@@ -336,13 +335,5 @@ public class CurrentData
 
     public static void setNextPayment(String nextPayment) {
         CurrentData.nextPayment = nextPayment;
-    }
-
-    public static Client getSelectedClient() {
-        return selectedClient;
-    }
-
-    public static void setSelectedClient(Client selectedClient) {
-        CurrentData.selectedClient = selectedClient;
     }
 }

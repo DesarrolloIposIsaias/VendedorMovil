@@ -39,15 +39,12 @@ public class AddClientExtraInfoFragment extends Fragment
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View view = inflater.inflate(
-                R.layout.fragment_add_client_extra_info,
-                container,
-                false
-        );
+        View view = inflater.inflate(R.layout.fragment_add_client_extra_info, container, false);
 
         db = new Database(getContext());
 
@@ -106,9 +103,7 @@ public class AddClientExtraInfoFragment extends Fragment
                             Toast.LENGTH_SHORT).show();
                 }
                 CurrentData.getSettings().setClientSerie(
-                        String.valueOf(CurrentData.getLastClientInserted())
-                );
-
+                        String.valueOf(CurrentData.getLastClientInserted()));
                 db.close();
 
                 ClientMenuFragment newFragment = new ClientMenuFragment();

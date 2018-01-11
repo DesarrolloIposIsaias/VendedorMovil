@@ -64,10 +64,9 @@ public class MenuActivity extends AppCompatActivity
             toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
         }
-        catch (Exception ex) {
-
+        catch (Exception ex)
+        {
             Log.w("MainActivity: ", ex.getMessage());
-
         }
         //SEARCHVIEW REQUIRIMENTS OBJECTS FOR TAB CONTACT INFORMATION
 
@@ -78,26 +77,19 @@ public class MenuActivity extends AppCompatActivity
                 drawer,
                 toolbar,
                 R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        );
+                R.string.navigation_drawer_close);
 
-        if (drawer != null) {
-
+        if (drawer != null)
+        {
             drawer.addDrawerListener(toggle);
         }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-        if(navigationView != null) {
+        if(navigationView != null)
+        {
 
             navigationView.setNavigationItemSelectedListener(this);
         }
-
-        HomeFragment scFragment = new HomeFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
-                scFragment,
-                scFragment.getTag()).commit();
     }
 
 

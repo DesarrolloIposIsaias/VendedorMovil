@@ -14,7 +14,7 @@
         android:imeOptions="flagNoExtractUi"
         android:layout_width="300dp"
         android:background="@drawable/roundedshadow_et"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:inputType="textNoSuggestions|textUri"
         android:singleLine="true"
         android:scrollHorizontally="true"
@@ -48,7 +48,7 @@
 
     <TextView
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:textColor="#ffff"
         android:textAlignment="center"
         android:textSize="21dp"
@@ -65,7 +65,7 @@
         android:layout_centerHorizontal="true"
         android:inputType="numberDecimal"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/monto"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffff"
@@ -76,7 +76,7 @@
 
     <Spinner
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/payForm"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffffff"
@@ -89,7 +89,7 @@
 
     <Spinner
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/bank"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffffff"
@@ -108,7 +108,7 @@
         android:layout_centerHorizontal="true"
         android:inputType="textNoSuggestions|textUri"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/reference"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffff"
@@ -125,7 +125,7 @@
         android:layout_centerHorizontal="true"
         android:inputType="textNoSuggestions|textUri"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:id="@+id/notes"
         android:background="@drawable/roundedshadow_et"
         android:textColorHint="#ffff"

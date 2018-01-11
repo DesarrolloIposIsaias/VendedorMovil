@@ -17,7 +17,7 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/addClientStr"
+            android:text="AÑADIR CLIENTE"
             android:gravity="bottom"
             android:paddingBottom="50dp"
             android:paddingTop="70dp"
@@ -35,7 +35,7 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/adminClientsStr"
+            android:text="MOSTRAR CLIENTES"
             android:gravity="bottom"
             android:paddingBottom="50dp"
             android:paddingTop="70dp"
@@ -50,6 +50,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/fakeView"/>
+
+
 
     </RelativeLayout>
 </RelativeLayout>

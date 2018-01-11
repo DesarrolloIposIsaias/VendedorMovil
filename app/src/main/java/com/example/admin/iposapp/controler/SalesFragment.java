@@ -258,9 +258,7 @@ public class SalesFragment extends BaseFragment
             public void onClick(View view) {
                 ClientsCrepFragment fragment = new ClientsCrepFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
-                        fragment,
-                        fragment.getTag()).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragmentContainer,fragment,fragment.getTag()).commit();
             }
         });
 

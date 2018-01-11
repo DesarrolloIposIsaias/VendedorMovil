@@ -122,9 +122,6 @@
     <string name="partialPaymentMayus">PAGOS RELCIONADOS</string>
     <string name="paymentMayus">PAGO</string>
     <string name="saleDesc">Venta:</string>
-    <string name="addClientStr">AÑADIR CLIENTE</string>
-    <string name="adminClientsStr">ADMINISTRAR CLIENTES</string>
-    <string name="clientKeyStr">Clave Cliente:</string>
 
     <string-array name="days">
         <item>LUNES</item>
