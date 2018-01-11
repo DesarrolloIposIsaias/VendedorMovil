@@ -1,57 +1,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.example.admin.iposapp.controler.FtpMenu">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.admin.iposapp.controler.FtpMenu">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
-    <View android:id="@+id/fakeView"
-          android:layout_width="0dp"
-          android:layout_height="0dp"
-          android:layout_centerInParent="true"
-          android:layout_centerVertical="true"/>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="AÑADIR CLIENTE"
-        android:gravity="bottom"
-        android:paddingBottom="10dp"
-        android:paddingTop="40dp"
-        android:textSize="32sp"
-        android:id="@+id/addClientBtn"
-        android:layout_gravity="center_horizontal|top"
-        android:background = "@drawable/bluesquarebutton"
-        android:textAlignment="center"
-        android:textColor="#ffff"
-        android:drawableTop="@mipmap/add_user"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/fakeView"/>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="MOSTRAR CLIENTES"
-        android:gravity="bottom"
-        android:textSize="32sp"
-        android:id="@+id/showAllClientsBtn"
-        android:layout_gravity="center_horizontal|top"
-        android:background = "@drawable/whitesquarebutton"
-        android:textAlignment="center"
-        android:textColor="#144257"
-        android:paddingBottom="10dp"
-        android:paddingTop="40dp"
-        android:drawableTop="@mipmap/all_users"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/fakeView"/>
+        <View android:id="@+id/fakeView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="CONFIGURACIÓN"
+            android:gravity="bottom"
+            android:paddingBottom="10dp"
+            android:textSize="46sp"
+            android:id="@+id/uploadBtn"
+            android:layout_gravity="center_horizontal|top"
+            android:background = "@drawable/bluesquarebutton"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:drawableTop="@mipmap/ic_ftp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignBottom="@+id/fakeView"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="SINCRONIZAR"
+            android:gravity="bottom"
+            android:paddingBottom="10dp"
+            android:textSize="46dp"
+            android:id="@+id/toSync"
+            android:layout_gravity="center_horizontal|top"
+            android:background = "@drawable/whitesquarebutton"
+            android:textAlignment="center"
+            android:textColor="#144257"
+            android:drawableTop="@mipmap/ic_sync"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/fakeView"/>
 
-
-
-</RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>

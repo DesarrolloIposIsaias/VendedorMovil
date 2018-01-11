@@ -100,7 +100,6 @@
             android:layout_alignTop="@+id/addProductBtn"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="8dp"
             fbutton:buttonColor="#144257"
             fbutton:cornerRadius="5dp"
             fbutton:shadowColor="#0e2e3c"

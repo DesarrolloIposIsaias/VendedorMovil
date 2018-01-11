@@ -42,7 +42,7 @@
 
         <info.hoang8f.widget.FButton
 
-            android:id="@+id/filterCrepBtn"
+            android:id="@+id/button_filter"
             android:layout_width="100dp"
             android:layout_height="35dp"
             android:text="@string/search"
