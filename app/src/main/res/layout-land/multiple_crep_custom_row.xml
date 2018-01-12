@@ -35,12 +35,12 @@
 
     <ImageView
         android:id="@+id/item_info"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:src="@drawable/icons8_eye_50"
         android:layout_centerVertical="true"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="35dp"
         android:contentDescription="@string/todo" />
 
     <EditText
@@ -48,7 +48,7 @@
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="23dp"
+        android:layout_marginLeft="20dp"
         android:inputType="numberDecimal"
         android:hint="Abono" />
 

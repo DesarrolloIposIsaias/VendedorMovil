@@ -111,8 +111,8 @@ public class ListViewCrepAdapter
 
         assert crep != null;
         viewHolder.txtId.setText("Venta: " + crep.getVenta());
-        viewHolder.txtClient.setText("Clave Cliente: " + crep.getCliente());
-        viewHolder.txtClientName.setText(crep.getNombre());
+        viewHolder.txtClient.setText("Clave cliente: " + crep.getCliente());
+        viewHolder.txtClientName.setText("Nombre: " + crep.getNombre());
         viewHolder.imgInfo.setOnClickListener(this);
         viewHolder.imgInfo.setTag(position);
         viewHolder.imgPayment.setOnClickListener(this);

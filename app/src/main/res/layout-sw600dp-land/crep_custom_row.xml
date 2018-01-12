@@ -17,20 +17,18 @@
 
     <TextView
         android:id="@+id/crep_client"
-        android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/crep_id"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textColor="@android:color/black" />
 
-    <TextView
+   <TextView
         android:id="@+id/crep_client_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/crep_client"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textColor="@android:color/black" />
 
     <ImageView
@@ -39,7 +37,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_info"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="860dp"
+        android:layout_marginLeft="840dp"
         android:contentDescription="@string/todo"/>
 
     <ImageView
@@ -47,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="950dp"
+        android:layout_marginLeft="900dp"
         android:src="@drawable/ic_pay"
         android:contentDescription="@string/todo" />
 

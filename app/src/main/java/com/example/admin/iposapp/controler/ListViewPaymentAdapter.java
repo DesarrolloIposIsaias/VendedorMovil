@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -163,7 +164,7 @@ public class ListViewPaymentAdapter
     @SuppressLint("SetTextI18n")
     @NonNull
     @Override
-    public View getView(int position, View convertView, @NonNull ViewGroup parent){
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
         Payment payment = getItem(position);
 
@@ -171,7 +172,7 @@ public class ListViewPaymentAdapter
 
         final View result;
 
-        if(convertView == null){
+        if (convertView == null) {
 
             viewHolder = new ListViewPaymentAdapter.ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -186,18 +187,17 @@ public class ListViewPaymentAdapter
             viewHolder.txtAmount = (TextView) convertView.findViewById(R.id.payment_amount);
             viewHolder.txtBalance = (TextView) convertView.findViewById(R.id.payment_balance);
             viewHolder.imgCancel = (ImageView) convertView.findViewById(R.id.cancel_payment);
-            viewHolder.txtClientName = (TextView)convertView.findViewById(R.id.payment_client_name);
-            viewHolder.txtPaymentMethod = (TextView)convertView.findViewById(R.id.payment_method);
-            viewHolder.txtFactura = (TextView)convertView.findViewById(R.id.payment_factura);
+            viewHolder.txtClientName = (TextView) convertView.findViewById(R.id.payment_client_name);
+            viewHolder.txtPaymentMethod = (TextView) convertView.findViewById(R.id.payment_method);
+            viewHolder.txtFactura = (TextView) convertView.findViewById(R.id.payment_factura);
 
             result = convertView;
             result.setTag(viewHolder);
 
-            if(position % 2 == 1){
+            if (position % 2 == 1) {
                 result.setBackgroundColor(Color.LTGRAY);
             }
-        }
-        else{
+        } else {
             viewHolder = (ListViewPaymentAdapter.ViewHolder) convertView.getTag();
         }
 
@@ -218,10 +218,24 @@ public class ListViewPaymentAdapter
         db.close();
 
         String factura = saleInfo.getFactura() == null ? "No especificado" : saleInfo.getFactura();
+        /*String factura = saleInfo.getFactura();
+        if(TextUtils.isEmpty(factura)){
+            factura = "No especificado";
+        }*/
+        String metodoPago = payment.getTipo() == null ? "No especificado" : payment.getTipo();
+        /*String metodoPago = payment.getTipo();
+        if(TextUtils.isEmpty(metodoPago)){
+            metodoPago = "No especificado";
+        }*/
+        String nombre = saleInfo.getNombre() == null ? "No especificado" : saleInfo.getNombre();
+        /*String nombre = saleInfo.getNombre();
+        if(TextUtils.isEmpty(nombre)){
+            nombre = "No especificado";
+        }*/
 
         viewHolder.txtBalance.setText(payment.getFecha());
-        viewHolder.txtClientName.setText("Cliente: " + saleInfo.getNombre());
-        viewHolder.txtPaymentMethod.setText("Metodo de pago: " + payment.getTipo());
+        viewHolder.txtClientName.setText("Cliente: " + nombre);
+        viewHolder.txtPaymentMethod.setText("Metodo de pago: " + metodoPago);
         viewHolder.txtFactura.setText("Factura: " + factura);
         viewHolder.imgCancel.setOnClickListener(this);
         viewHolder.imgCancel.setTag(position);
