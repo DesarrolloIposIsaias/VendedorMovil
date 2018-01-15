@@ -53,25 +53,7 @@
             android:layout_toRightOf="@+id/productAutoCompleteTextView"
             android:layout_toEndOf="@+id/productAutoCompleteTextView"/>
 
-        <info.hoang8f.widget.FButton
 
-            android:id="@+id/goCrepBtn"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
-            android:text="@string/goCrep"
-            android:textAlignment="center"
-            android:textColor="#ffff"
-            android:layout_alignTop="@+id/addProductBtn"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="40dp"
-            fbutton:buttonColor="#144257"
-            fbutton:cornerRadius="5dp"
-            fbutton:shadowColor="#0e2e3c"
-            fbutton:shadowEnabled="true"
-            fbutton:shadowHeight="5dp"
-            android:layout_marginRight="85dp"
-            android:layout_below="@id/addProductBtn" />
 
         <AutoCompleteTextView
             android:dropDownWidth="400dp"
@@ -149,9 +131,24 @@
             android:text="@string/addProduct"
             android:id="@+id/addProductBtn"
             android:layout_below="@+id/discountEditText"
-            android:layout_alignRight="@+id/discountEditText"
-            android:layout_alignEnd="@+id/discountEditText"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"/>
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/goCrepBtn"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="@string/goCrep"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:layout_alignTop="@+id/addProductBtn"
+            fbutton:buttonColor="#144257"
+            fbutton:cornerRadius="5dp"
+            fbutton:shadowColor="#0e2e3c"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            android:layout_below="@+id/discountEditText"
+            android:layout_marginLeft="145dp"/>
 
         <com.hanks.htextview.HTextView
             android:id="@+id/tvPrice"

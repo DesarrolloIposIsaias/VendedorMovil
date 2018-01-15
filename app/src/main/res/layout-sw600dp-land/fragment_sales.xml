@@ -86,7 +86,7 @@
         <info.hoang8f.widget.FButton
 
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             fbutton:buttonColor="#144257"
             fbutton:shadowColor="#0e2e3c"
             fbutton:shadowEnabled="true"
@@ -97,7 +97,8 @@
             android:text="@string/addProduct"
             android:id="@+id/addProductBtn"
             android:layout_below="@+id/discountEditText"
-            android:layout_centerHorizontal="true"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp"/>
 
         <info.hoang8f.widget.FButton
 
@@ -113,8 +114,8 @@
             fbutton:shadowColor="#0e2e3c"
             fbutton:shadowEnabled="true"
             fbutton:shadowHeight="5dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/addProductBtn" />
+            android:layout_below="@id/discountEditText"
+            android:layout_marginLeft="230dp"/>
 
         <EditText
 
