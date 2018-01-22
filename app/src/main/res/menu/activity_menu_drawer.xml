@@ -14,10 +14,10 @@
             android:id="@+id/clientes"
             android:icon="@mipmap/ic_client"
             android:title="Clientes" />
-        <item
+        <!--<item
             android:id="@+id/inventario"
             android:icon="@mipmap/ic_stock"
-            android:title="Inventario" />
+            android:title="Inventario" />-->
         <item
             android:id="@+id/pagos"
             android:icon="@mipmap/ic_payment"

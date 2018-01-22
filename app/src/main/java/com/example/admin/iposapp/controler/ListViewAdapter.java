@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,10 @@ public class ListViewAdapter extends ArrayAdapter<String>
             holder.subtotalTxtView = (TextView)rowView.findViewById(R.id.subtotal);
             holder.discountTxtView = (TextView)rowView.findViewById(R.id.descuento);
             rowView.setTag(holder);
+
+            if(pos % 2 == 1){
+                rowView.setBackgroundColor(Color.LTGRAY);
+            }
         }
 
         String [] itemsList = items.toArray(new String[0]);

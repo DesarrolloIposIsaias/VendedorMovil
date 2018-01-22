@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.admin.iposapp.R;
+import com.example.admin.iposapp.utility.CurrentData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +32,10 @@ public class ClientMenuFragment extends Fragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
+        CurrentData.setSubtotal(0);
+        CurrentData.setTotal(0);
+        getActivity().setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         View view = inflater.inflate(R.layout.fragment_client_menu, container, false);
 
         toAdd = (Button) view.findViewById(R.id.addClientBtn);

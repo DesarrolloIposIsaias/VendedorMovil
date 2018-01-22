@@ -40,7 +40,7 @@
         <activity
             android:name=".controler.MenuActivity"
             android:label="@string/app_name"
-            android:configChanges="keyboardHidden"
+            android:configChanges="keyboardHidden|orientation"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             >
                 <intent-filter>

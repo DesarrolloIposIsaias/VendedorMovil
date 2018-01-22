@@ -38,6 +38,9 @@ public class ListViewAllSalesAdapter extends ArrayAdapter<String>
         public TextView statusTxtView;
     }
 
+
+
+
     public View getView(int pos, View convertView, ViewGroup parent)
     {
         View rowView = convertView;

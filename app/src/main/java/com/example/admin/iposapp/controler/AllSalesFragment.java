@@ -142,10 +142,12 @@ public class AllSalesFragment extends BaseFragment
         dataBase.close();
         
 
-        allSalesView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        allSalesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+            public void onItemClick(AdapterView<?> arg0, View arg1,
                                            final int pos, long id) {
+
                 // TODO Auto-generated method stub
 
                 if(pos != 0)
@@ -284,7 +286,7 @@ public class AllSalesFragment extends BaseFragment
                     }
                 });
 
-                return true;
+                //return true;
             }
         });
 

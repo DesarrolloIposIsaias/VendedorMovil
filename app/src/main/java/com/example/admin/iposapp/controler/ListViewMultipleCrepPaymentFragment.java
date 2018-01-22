@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -60,6 +61,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment implements Sin
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,8 +69,9 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment implements Sin
         View view = inflater.inflate(R.layout.fragment_list_view_multiple_crep_payment, container, false);
 
         try{
-            parent = this;
+            getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+            parent = this;
             creps = new ArrayList<>();
 
             db = new Database(this.getContext());

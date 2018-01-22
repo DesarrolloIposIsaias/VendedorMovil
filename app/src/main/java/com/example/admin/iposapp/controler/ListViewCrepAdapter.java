@@ -37,6 +37,7 @@ public class ListViewCrepAdapter
         TextView txtId;
         TextView txtClient;
         TextView txtClientName;
+        TextView txtQuantityCrep;
         ImageView imgInfo;
         ImageView imgPayment;
     }
@@ -94,6 +95,7 @@ public class ListViewCrepAdapter
             viewHolder.txtId = (TextView) convertView.findViewById(R.id.crep_id);
             viewHolder.txtClient = (TextView) convertView.findViewById(R.id.crep_client);
             viewHolder.txtClientName = (TextView) convertView.findViewById(R.id.crep_client_name);
+            viewHolder.txtQuantityCrep = (TextView) convertView.findViewById(R.id.crep_quantity);
             viewHolder.imgInfo = (ImageView) convertView.findViewById(R.id.item_info);
             viewHolder.imgPayment = (ImageView) convertView.findViewById(R.id.go_pay_crep);
 
@@ -113,6 +115,7 @@ public class ListViewCrepAdapter
         viewHolder.txtId.setText("Venta: " + crep.getVenta());
         viewHolder.txtClient.setText("Clave cliente: " + crep.getCliente());
         viewHolder.txtClientName.setText("Nombre: " + crep.getNombre());
+        viewHolder.txtQuantityCrep.setText("Cantidad a pagar: " + crep.getSaldo());
         viewHolder.imgInfo.setOnClickListener(this);
         viewHolder.imgInfo.setTag(position);
         viewHolder.imgPayment.setOnClickListener(this);

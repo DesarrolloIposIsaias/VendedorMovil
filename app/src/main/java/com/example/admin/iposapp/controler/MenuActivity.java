@@ -223,12 +223,11 @@ public class MenuActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.fragmentContainer,
                     fragment,
                     fragment.getTag()).commit();
-            Toast.makeText(this, "Modulo no disponible", Toast.LENGTH_SHORT).show();
         }
-        else if (id == R.id.inventario)
+        /*else if (id == R.id.inventario)
         {
             Toast.makeText(this, "Modulo no disponible", Toast.LENGTH_SHORT).show();
-        }
+        }*/
         else if (id == R.id.pagos)
         {
             //ClientsMultipleCrepFragment cmcFragment = new ClientsMultipleCrepFragment();

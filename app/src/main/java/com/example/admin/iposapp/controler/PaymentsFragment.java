@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -47,6 +48,8 @@ public class PaymentsFragment extends Fragment {
         db = new Database(getContext());
 
         try{
+
+            getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
             db.open();
             payments = Database.paymentDAO.fetchPayments();

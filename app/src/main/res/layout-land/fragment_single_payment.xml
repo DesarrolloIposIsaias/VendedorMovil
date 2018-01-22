@@ -3,193 +3,212 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.admin.iposapp.controler.SinglePaymentFragment">
+    tools:context="com.example.admin.iposapp.controler.SinglePaymentFragment"
+    android:background="#0F4057">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="#0F4057"
-        android:layout_height="match_parent"
-        android:id="@+id/relativeLayout6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/relativeLayout2"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true">
+        android:layout_height="55dp"
+        android:id="@+id/linearLayout1">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="65dp"
-            android:id="@+id/linear1">
 
-            <EditText
-                android:privateImeOptions="nm"
-                android:layout_marginTop="7dp"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="textNoSuggestions|textUri"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:id="@+id/client"
-                android:background="@drawable/roundedshadow_et"
-                android:textColorHint="#ffff"
-                android:textColor="#ffff"
-                android:textAlignment="center"
-                android:layout_marginLeft="20dp"
-                android:hint="Cliente" />
-
-            <Spinner
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:id="@+id/deposit"
-                android:background="@drawable/roundedshadow_et"
-                android:textColorHint="#ffffff"
-                android:textColor="#ffffff"
-                android:textAlignment="center"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="65dp"
-            android:id="@+id/linear2"
-            android:layout_below="@+id/linear1">
-
-            <EditText
-                android:privateImeOptions="nm"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="textNoSuggestions|textUri"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:id="@+id/monto"
-                android:background="@drawable/roundedshadow_et"
-                android:textColorHint="#ffff"
-                android:textColor="#ffff"
-                android:textAlignment="center"
-                android:hint="Monto"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="20dp"/>
-
-            <Spinner
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:id="@+id/payForm"
-                android:background="@drawable/roundedshadow_et"
-                android:textColorHint="#ffffff"
-                android:textColor="#ffffff"
-                android:textAlignment="center"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="20dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="65dp"
-            android:id="@+id/linear3"
-            android:layout_below="@+id/linear2"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/bank"
-                android:background="@drawable/roundedshadow_et"
-                android:textColorHint="#ffffff"
-                android:textColor="#ffffff"
-                android:textAlignment="center"
-                android:layout_marginTop="7dp"/>
-
-            <EditText
-                android:privateImeOptions="nm"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="20dp"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="textNoSuggestions|textUri"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:id="@+id/reference"
-                android:background="@drawable/roundedshadow_et"
-                android:textColorHint="#ffff"
-                android:textColor="#ffff"
-                android:textAlignment="center"
-                android:hint="Referencia"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="65dp"
-            android:id="@+id/linear4"
-            android:layout_below="@+id/linear3">
-            <EditText
-                android:privateImeOptions="nm"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="20dp"
-                android:imeOptions="flagNoExtractUi"
-                android:inputType="textNoSuggestions|textUri"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:id="@+id/notes"
-                android:background="@drawable/roundedshadow_et"
-                android:textColorHint="#ffff"
-                android:textColor="#ffff"
-                android:textAlignment="center"
-                android:hint="Notas"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/top_buttons"
+        <TextView
+            android:singleLine="true"
+            android:visibility="visible"
+            android:textAlignment="center"
+            android:scrollHorizontally="true"
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:id="@+id/client"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textSize="15dp"
+            android:hint="@string/cliente"
+            />
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="100dp"
+            android:textSize="12dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@+id/linear4">
-            <info.hoang8f.widget.FButton
+            fbutton:buttonColor="#144257"
+            fbutton:shadowColor="#263238"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:text="Fecha"
+            android:layout_centerInParent="true"
+            android:id="@+id/button_date_picker"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="33dp"
+            android:layout_below="@+id/client"
+            />
 
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                fbutton:buttonColor="#144257"
-                fbutton:shadowColor="#000"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp"
-                android:textColor="#ffff"
-                android:textAlignment="center"
-                android:text="Aplicar"
-                android:id="@+id/btnApply"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="2dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="40dp"
-                />
+    </LinearLayout>
 
-            <info.hoang8f.widget.FButton
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/linearLayout2"
+        android:layout_below="@+id/linearLayout1">
 
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                fbutton:buttonColor="#144257"
-                fbutton:shadowColor="#000"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                fbutton:cornerRadius="5dp"
-                android:textColor="#ffff"
-                android:textAlignment="center"
-                android:text="Cancelar"
-                android:id="@+id/btnCancel"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="2dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="60dp"
-                />
-        </LinearLayout>
+        <EditText
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:inputType="numberDecimal"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:id="@+id/monto"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="Monto"
+            android:layout_below="@+id/date"/>
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:textSize="17dp"
+            android:id="@+id/text_view_date"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="17dp"
+            android:layout_below="@+id/datePicker" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/linearLayout3"
+        android:layout_below="@+id/linearLayout2">
+
+        <Spinner
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:id="@+id/payForm"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/monto"/>
+
+        <Spinner
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:id="@+id/bank"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffffff"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="17dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/payForm"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/linearLayout4"
+        android:layout_below="@+id/linearLayout3">
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:id="@+id/notes"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="Notas"
+            android:layout_below="@+id/reference"/>
+
+        <EditText
+            android:privateImeOptions="nm"
+            android:imeOptions="flagNoExtractUi"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="17dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:inputType="textNoSuggestions|textUri"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:id="@+id/reference"
+            android:background="@drawable/roundedshadow_et"
+            android:textColorHint="#ffff"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:hint="Referencias"
+            android:layout_below="@+id/bank"/>
 
 
-    </RelativeLayout>
-    <!-- TODO: Update blank fragment layout -->
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/top_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp">
+        <info.hoang8f.widget.FButton
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            fbutton:buttonColor="#144257"
+            fbutton:shadowColor="#263238"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:text="@string/apply"
+            android:id="@+id/btnApply"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp" />
+
+        <info.hoang8f.widget.FButton
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            fbutton:buttonColor="#144257"
+            fbutton:shadowColor="#263238"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp"
+            fbutton:cornerRadius="5dp"
+            android:textColor="#ffff"
+            android:textAlignment="center"
+            android:text="@string/cancel"
+            android:id="@+id/btnCancel"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp" />
+    </LinearLayout>
 
 </RelativeLayout>

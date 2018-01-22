@@ -115,7 +115,7 @@
             fbutton:shadowEnabled="true"
             fbutton:shadowHeight="5dp"
             android:layout_below="@id/discountEditText"
-            android:layout_marginLeft="230dp"/>
+            android:layout_marginLeft="200dp"/>
 
         <EditText
 

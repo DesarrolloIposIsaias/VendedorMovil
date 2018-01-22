@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.admin.iposapp.R;
+import com.example.admin.iposapp.utility.CurrentData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +33,11 @@ public class PaymentOptionsFragment extends Fragment {
                 container,
                 false
         );
+
+        getActivity().setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        CurrentData.setSubtotal(0);
+        CurrentData.setTotal(0);
 
         newButton = (Button)view.findViewById(R.id.button_new_payment);
         editButton = (Button)view.findViewById(R.id.button_edit_payments);

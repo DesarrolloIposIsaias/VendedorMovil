@@ -31,6 +31,7 @@ public class CurrentData
     private static boolean mutable;
     private static boolean callFromAllSales;
     private static boolean isSync;
+    private static boolean productSelected; //This help to know which item was selected to sell
     private static Settings settings;
     private static List<Product> productList;
     private static List<SaleDetail> detailProductList;
@@ -335,5 +336,13 @@ public class CurrentData
 
     public static void setNextPayment(String nextPayment) {
         CurrentData.nextPayment = nextPayment;
+    }
+
+    public static boolean getProductSelected() {
+        return productSelected;
+    }
+
+    public static void setProductSelected(boolean productSelected) {
+        CurrentData.productSelected = productSelected;
     }
 }

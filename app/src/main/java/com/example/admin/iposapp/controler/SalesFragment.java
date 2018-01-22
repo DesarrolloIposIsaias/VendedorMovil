@@ -3,6 +3,7 @@ package com.example.admin.iposapp.controler;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
@@ -154,6 +155,35 @@ public class SalesFragment extends BaseFragment
         hTextViewPrice = (HTextView) view.findViewById(R.id.tvPrice);
         hTextViewPrice.setAnimateType(HTextViewType.ANVIL);
 
+        //This help us to recreate the view when the screen rotate
+        int currentOrientation = getResources().getConfiguration().orientation;
+        if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            if(CurrentData.getSubtotal() != 0){
+                hTextViewPrice.animateText(
+                        "Subtotal:" + String.valueOf(CurrentData.getSubtotal()));
+            }
+            if(CurrentData.getTotal() != 0){
+                hTextViewTotal.animateText(
+                        "Total:" + String.valueOf(CurrentData.getTotal()));
+            }
+            if(CurrentData.getProductSelected()){
+                amountNDiscAvailable = CurrentData.getProductSelected();
+            }
+        }
+        else {
+            if(CurrentData.getSubtotal() != 0){
+                hTextViewPrice.animateText(
+                        "Subtotal:" + String.valueOf(CurrentData.getSubtotal()));
+            }
+            if(CurrentData.getTotal() != 0){
+                hTextViewTotal.animateText(
+                        "Total:" + String.valueOf(CurrentData.getTotal()));
+            }
+            if(CurrentData.getProductSelected()){
+                amountNDiscAvailable = CurrentData.getProductSelected();
+            }
+        }
+
         //Set NeverEmptyListView's adapter
         neverEmptyListView = (ListView) view.findViewById(R.id.lvCart);
         final ViewGroup headerView = (ViewGroup) getActivity().getLayoutInflater().inflate(
@@ -263,7 +293,7 @@ public class SalesFragment extends BaseFragment
         });
 
         addProductBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View v) { /////Checar esto ya que no permite registrar el producto si se volteo
 
                 if(amountNDiscAvailable
                         && (discount.getText().toString().trim().length() != 0)
@@ -361,13 +391,17 @@ public class SalesFragment extends BaseFragment
                         amount.setText("");
                         products.setText("");
                         amountNDiscAvailable = false;
+                        CurrentData.setProductSelected(amountNDiscAvailable);
                         cancelProductBtn.setEnabled(false);
                         hTextViewTotal.animateText(
-                                "Total:" + String.valueOf(CurrentData.getTotal()));
+                                "Total:" + String.valueOf(CurrentData.getTotal())); //<--Checar esto
                         cancelProductBtn.setCompoundDrawablesWithIntrinsicBounds(
                                 R.mipmap.cancelgray, 0, 0, 0);
                         products.setFocusableInTouchMode(true);
                         neverEmptyListView.setSelection(1);
+
+
+
                     }
                     catch (Exception ex)
                     {
@@ -377,7 +411,7 @@ public class SalesFragment extends BaseFragment
                 }
                 else
                 {
-                    if(!amountNDiscAvailable)
+                    if(!CurrentData.getProductSelected())
                     {
                         Toast.makeText(
                                 getActivity(),
@@ -419,6 +453,7 @@ public class SalesFragment extends BaseFragment
                 cancelProductBtn.setEnabled(false);
                 products.setFocusableInTouchMode(true);
                 amountNDiscAvailable = false;
+                CurrentData.setProductSelected(amountNDiscAvailable);
                 products.setText("");
                 products.requestFocus();
                 amount.setText("");
@@ -573,6 +608,7 @@ public class SalesFragment extends BaseFragment
                 price.setText(String.valueOf(product.getPrecio1()));
                 CurrentData.setPrice(product.getPrecio1());
                 amountNDiscAvailable = true;
+                CurrentData.setProductSelected(amountNDiscAvailable);
                 amount.requestFocus();
                 cancelProductBtn.setEnabled(true);
                 cancelProductBtn.setCompoundDrawablesWithIntrinsicBounds(
@@ -628,7 +664,7 @@ public class SalesFragment extends BaseFragment
             public boolean onTouch(View v, MotionEvent event)
             {
 
-                if(!amountNDiscAvailable)
+                if(!CurrentData.getProductSelected())
                 {
                     Toast.makeText(
                             getActivity(),"SELECCIONE UN PRODUCTO", Toast.LENGTH_LONG).show();
@@ -654,7 +690,7 @@ public class SalesFragment extends BaseFragment
                     Float amountProduct = Float.parseFloat(amount.getText().toString());
                     Float priceProduct = Float.parseFloat(price.getText().toString());
                     String subtotalProduct = String.valueOf(amountProduct*priceProduct);
-                    //CurrentData.setSubtotal(Float.parseFloat(subtotalProduct));
+                    CurrentData.setSubtotal(Float.parseFloat(subtotalProduct));
                     hTextViewPrice.animateText("Subtotal producto: " + subtotalProduct);
                 }
                 else
@@ -691,7 +727,7 @@ public class SalesFragment extends BaseFragment
             public boolean onTouch(View v, MotionEvent event)
             {
 
-                if(!amountNDiscAvailable)
+                if(!CurrentData.getProductSelected())
                 {
                     Toast.makeText(getActivity(),"SELECCIONE UN PRODUCTO", Toast.LENGTH_LONG).show();
                     products.requestFocus();
@@ -742,7 +778,7 @@ public class SalesFragment extends BaseFragment
                             Float qty = Float.parseFloat(s.toString());
                             hTextViewPrice.animateText("Subtotal producto: " + String.valueOf(
                                     priceProduct*qty));
-                            //CurrentData.setSubtotal(priceProduct*qty);
+                            CurrentData.setSubtotal(priceProduct*qty);
                         }
                         catch (Exception ex)
                         {
@@ -797,7 +833,7 @@ public class SalesFragment extends BaseFragment
             public boolean onTouch(View v, MotionEvent event)
             {
 
-                if(!amountNDiscAvailable)
+                if(!CurrentData.getProductSelected())
                 {
                     Toast.makeText(
                             getActivity(),"SELECCIONE UN PRODUCTO", Toast.LENGTH_LONG).show();
@@ -991,6 +1027,7 @@ public class SalesFragment extends BaseFragment
                                             cancelProductBtn.setCompoundDrawablesWithIntrinsicBounds(
                                                     R.mipmap.cancelred, 0, 0, 0);
                                             amountNDiscAvailable = true;
+                                            CurrentData.setProductSelected(amountNDiscAvailable);
                                             if(lvAdapter.isEmpty())
                                             {
                                                 fabAdd.setEnabled(false);

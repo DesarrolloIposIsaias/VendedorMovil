@@ -1,6 +1,7 @@
 package com.example.admin.iposapp.controler;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -55,9 +56,11 @@ public class ClientsCrepFragment extends Fragment implements SinglePaymentDialog
 
         View view = inflater.inflate(R.layout.fragment_clients_crep, container, false);
         db = new Database(getContext());
-
+        CurrentData.setTotal(0);
+        CurrentData.setSubtotal(0);
         try{
-
+            getActivity().setRequestedOrientation(
+                    ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
             db.open();
             creps = Database.crepDAO.fetchCrepsByClient(CurrentData.getClientId());
             db.close();
