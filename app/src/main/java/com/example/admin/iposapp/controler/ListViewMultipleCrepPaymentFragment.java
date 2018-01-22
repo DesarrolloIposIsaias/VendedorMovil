@@ -69,6 +69,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment implements Sin
         View view = inflater.inflate(R.layout.fragment_list_view_multiple_crep_payment, container, false);
 
         try{
+
             getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
             parent = this;
