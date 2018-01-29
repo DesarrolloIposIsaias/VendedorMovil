@@ -90,6 +90,10 @@ public class MenuActivity extends AppCompatActivity
 
             navigationView.setNavigationItemSelectedListener(this);
         }
+
+        /*HomeFragment scFragment = new HomeFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragmentContainer, scFragment, scFragment.getTag()).commit();*/
     }
 
 

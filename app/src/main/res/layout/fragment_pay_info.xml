@@ -133,60 +133,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Anticipo actual"
-        android:textColor="#ffff"
-        android:textAlignment="center"
-        android:layout_marginTop="8dp"
-        android:id="@+id/anticipoActual"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#ffff"
-        android:textAlignment="center"
-        android:layout_marginTop="2dp"
-        android:id="@+id/txtAnticipoActual"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Saldo despues"
-        android:textColor="#ffff"
-        android:textAlignment="center"
-        android:layout_marginTop="8dp"
-        android:id="@+id/saldoDespues"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#ffff"
-        android:textAlignment="center"
-        android:layout_marginTop="2dp"
-        android:id="@+id/txtSaldoDespues"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Abonos movil"
-        android:textColor="#ffff"
-        android:textAlignment="center"
-        android:layout_marginTop="8dp"
-        android:id="@+id/abonosMovil"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#ffff"
-        android:textAlignment="center"
-        android:layout_marginTop="2dp"
-        android:id="@+id/txtAbonosMovil"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Dias"
         android:textColor="#ffff"
         android:textAlignment="center"

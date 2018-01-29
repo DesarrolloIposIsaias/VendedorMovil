@@ -43,7 +43,7 @@ public class AllClientsFragment extends Fragment
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-;
+    ;
 
     public AllClientsFragment()
     {
@@ -157,7 +157,7 @@ public class AllClientsFragment extends Fragment
                             searchView.getSuggestionsAdapter().getCursor().getString(1);
                     Client client =
                             Database.clientDao.fetchClientById(clientToSearch.substring(
-                            clientToSearch.indexOf("<") + 1, clientToSearch.indexOf(">")));
+                                    clientToSearch.indexOf("<") + 1, clientToSearch.indexOf(">")));
                     CurrentData.setClientModificationEnabled(true);
                     dataBase.close();
                     for(int i = 0; i < fInfo.size(); i++)
@@ -184,7 +184,5 @@ public class AllClientsFragment extends Fragment
                 }
             });
         }
-
     }
-
 }

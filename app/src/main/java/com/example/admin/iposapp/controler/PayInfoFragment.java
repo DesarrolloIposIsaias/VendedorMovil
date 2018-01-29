@@ -36,9 +36,6 @@ public class PayInfoFragment extends DialogFragment {
     public String total = mArgs.getString("Total");
     public String saldoMovil = mArgs.getString("SaldoMovil");
     public String pagoActual = mArgs.getString("PagoActual");
-    public String anticipoActual = mArgs.getString("AnticipoActual");
-    public String saldoDespues = mArgs.getString("SaldoDespues");
-    public String abonosMovil = mArgs.getString("AbonosMovil");
     public String dias = mArgs.getString("Dias");
     public String aCuenta = mArgs.getString("ACuenta");
 
@@ -100,24 +97,19 @@ public class PayInfoFragment extends DialogFragment {
             );
 
             pagoActualTV.setText(pagoActual);
-
+            /*
             TextView anticipoActualTV = (TextView) view.findViewById(
                     R.id.txtAnticipoActual
             );
-
-            anticipoActualTV.setText(anticipoActual);
 
             TextView saldoDespuesTV = (TextView) view.findViewById(
                     R.id.txtSaldoDespues
             );
 
-            saldoDespuesTV.setText(saldoDespues);
 
             TextView abonosMovilTV = (TextView) view.findViewById(
                     R.id.txtAbonosMovil
-            );
-
-            abonosMovilTV.setText(abonosMovil);
+            );*/
 
             TextView diasTV = (TextView) view.findViewById(
                     R.id.txtDias

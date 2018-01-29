@@ -91,6 +91,8 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment implements Sin
 
             aCuentaTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
             aCuentaRestanteTxtVw.setText(CurrentData.getActualMultiplePaymentHeader().getAmount().toString());
+
+
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -245,6 +247,8 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment implements Sin
                                 "Proceso exitoso",
                                 Toast.LENGTH_SHORT
                         ).show();
+
+                        //Mandar a otra pantalla
                     } catch (Exception e) {
                         Toast.makeText(
                                 getContext(),
@@ -270,6 +274,7 @@ public class ListViewMultipleCrepPaymentFragment extends Fragment implements Sin
 
         return view;
     }
+
 
     private PaymentDetail createPaymentDetail(String pago, String selectedAmount, int actualPosition){
 

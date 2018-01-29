@@ -1,0 +1,190 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id ="@+id/relativeParent"
+    android:orientation="vertical"
+    android:background="#0F4057"
+    tools:context="com.example.admin.iposapp.controler.ClientInfoFragment">
+
+
+        <TextView
+            android:id="@+id/tvClientName"
+            android:layout_width="match_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvClientAdress"
+            android:layout_width="match_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/tvClientName"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tvClientColony"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientAdressEt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientColonyEt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvState"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientCityEt"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            />
+
+        <TextView
+            android:id="@+id/tvCountry"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientStateEt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvCodePostal"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientCountryEt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvRFC"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientPostalCodeEt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvFirstMail"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientRfcEt"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvSecondMail"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientMail1Et"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvFirstPhone"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientMail2Et"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvSecondPhone"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientPhone1Et"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvFirstContact"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientPhone2Et"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvSecondContact"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:layout_below="@+id/clientContact1Et"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+
+</LinearLayout>
+

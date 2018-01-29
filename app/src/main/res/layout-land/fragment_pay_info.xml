@@ -165,12 +165,12 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="Anticipo actual"
+            android:text="A cuenta"
             android:textColor="#ffff"
-            android:textSize="10dp"
+            android:textSize="12dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="8dp"
-            android:id="@+id/anticipoActual"/>
+            android:id="@+id/aCuenta"/>
 
         <TextView
             android:layout_width="85dp"
@@ -179,60 +179,16 @@
             android:textColor="#ffff"
             android:textSize="10dp"
             android:layout_marginTop="8dp"
-            android:id="@+id/txtAnticipoActual"/>
+            android:id="@+id/txtACuenta"/>
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/linearLayout5"
         android:layout_below="@+id/linearLayout4">
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="Saldo despues"
-            android:textColor="#ffff"
-            android:textSize="10dp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/saldoDespues"/>
-
-        <TextView
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#ffff"
-            android:textSize="10dp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/txtSaldoDespues"/>
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="Abonos movil"
-            android:textColor="#ffff"
-            android:textSize="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/abonosMovil"/>
-
-        <TextView
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#ffff"
-            android:textSize="10dp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/txtAbonosMovil"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:id="@+id/linearLayout6"
-        android:layout_below="@+id/linearLayout5">
 
         <TextView
             android:layout_width="80dp"
@@ -251,25 +207,6 @@
             android:textSize="10dp"
             android:layout_marginTop="8dp"
             android:id="@+id/txtDias"/>
-
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="A cuenta"
-            android:textColor="#ffff"
-            android:textSize="12dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/aCuenta"/>
-
-        <TextView
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#ffff"
-            android:textSize="10dp"
-            android:layout_marginTop="8dp"
-            android:id="@+id/txtACuenta"/>
 
     </LinearLayout>
 

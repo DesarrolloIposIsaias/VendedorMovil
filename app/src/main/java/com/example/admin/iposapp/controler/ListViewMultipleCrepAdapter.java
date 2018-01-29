@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.admin.iposapp.R;
 import com.example.admin.iposapp.model.Crep;
+import com.example.admin.iposapp.model.CrepToPay;
 import com.example.admin.iposapp.utility.CurrentData;
 
 import java.util.ArrayList;
@@ -30,6 +31,9 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
 
     private ArrayList<Crep> dataSet;
     Context context;
+    private final int minDelta = 300;           // threshold in ms
+    private long focusTime = 0;                 // time of last touch
+    private View focusTarget = null;
 
     private static class ViewHolder{
         TextView txtSale;
@@ -66,9 +70,6 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
                 args.putString("Total", Float.toString(crep.getTotal()));
                 args.putString("SaldoMovil", Float.toString(crep.getSaldo()));
                 args.putString("PagoActual", Float.toString(crep.getPago()));
-                args.putString("AnticipoActual", "Anticipo");
-                args.putString("SaldoDespues", "Saldo después");
-                args.putString("AbonosMovil", "Abono movil");
                 args.putString("Dias", Float.toString(crep.getDias()));
                 args.putString("ACuenta", Float.toString(crep.getaCuenta()));
 
@@ -95,19 +96,19 @@ public class ListViewMultipleCrepAdapter  extends ArrayAdapter<Crep> implements 
     *
     *
     */
+
+
         int position = (Integer) view.getTag();
         Object object = getItem(position);
         Crep crep = (Crep)object;
-
+        CrepToPay crepToPay = new CrepToPay();
 
         assert crep != null;
         switch (view.getId()){
             case R.id.crep_abono:
                 if (!hasFocus) {
-
                     recalculateACount();
                 }
-
                 break;
         }
     }

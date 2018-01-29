@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.example.admin.iposapp.model.Client;
 import com.example.admin.iposapp.model.Crep;
+import com.example.admin.iposapp.model.CrepToPay;
 import com.example.admin.iposapp.model.MultiplePaymentHeader;
 import com.example.admin.iposapp.model.Product;
 import com.example.admin.iposapp.model.SaleDetail;
@@ -46,9 +47,19 @@ public class CurrentData
     private static Bundle itemMultipleCrep;
     private static String selectedPayment;
     private static String nextPayment;
+    private static Client selectedClient;
+    private static List<CrepToPay> crepsToPay;
 
     public static Crep getSelectedCrep() {
         return selectedCrep;
+    }
+
+    public static Client getSelectedClient() {
+        return selectedClient;
+    }
+
+    public static void setSelectedClient(Client selectedClient) {
+        CurrentData.selectedClient = selectedClient;
     }
 
     public static void setSelectedCrep(Crep selectedCrep) {
@@ -344,5 +355,13 @@ public class CurrentData
 
     public static void setProductSelected(boolean productSelected) {
         CurrentData.productSelected = productSelected;
+    }
+
+    public static List<CrepToPay> getCrepsToPay() {
+        return crepsToPay;
+    }
+
+    public static void setCrepsToPay(CrepToPay crep) {
+        CurrentData.crepsToPay.add(crep);
     }
 }
